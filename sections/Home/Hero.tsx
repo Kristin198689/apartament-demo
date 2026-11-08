@@ -50,7 +50,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <div className={styles.factsWrap}>
+        <div className={styles.factsWrap} data-hero-facts>
           <Rule />
           <ul className={styles.facts}>
             {(["checkin", "parking", "kitchen", "wifi"] as const).map((k) => (

@@ -57,9 +57,28 @@ export function HeroBlueprint() {
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
+
+    // Зона под строкой фактов: чертёж там полностью скрыт, чтобы линии не перечёркивали слова
+    const hero = el.parentElement;
+    const facts = hero?.querySelector<HTMLElement>("[data-hero-facts]");
+    const setBand = () => {
+      if (!facts) return;
+      const w = el.getBoundingClientRect();
+      const f = facts.getBoundingClientRect();
+      el.style.setProperty("--band", `${Math.max(w.bottom - f.top + 6, 0).toFixed(0)}px`);
+    };
+    setBand();
+    const ro = new ResizeObserver(setBand);
+    if (hero) ro.observe(hero);
+    if (facts) ro.observe(facts);
+    document.fonts?.ready.then(setBand);
+    window.addEventListener("resize", setBand);
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", setBand);
       cancelAnimationFrame(start);
       if (raf) cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
@@ -69,8 +88,10 @@ export function HeroBlueprint() {
 
   return (
     <div ref={ref} className={styles.wrap} aria-hidden="true">
-      <Drawing layers={wide} className={`${styles.svg} ${styles.wide}`} />
-      <Drawing layers={tall} className={`${styles.svg} ${styles.tall}`} />
+      <div className={styles.inner}>
+        <Drawing layers={wide} className={`${styles.svg} ${styles.wide}`} />
+        <Drawing layers={tall} className={`${styles.svg} ${styles.tall}`} />
+      </div>
     </div>
   );
 }
