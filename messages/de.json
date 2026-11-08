@@ -1,0 +1,19 @@
+{
+  "Meta": {
+    "title": "Apartament Demo — Möblierte Apartments für Geschäftsreisende",
+    "description": "Möblierte Apartments auf Zeit für Geschäftsreisende und Monteure. TODO: finale Beschreibung."
+  },
+  "Nav": {
+    "apartments": "Apartments",
+    "contact": "Kontakt"
+  },
+  "Home": {
+    "eyebrow": "Wohnen auf Zeit",
+    "title": "Ruhige Apartments für Ihre Dienstreise.",
+    "lead": "Möbliert, praktisch, sofort bezugsfertig. TODO: finaler Text."
+  },
+  "Footer": {
+    "impressum": "Impressum",
+    "privacy": "Datenschutz"
+  }
+}

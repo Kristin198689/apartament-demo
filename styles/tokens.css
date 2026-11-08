@@ -1,0 +1,68 @@
+/*
+ * ЕДИНСТВЕННОЕ место, где живут цвета, шрифты, отступы и motion.
+ * Хотите другой оттенок на всём сайте — меняете значения здесь.
+ *
+ * Палитра задана через HSL-компоненты: меняя --hue-neutral / --hue-accent,
+ * вы перекрашиваете весь сайт одной правкой.
+ */
+:root {
+  /* ── Палитра: 2 «ручки» ─────────────────────────── */
+  --hue-neutral: 220;      /* оттенок серого (0–360). 220 = холодный графит */
+  --sat-neutral: 6%;       /* насыщенность серого. 0% = чисто серый */
+  --hue-accent: 14;        /* оттенок акцента. 14 = терракота */
+  --sat-accent: 62%;
+
+  /* ── Семантические цвета (используются в компонентах) ── */
+  --color-bg: hsl(var(--hue-neutral) var(--sat-neutral) 98%);
+  --color-surface: hsl(var(--hue-neutral) var(--sat-neutral) 100%);
+  --color-surface-alt: hsl(var(--hue-neutral) var(--sat-neutral) 94%);
+  --color-line: hsl(var(--hue-neutral) var(--sat-neutral) 86%);
+  --color-text: hsl(var(--hue-neutral) var(--sat-neutral) 10%);
+  --color-text-muted: hsl(var(--hue-neutral) var(--sat-neutral) 42%);
+  --color-accent: hsl(var(--hue-accent) var(--sat-accent) 48%);
+  --color-accent-contrast: hsl(0 0% 100%);
+
+  /* ── Типографика ────────────────────────────────── */
+  /* Шрифты подключаются в lib/fonts.ts, здесь только роли. */
+  --font-display: var(--font-sans-loaded), system-ui, sans-serif;
+  --font-body: var(--font-sans-loaded), system-ui, sans-serif;
+
+  --text-xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-2xl: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
+  --text-hero: clamp(3rem, 1.6rem + 6vw, 8rem);
+
+  /* ── Сетка и воздух ─────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 7rem;
+  --space-section: clamp(5rem, 3rem + 9vw, 10rem);
+  --container: 80rem;
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+  --radius: 2px;           /* швейцарский стиль: почти без скруглений */
+
+  /* ── Motion ─────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-fast: 160ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+}
+
+/* Тёмная тема: переопределяем только семантические цвета */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: hsl(var(--hue-neutral) var(--sat-neutral) 7%);
+    --color-surface: hsl(var(--hue-neutral) var(--sat-neutral) 10%);
+    --color-surface-alt: hsl(var(--hue-neutral) var(--sat-neutral) 13%);
+    --color-line: hsl(var(--hue-neutral) var(--sat-neutral) 20%);
+    --color-text: hsl(var(--hue-neutral) var(--sat-neutral) 94%);
+    --color-text-muted: hsl(var(--hue-neutral) var(--sat-neutral) 62%);
+  }
+}

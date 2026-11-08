@@ -1,0 +1,19 @@
+{
+  "Meta": {
+    "title": "Apartament Demo — Furnished apartments for business stays",
+    "description": "Furnished short-term apartments for business travellers and project workers. TODO: final description."
+  },
+  "Nav": {
+    "apartments": "Apartments",
+    "contact": "Contact"
+  },
+  "Home": {
+    "eyebrow": "Short-term rentals",
+    "title": "Calm apartments for working trips.",
+    "lead": "Furnished, practical, ready to move in. TODO: final copy."
+  },
+  "Footer": {
+    "impressum": "Legal notice",
+    "privacy": "Privacy policy"
+  }
+}
