@@ -1,0 +1,5 @@
+.page { padding-block: var(--space-6) var(--space-7); }
+.title { font-size: var(--text-2xl); margin-bottom: var(--space-5); }
+.body { max-width: 44rem; }
+.body h2 { font-size: var(--text-lg); margin: var(--space-5) 0 var(--space-2); letter-spacing: -0.02em; }
+.body p { margin: 0 0 var(--space-3); color: var(--color-text-muted); }

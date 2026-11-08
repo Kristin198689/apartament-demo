@@ -1,0 +1,24 @@
+.wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  clip-path: inset(-20% 100% -20% 0);
+  transition: clip-path 2s var(--ease-out);
+}
+
+.wrap[data-visible="true"] .wordmark { clip-path: inset(-20% 0 -20% 0); }
+
+/* Только прозрачная заливка: у переменного шрифта контуры перекрываются, обводка их выдаёт */
+.text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 134px;
+  letter-spacing: -0.04em;
+  fill: var(--color-text);
+  fill-opacity: 0.12;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark { clip-path: none; transition: none; }
+}

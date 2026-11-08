@@ -1,16 +1,42 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import styles from "./page.module.css";
+import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { Statement } from "@/components/Statement/Statement";
+import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
+import { Hero } from "@/sections/Home/Hero";
+import { Amenities } from "@/sections/Home/Amenities";
+import { Apartments } from "@/sections/Home/Apartments";
+import { PlanSection } from "@/sections/Home/PlanSection";
+import { Companies } from "@/sections/Home/Companies";
+import { Location } from "@/sections/Home/Location";
+import { Hook } from "@/sections/Home/Hook";
+import { Steps } from "@/sections/Home/Steps";
+import { Reviews } from "@/sections/Home/Reviews";
+import { Faq } from "@/sections/Home/Faq";
+import { Contact } from "@/sections/Home/Contact";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("Home");
+  const f = await getTranslations("Frames");
+  const s1 = await getTranslations("Statement1");
+  const s2 = await getTranslations("Statement2");
 
   return (
-    <main className={styles.main}>
-      <p className={styles.eyebrow}>{t("eyebrow")}</p>
-      <h1 className={styles.title}>{t("title")}</h1>
-      <p className={styles.lead}>{t("lead")}</p>
-    </main>
+    <>
+      <Hero />
+      <Statement eyebrow={s1("eyebrow")} pain={s1("pain")} relief={s1("relief")} />
+      <Amenities />
+      <Apartments />
+      <PlanSection />
+      <Companies />
+      <Location />
+      <Hook />
+      <PhotoFrame variant="bleed" ratio="21 / 9" ratioMobile="4 / 3" label={f("view")} />
+      <Statement eyebrow={s2("eyebrow")} pain={s2("pain")} relief={s2("relief")} />
+      <Steps />
+      <Reviews />
+      <Faq />
+      <Contact />
+    </>
   );
 }

@@ -1,0 +1,74 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-section);
+}
+
+.inner { position: relative; display: grid; gap: var(--space-5); max-width: 78rem; }
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.pain p, .relief p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-weight: 300;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.pain p { color: var(--color-text-muted); max-width: 26ch; }
+.relief p { color: var(--color-text); max-width: 24ch; }
+
+/* Тонкие вертикальные линии «чертежной сетки», рисуются сверху вниз */
+.grid { position: absolute; inset: 0; pointer-events: none; }
+.grid i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-line);
+  opacity: 0.5;
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: gridDraw 2.4s var(--ease-out) forwards;
+  animation-play-state: paused;
+}
+.grid i:nth-child(1) { left: 10%; animation-delay: 0ms; }
+.grid i:nth-child(2) { left: 30%; animation-delay: 150ms; }
+.grid i:nth-child(3) { left: 50%; animation-delay: 300ms; }
+.grid i:nth-child(4) { left: 70%; animation-delay: 450ms; }
+.grid i:nth-child(5) { left: 90%; animation-delay: 600ms; }
+
+/* Линия-сканер: плавно проходит по секции сверху вниз */
+.scan { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--color-text) 50%, transparent) bottom / 100% 1px no-repeat;
+  opacity: 0.35;
+  transform: translateY(-100%);
+  animation: scanY 9s linear infinite;
+}
+
+@keyframes gridDraw { to { transform: scaleY(1); } }
+@keyframes scanY {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Сетка начинает рисоваться, когда секция в окне (через :has + Reveal) */
+.section:has([data-visible="true"]) .grid i { animation-play-state: running; }
+
+@media (prefers-reduced-motion: reduce) {
+  .grid i { transform: scaleY(1); animation: none; }
+  .scan { display: none; }
+}

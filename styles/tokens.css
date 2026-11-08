@@ -2,36 +2,42 @@
  * ЕДИНСТВЕННОЕ место, где живут цвета, шрифты, отступы и motion.
  * Хотите другой оттенок на всём сайте — меняете значения здесь.
  *
- * Палитра задана через HSL-компоненты: меняя --hue-neutral / --hue-accent,
- * вы перекрашиваете весь сайт одной правкой.
+ * Палитра: холодный белый, оттенки серого, чёрный. Тема только светлая.
+ * Ручки: --hue-neutral (оттенок холодного серого), --sat-neutral (насыщенность),
+ * --hue-accent / --sat-accent (серый акцент; поднимите насыщенность, чтобы получить цвет).
  */
 :root {
-  /* ── Палитра: 2 «ручки» ─────────────────────────── */
-  --hue-neutral: 220;      /* оттенок серого (0–360). 220 = холодный графит */
-  --sat-neutral: 6%;       /* насыщенность серого. 0% = чисто серый */
-  --hue-accent: 14;        /* оттенок акцента. 14 = терракота */
-  --sat-accent: 62%;
+  /* ── Палитра: «ручки» ───────────────────────────── */
+  --hue-neutral: 220;
+  --sat-neutral: 14%;
+  --hue-accent: 220;
+  --sat-accent: 8%;
 
-  /* ── Семантические цвета (используются в компонентах) ── */
-  --color-bg: hsl(var(--hue-neutral) var(--sat-neutral) 98%);
-  --color-surface: hsl(var(--hue-neutral) var(--sat-neutral) 100%);
-  --color-surface-alt: hsl(var(--hue-neutral) var(--sat-neutral) 94%);
-  --color-line: hsl(var(--hue-neutral) var(--sat-neutral) 86%);
-  --color-text: hsl(var(--hue-neutral) var(--sat-neutral) 10%);
-  --color-text-muted: hsl(var(--hue-neutral) var(--sat-neutral) 42%);
-  --color-accent: hsl(var(--hue-accent) var(--sat-accent) 48%);
-  --color-accent-contrast: hsl(0 0% 100%);
+  /* ── Семантические цвета ────────────────────────── */
+  --color-bg: hsl(var(--hue-neutral) var(--sat-neutral) 98%);          /* холодный белый */
+  --color-surface-alt: hsl(var(--hue-neutral) var(--sat-neutral) 94%); /* светло-серый */
+  --color-ink: hsl(var(--hue-neutral) 18% 8%);                          /* почти чёрный */
+  --color-line: hsl(var(--hue-neutral) 10% 80%);
+  --color-frame-bg: hsl(0 0% 100%);                                     /* белые рамки под фото */
+  --color-text: var(--color-ink);
+  --color-text-muted: hsl(var(--hue-neutral) 8% 38%);
+  --color-accent: hsl(var(--hue-accent) var(--sat-accent) 42%);         /* серый акцент */
+
+  /* Кнопки (переопределяются на тёмных секциях) */
+  --btn-bg: var(--color-ink);
+  --btn-bg-hover: hsl(var(--hue-neutral) 12% 22%);
+  --btn-fg: hsl(0 0% 100%);
 
   /* ── Типографика ────────────────────────────────── */
   /* Шрифты подключаются в lib/fonts.ts, здесь только роли. */
-  --font-display: var(--font-sans-loaded), system-ui, sans-serif;
+  --font-display: var(--font-display-loaded), system-ui, sans-serif; /* только заголовки */
   --font-body: var(--font-sans-loaded), system-ui, sans-serif;
 
   --text-xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
-  --text-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
-  --text-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
-  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
-  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-sm: clamp(0.9375rem, 0.9rem + 0.1vw, 1rem);
+  --text-base: clamp(1.0625rem, 1rem + 0.15vw, 1.125rem);
+  --text-lg: clamp(1.1875rem, 1.1rem + 0.35vw, 1.4375rem);
+  --text-xl: clamp(1.625rem, 1.3rem + 1.2vw, 2.375rem);
   --text-2xl: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
   --text-hero: clamp(3rem, 1.6rem + 6vw, 8rem);
 
@@ -43,26 +49,35 @@
   --space-5: 2.5rem;
   --space-6: 4rem;
   --space-7: 7rem;
-  --space-section: clamp(5rem, 3rem + 9vw, 10rem);
+  --space-section: clamp(7rem, 3rem + 14vw, 17rem);   /* вертикальный воздух секции */
+  --space-head: clamp(4rem, 2rem + 7vw, 8.5rem);      /* от заголовка до контента */
   --container: 80rem;
   --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
-  --radius: 2px;           /* швейцарский стиль: почти без скруглений */
+  --radius: 2px;
 
   /* ── Motion ─────────────────────────────────────── */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --duration-fast: 160ms;
   --duration-base: 320ms;
   --duration-slow: 700ms;
+  --duration-line: 1400ms;
 }
 
-/* Тёмная тема: переопределяем только семантические цвета */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg: hsl(var(--hue-neutral) var(--sat-neutral) 7%);
-    --color-surface: hsl(var(--hue-neutral) var(--sat-neutral) 10%);
-    --color-surface-alt: hsl(var(--hue-neutral) var(--sat-neutral) 13%);
-    --color-line: hsl(var(--hue-neutral) var(--sat-neutral) 20%);
-    --color-text: hsl(var(--hue-neutral) var(--sat-neutral) 94%);
-    --color-text-muted: hsl(var(--hue-neutral) var(--sat-neutral) 62%);
-  }
+/* Чередование тонов секций */
+.tone-gray {
+  background: var(--color-surface-alt);
+}
+
+.tone-ink {
+  --color-bg: var(--color-ink);
+  --color-text: hsl(var(--hue-neutral) 14% 96%);
+  --color-text-muted: hsl(var(--hue-neutral) 8% 66%);
+  --color-line: hsl(var(--hue-neutral) 8% 26%);
+  --color-frame-bg: hsl(var(--hue-neutral) 14% 11%);
+  --color-accent: hsl(var(--hue-neutral) 8% 70%);
+  --btn-bg: hsl(var(--hue-neutral) 14% 96%);
+  --btn-bg-hover: hsl(0 0% 100%);
+  --btn-fg: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
 }

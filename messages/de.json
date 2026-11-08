@@ -1,19 +1,243 @@
 {
   "Meta": {
-    "title": "Apartament Demo — Möblierte Apartments für Geschäftsreisende",
-    "description": "Möblierte Apartments auf Zeit für Geschäftsreisende und Monteure. TODO: finale Beschreibung."
+    "title": "Möblierte Apartments in {city} für Monteure und Geschäftsreisende",
+    "description": "Möblierte Apartments in {city} für Monteure, Projektteams und Geschäftsreisende. Voll ausgestattete Küche, kostenlose Parkplätze, Self-Check-in rund um die Uhr."
   },
   "Nav": {
+    "label": "Hauptnavigation",
+    "menu": "Menü öffnen",
+    "close": "Menü schließen",
     "apartments": "Apartments",
-    "contact": "Kontakt"
+    "companies": "Für Firmen",
+    "location": "Lage",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "blog": "Blog"
   },
-  "Home": {
-    "eyebrow": "Wohnen auf Zeit",
-    "title": "Ruhige Apartments für Ihre Dienstreise.",
-    "lead": "Möbliert, praktisch, sofort bezugsfertig. TODO: finaler Text."
+  "Hero": {
+    "eyebrow": "Wohnen auf Zeit · {city}",
+    "title": "Möblierte Apartments in {city}",
+    "lead": "Mit eigener Küche, Parkplatz und Self-Check-in. Für Monteure, Geschäftsreisende und Projektteams, die länger bleiben.",
+    "secondary": "Apartments ansehen",
+    "facts": {
+      "checkin": "Self-Check-in 24/7",
+      "parking": "Kostenlos parken",
+      "kitchen": "Eigene Küche",
+      "wifi": "WLAN inklusive"
+    }
+  },
+  "Plan": {
+    "living": "Wohnen / Küche",
+    "bedroom": "Schlafzimmer",
+    "bath": "Bad",
+    "balcony": "Balkon",
+    "entrance": "Eingang",
+    "type": "Typ",
+    "area": "Fläche",
+    "caption": "Schematischer Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad, Balkon und Eingang.",
+    "note": "Schematische Darstellung. Echte Grundrisse: TODO."
+  },
+  "Cta": {
+    "whatsapp": "Per WhatsApp anfragen",
+    "message": "Guten Tag! Ich interessiere mich für ein Apartment."
+  },
+  "Amenities": {
+    "eyebrow": "Das bekommen Sie",
+    "title": "Alles, was eine Arbeitswoche braucht",
+    "items": {
+      "checkin": {
+        "title": "Self-Check-in rund um die Uhr",
+        "text": "Anreise zu jeder Uhrzeit: Sie erhalten einen Code für den Schlüsselsafe und müssen auf niemanden warten."
+      },
+      "parking": {
+        "title": "Kostenlose Parkplätze",
+        "text": "Beleuchtete Parkplätze am Haus, ohne Aufpreis. Abschließbare Garagen auf Anfrage (TODO: bestätigen)."
+      },
+      "kitchen": {
+        "title": "Eigene Küche",
+        "text": "Selbst kochen statt jeden Tag auswärts essen — günstiger und gesünder."
+      },
+      "wifi": {
+        "title": "WLAN",
+        "text": "In jedem Apartment inklusive, für Telefonkonferenzen, Berichte und den Film am Abend."
+      },
+      "beds": {
+        "title": "Getrennte Betten",
+        "text": "Für jede Person ein eigenes Bett. Ideal, wenn Kollegen sich ein Apartment teilen."
+      },
+      "balcony": {
+        "title": "Balkon",
+        "text": "Die meisten Apartments haben einen Balkon mit Blick auf die Stadt (TODO: je Typ bestätigen)."
+      }
+    }
+  },
+  "Apartments": {
+    "eyebrow": "Apartments",
+    "title": "Von einem bis zu vier Zimmern",
+    "lead": "Wählen Sie die Größe, die zu Ihrem Team passt. Je länger der Aufenthalt und je größer die Gruppe, desto günstiger die Nacht.",
+    "cols": {
+      "type": "Typ",
+      "area": "Fläche",
+      "guests": "Gäste",
+      "beds": "Betten",
+      "price": "Ab / Nacht"
+    },
+    "rooms": "{count, plural, one {# Zimmer} other {# Zimmer}}",
+    "pricing": "Die Preise hängen von Aufenthaltsdauer und Gruppengröße ab. Rabatt bei Aufenthalten ab einem Monat (TODO: Konditionen bestätigen)."
+  },
+  "PlanSection": {
+    "eyebrow": "Grundriss",
+    "title": "Linie für Linie gezeichnet",
+    "lead": "Der Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad und Balkon. Die genauen Maße je Typ folgen."
+  },
+  "Companies": {
+    "eyebrow": "Für Firmen",
+    "title": "Unterkunft für Ihr Team — ohne Papierkram",
+    "lead": "Ein Ansprechpartner für das ganze Projekt, von der ersten Anfrage bis zum Check-out.",
+    "items": {
+      "invoice": {
+        "title": "Rechnung an die Firma",
+        "text": "Saubere Rechnungen für Ihre Buchhaltung (TODO: bestätigen)."
+      },
+      "groups": {
+        "title": "Gruppen jeder Größe",
+        "text": "Mehrere Apartments an einem Ort, damit Ihr Team zusammenbleibt."
+      },
+      "longstay": {
+        "title": "Langzeitaufenthalte",
+        "text": "Bessere Konditionen für Projekte über Wochen oder Monate."
+      }
+    },
+    "cta": "Angebot anfragen"
+  },
+  "Location": {
+    "eyebrow": "Lage",
+    "title": "Zentral in {city}",
+    "lead": "Kurze Wege zum Bahnhof und zur Altstadt, gute Anbindung in die Umgebung.",
+    "places": {
+      "station": "Hauptbahnhof",
+      "oldTown": "Altstadt"
+    },
+    "mode": {
+      "walk": "<m>{minutes}</m> Min. zu Fuß",
+      "car": "<m>{minutes}</m> Min. mit dem Auto"
+    },
+    "mapsCta": "In Google Maps öffnen"
+  },
+  "Steps": {
+    "eyebrow": "So funktioniert es",
+    "title": "In drei Schritten zum Schlüssel",
+    "items": {
+      "s1": {
+        "title": "Anfrage senden",
+        "text": "Zeitraum und Personenzahl — per Formular oder direkt per WhatsApp."
+      },
+      "s2": {
+        "title": "Bestätigung erhalten",
+        "text": "Wir bestätigen die Verfügbarkeit und den Endpreis."
+      },
+      "s3": {
+        "title": "Selbst einchecken",
+        "text": "Sie erhalten Ihren Code und reisen an, wann es Ihnen passt."
+      }
+    }
+  },
+  "Reviews": {
+    "eyebrow": "Bewertungen",
+    "title": "Bewertungen",
+    "lead": "Unabhängige Gästebewertungen finden Sie bei Google.",
+    "googleCta": "Bewertungen auf Google"
+  },
+  "Faq": {
+    "eyebrow": "FAQ",
+    "title": "Gut zu wissen vor der Buchung",
+    "items": {
+      "q1": {
+        "q": "Gibt es eine Mindestaufenthaltsdauer?",
+        "a": "TODO: Mindestaufenthalt bestätigen."
+      },
+      "q2": {
+        "q": "Wird eine Kaution verlangt?",
+        "a": "TODO: Kaution und Zahlungsbedingungen bestätigen."
+      },
+      "q3": {
+        "q": "Kann ich auch spätabends einchecken?",
+        "a": "Ja. Der Self-Check-in funktioniert rund um die Uhr mit einem persönlichen Code."
+      },
+      "q4": {
+        "q": "Gibt es Parkplätze für Firmenfahrzeuge?",
+        "a": "Am Haus gibt es kostenlose, beleuchtete Parkplätze. Garagen auf Anfrage (TODO: bestätigen)."
+      },
+      "q5": {
+        "q": "Können Sie auf meine Firma abrechnen?",
+        "a": "TODO: Rechnungsstellung und Zahlungsarten bestätigen."
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Kontakt",
+    "title": "Wann reisen Sie an?",
+    "lead": "Öffnet WhatsApp mit fertiger Nachricht.",
+    "name": "Name oder Firma",
+    "arrival": "Anreise",
+    "departure": "Abreise",
+    "guests": "Personen",
+    "note": "Anmerkungen (optional)",
+    "submit": "Weiter zu WhatsApp",
+    "errorRequired": "Bitte Name, Zeitraum und Personenzahl angeben.",
+    "errorDates": "Die Abreise muss nach der Anreise liegen.",
+    "noNumber": "Demo: Die WhatsApp-Nummer ist noch nicht hinterlegt (TODO).",
+    "privacy": "Auf dieser Seite wird nichts gespeichert.",
+    "message": "Guten Tag! Anfrage von {name}. Anreise: {arrival}, Abreise: {departure}, Personen: {guests}. Anmerkungen: {note}"
   },
   "Footer": {
     "impressum": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten",
+    "developedBy": "Entwickelt von",
+    "top": "Nach oben"
+  },
+  "Blog": {
+    "eyebrow": "Blog",
+    "title": "Ratgeber für Dienstreisen",
+    "lead": "Praktische Tipps zur Suche und Buchung möblierter Apartments für Geschäftsreisen.",
+    "read": "Artikel lesen",
+    "back": "Alle Artikel",
+    "ctaTitle": "Aufenthalt planen",
+    "ctaText": "Nennen Sie uns Zeitraum und Personenzahl, wir melden uns mit einem Angebot."
+  },
+  "Frames": {
+    "exterior": "Foto: Außenansicht",
+    "article": "Foto: Artikelbild",
+    "living": "Foto: Wohnbereich",
+    "kitchen": "Foto: Küche",
+    "bedroom": "Foto: Schlafzimmer",
+    "bath": "Foto: Bad",
+    "view": "Foto: Blick vom Balkon",
+    "town": "Foto: die Stadt",
+    "map": "Karte oder Straßenfoto",
+    "team": "Foto: Apartment für ein Team",
+    "entrance": "Foto: Eingang und Parkplatz",
+    "video": "Video: Schloss oder Stadt, stiller Loop"
+  },
+  "Statement1": {
+    "eyebrow": "Wie zu Hause",
+    "pain": "Ein Hotelzimmer genügt für eine Nacht. Nach einer Woche fühlt es sich wie ein Wartezimmer an.",
+    "relief": "Hier haben Sie eine eigene Tür, eine eigene Küche und einen Rhythmus, der Ihnen gehört."
+  },
+  "Statement2": {
+    "eyebrow": "Ohne Warten",
+    "pain": "Zug verspätet, Schlüsselübergabe um sechs, Rezeption längst zu.",
+    "relief": "Hier kommen Sie, wann Sie wollen. Ein Code öffnet die Tür."
+  },
+  "Crumb": {
+    "label": "Brotkrumen-Navigation",
+    "home": "Startseite"
+  },
+  "Hook": {
+    "eyebrow": "Bis ins Detail geplant",
+    "title": "Wo Pläne aufgehen",
+    "lead": "Schlüssel, Küche, Bett, Parkplatz: Alles ist bereit, bevor Sie ankommen.",
+    "caption": "Architekturzeichnung der Hausfassade mit Geschossebenen, Fenstern, Balkonen und Eingang."
   }
 }

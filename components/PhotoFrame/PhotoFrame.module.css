@@ -1,0 +1,71 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio-sm);
+}
+
+/* clip-path на внутреннем блоке: IntersectionObserver следит за внешним, иначе он «не видит» скрытый элемент */
+.box {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+  background-color: var(--color-frame-bg);
+  border: 1px solid var(--color-line);
+  /* диагонали как на архитектурном листе */
+  background-image:
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--color-line) calc(50% - 0.5px), var(--color-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--color-line) calc(50% - 0.5px), var(--color-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--duration-line) var(--ease-out);
+}
+
+.frame[data-visible="true"] .box { clip-path: inset(0 0 0 0); }
+
+.bleed .box { border-inline: 0; }
+
+.label {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-frame-bg);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box { clip-path: none; transition: none; }
+}
+
+@media (min-width: 48rem) {
+  .frame { aspect-ratio: var(--ratio); }
+}
+
+.video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* Линия-сканер: тонкая светлая линия медленно проходит по кадру */
+.box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-text) 50%, transparent);
+  opacity: 0.3;
+  animation: frameScan 8s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.frame[data-visible="true"] .box::after { animation-play-state: running; }
+
+@keyframes frameScan {
+  from { transform: translateY(0); }
+  to { transform: translateY(100cqh); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box::after { display: none; }
+}

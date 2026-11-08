@@ -1,0 +1,49 @@
+.footer {
+  position: relative;
+  padding-block: var(--space-6) var(--space-4);
+}
+
+/* Главные ссылки: заметнее и крупнее */
+.linksRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+  margin: var(--space-4) 0 var(--space-5);
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Две строки, разделённые тонкой линией */
+.legal {
+  display: grid;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.legal p { margin: 0; padding-block: var(--space-3); }
+.second { position: relative; }
+.legal a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .links a:hover { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  .legal a:hover { color: var(--color-text); }
+}

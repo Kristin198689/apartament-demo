@@ -1,19 +1,243 @@
 {
   "Meta": {
-    "title": "Apartament Demo — Furnished apartments for business stays",
-    "description": "Furnished short-term apartments for business travellers and project workers. TODO: final description."
+    "title": "Furnished apartments in {city} for contractors and business travellers",
+    "description": "Furnished apartments in {city} for project teams, contractors and business travellers. Full kitchen, free parking, self check-in around the clock."
   },
   "Nav": {
+    "label": "Main navigation",
+    "menu": "Open menu",
+    "close": "Close menu",
     "apartments": "Apartments",
-    "contact": "Contact"
+    "companies": "For companies",
+    "location": "Location",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "blog": "Blog"
   },
-  "Home": {
-    "eyebrow": "Short-term rentals",
-    "title": "Calm apartments for working trips.",
-    "lead": "Furnished, practical, ready to move in. TODO: final copy."
+  "Hero": {
+    "eyebrow": "Short and long stays · {city}",
+    "title": "Furnished apartments in {city}",
+    "lead": "With a full kitchen, parking and self check-in. For project teams, business travellers and anyone staying for weeks.",
+    "secondary": "View apartments",
+    "facts": {
+      "checkin": "Self check-in 24/7",
+      "parking": "Free parking",
+      "kitchen": "Full kitchen",
+      "wifi": "WiFi included"
+    }
+  },
+  "Plan": {
+    "living": "Living / kitchen",
+    "bedroom": "Bedroom",
+    "bath": "Bath",
+    "balcony": "Balcony",
+    "entrance": "Entrance",
+    "type": "Type",
+    "area": "Area",
+    "caption": "Schematic floor plan of a typical apartment: living area with kitchen, bedroom, bathroom, balcony and entrance.",
+    "note": "Schematic layout. Real floor plans: TODO."
+  },
+  "Cta": {
+    "whatsapp": "Request via WhatsApp",
+    "message": "Hello! I would like to ask about an apartment."
+  },
+  "Amenities": {
+    "eyebrow": "What you get",
+    "title": "Everything a working week needs",
+    "items": {
+      "checkin": {
+        "title": "Self check-in, 24/7",
+        "text": "Arrive at any hour. You receive a code for the key safe — no waiting for anyone."
+      },
+      "parking": {
+        "title": "Free parking",
+        "text": "Free, lit parking at the property. Lockable garages on request (TODO: confirm)."
+      },
+      "kitchen": {
+        "title": "Full kitchen",
+        "text": "Cook your own meals — cheaper and better than eating out every day."
+      },
+      "wifi": {
+        "title": "WiFi",
+        "text": "Included in every apartment, for calls, reports and an evening film."
+      },
+      "beds": {
+        "title": "Separate beds",
+        "text": "A bed for every person. Made for colleagues sharing an apartment."
+      },
+      "balcony": {
+        "title": "Balcony",
+        "text": "Most apartments have a balcony with a view of the town (TODO: confirm per type)."
+      }
+    }
+  },
+  "Apartments": {
+    "eyebrow": "Apartments",
+    "title": "One to four rooms",
+    "lead": "Pick the size that fits your team. The longer the stay and the larger the group, the lower the price per night.",
+    "cols": {
+      "type": "Type",
+      "area": "Area",
+      "guests": "Guests",
+      "beds": "Beds",
+      "price": "From / night"
+    },
+    "rooms": "{count, plural, one {# room} other {# rooms}}",
+    "pricing": "Prices depend on length of stay and group size. Discounts for stays of one month or more (TODO: confirm terms)."
+  },
+  "PlanSection": {
+    "eyebrow": "Floor plan",
+    "title": "Drawn out, line by line",
+    "lead": "A typical apartment layout: living area with kitchen, bedroom, bathroom and balcony. Exact dimensions for every type follow."
+  },
+  "Companies": {
+    "eyebrow": "For companies",
+    "title": "Housing for your team, without the paperwork",
+    "lead": "One contact for the whole project — from the first request to check-out.",
+    "items": {
+      "invoice": {
+        "title": "Invoice to the company",
+        "text": "Clear invoices for your accounting department (TODO: confirm)."
+      },
+      "groups": {
+        "title": "Groups of any size",
+        "text": "Several apartments in one place, so your team stays together."
+      },
+      "longstay": {
+        "title": "Long stays",
+        "text": "Better rates for projects lasting weeks or months."
+      }
+    },
+    "cta": "Request an offer"
+  },
+  "Location": {
+    "eyebrow": "Location",
+    "title": "Central in {city}",
+    "lead": "Short ways to the station and the old town, and good access to the surrounding area.",
+    "places": {
+      "station": "Main station",
+      "oldTown": "Old town"
+    },
+    "mode": {
+      "walk": "<m>{minutes}</m> min on foot",
+      "car": "<m>{minutes}</m> min by car"
+    },
+    "mapsCta": "Open in Google Maps"
+  },
+  "Steps": {
+    "eyebrow": "How it works",
+    "title": "Three steps to your key",
+    "items": {
+      "s1": {
+        "title": "Send a request",
+        "text": "Dates and number of guests — by form or directly in WhatsApp."
+      },
+      "s2": {
+        "title": "Get a confirmation",
+        "text": "We confirm availability and the final price."
+      },
+      "s3": {
+        "title": "Check in on your own",
+        "text": "You receive a code and arrive whenever it suits you."
+      }
+    }
+  },
+  "Reviews": {
+    "eyebrow": "Reviews",
+    "title": "Reviews",
+    "lead": "Read independent guest reviews on Google.",
+    "googleCta": "Reviews on Google"
+  },
+  "Faq": {
+    "eyebrow": "FAQ",
+    "title": "Good to know before you book",
+    "items": {
+      "q1": {
+        "q": "What is the minimum stay?",
+        "a": "TODO: confirm minimum stay."
+      },
+      "q2": {
+        "q": "Is there a deposit?",
+        "a": "TODO: confirm deposit and payment terms."
+      },
+      "q3": {
+        "q": "Can I check in late at night?",
+        "a": "Yes. Self check-in works around the clock with a personal code."
+      },
+      "q4": {
+        "q": "Is there parking for work vans?",
+        "a": "There is free, lit parking at the property. Garages on request (TODO: confirm)."
+      },
+      "q5": {
+        "q": "Can you invoice my company?",
+        "a": "TODO: confirm invoicing and payment options."
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Tell us when you arrive",
+    "lead": "Opens WhatsApp with a ready message.",
+    "name": "Name or company",
+    "arrival": "Arrival",
+    "departure": "Departure",
+    "guests": "Guests",
+    "note": "Notes (optional)",
+    "submit": "Continue in WhatsApp",
+    "errorRequired": "Please fill in name, dates and number of guests.",
+    "errorDates": "Departure must be after arrival.",
+    "noNumber": "Demo: the WhatsApp number is not set yet (TODO).",
+    "privacy": "Nothing is stored on this site.",
+    "message": "Hello! Request from {name}. Arrival: {arrival}, departure: {departure}, guests: {guests}. Notes: {note}"
   },
   "Footer": {
     "impressum": "Legal notice",
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved",
+    "developedBy": "Developed by",
+    "top": "Back to top"
+  },
+  "Blog": {
+    "eyebrow": "Blog",
+    "title": "Guides for working trips",
+    "lead": "Practical advice on finding and booking furnished apartments for business stays.",
+    "read": "Read article",
+    "back": "All articles",
+    "ctaTitle": "Planning a stay",
+    "ctaText": "Tell us your dates and the number of guests, we will come back with an offer."
+  },
+  "Frames": {
+    "exterior": "Photo: building exterior",
+    "article": "Photo: article image",
+    "living": "Photo: living area",
+    "kitchen": "Photo: kitchen",
+    "bedroom": "Photo: bedroom",
+    "bath": "Photo: bathroom",
+    "view": "Photo: view from the balcony",
+    "town": "Photo: the town",
+    "map": "Map or street photo",
+    "team": "Photo: shared apartment for a team",
+    "entrance": "Photo: entrance and parking",
+    "video": "Video: castle or town, silent loop"
+  },
+  "Statement1": {
+    "eyebrow": "Feel at home",
+    "pain": "A hotel room is fine for a night. After a week it starts to feel like a waiting room.",
+    "relief": "Here you get your own door, your own kitchen and a rhythm that is yours."
+  },
+  "Statement2": {
+    "eyebrow": "No waiting",
+    "pain": "Train delayed, key handover at six, reception long closed.",
+    "relief": "Here you arrive at any hour. A code opens the door."
+  },
+  "Crumb": {
+    "label": "Breadcrumb",
+    "home": "Home"
+  },
+  "Hook": {
+    "eyebrow": "Planned in detail",
+    "title": "Where plans add up",
+    "lead": "Key, kitchen, bed, parking: everything is ready before you arrive.",
+    "caption": "Architectural drawing of the building facade with floor levels, windows, balconies and entrance."
   }
 }

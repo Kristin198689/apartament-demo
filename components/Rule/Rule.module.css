@@ -1,0 +1,18 @@
+.rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-line) var(--ease-out);
+  pointer-events: none;
+}
+.top { top: 0; }
+.bottom { bottom: 0; }
+.rule[data-visible="true"] { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rule { transform: scaleX(1); transition: none; }
+}

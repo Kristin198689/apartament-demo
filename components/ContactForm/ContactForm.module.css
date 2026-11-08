@@ -1,0 +1,50 @@
+.form { display: grid; gap: var(--space-3); max-width: 30rem; }
+.row { display: grid; gap: var(--space-3); grid-template-columns: 1fr 1fr; }
+
+.field { display: grid; gap: 0; }
+.field span {
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.field input, .field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px; /* меньше — iOS Safari зумит страницу */
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  border-radius: 0;
+  padding: var(--space-1) 0 var(--space-2);
+  min-height: 2.75rem;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.field textarea { resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--color-text); }
+
+.submit {
+  min-height: 3.25rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+.submit:active { transform: scale(0.98); }
+
+.error { margin: 0; color: var(--color-text); font-weight: 500; font-size: var(--text-sm); }
+.hint { margin: 0; color: var(--color-text-muted); font-size: var(--text-xs); }
+
+@media (hover: hover) and (pointer: fine) {
+  .submit:hover { background: var(--btn-bg-hover); }
+}

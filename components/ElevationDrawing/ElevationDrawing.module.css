@@ -1,0 +1,42 @@
+.wrap { --p: 0; width: 100%; }
+
+.svg { display: block; width: 100%; height: auto; fill: none; shape-rendering: geometricPrecision; overflow: visible; }
+.narrow { display: block; }
+.wide { display: none; }
+@media (min-width: 48rem) {
+  .wide { display: block; }
+  .narrow { display: none; }
+}
+
+.draw {
+  stroke: var(--color-text);
+  stroke-width: 1.2;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+}
+@media (max-width: 47.99rem) {
+  .draw { stroke-width: 1.9; }
+}
+
+/* Слои рисуются на своих отрезках прогресса: медленно и по порядку */
+.l1 .draw { stroke-opacity: 0.85; stroke-dashoffset: calc(1 - clamp(0, var(--p) / 0.35, 1)); }
+.l2 .draw { stroke-opacity: 0.6;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.2) / 0.4, 1)); }
+.l3 .draw { stroke-opacity: 0.5;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.4) / 0.4, 1)); }
+.l4 .draw { stroke-opacity: 0.4;  stroke-width: 0.8; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.6) / 0.4, 1)); }
+
+.texts text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--color-text-muted);
+  opacity: clamp(0, (var(--p) - 0.65) * 3, 1);
+}
+@media (max-width: 47.99rem) {
+  .texts text { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .l1 .draw, .l2 .draw, .l3 .draw, .l4 .draw { stroke-dashoffset: 0; }
+  .texts text { opacity: 1; }
+}
