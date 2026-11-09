@@ -5,6 +5,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { getPost, posts } from "@/content/blog/posts";
 import { siteConfig } from "@/config/site";
 import { jsonLd, localeAlternates } from "@/lib/seo";
+import { ogImages, ogLocale } from "@/lib/social";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/Button/Button";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
@@ -25,7 +26,16 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/blog/[sl
     title: c.title,
     description: c.description,
     alternates: localeAlternates(`/blog/${slug}`, locale as Locale),
-    openGraph: { type: "article", title: c.title, description: c.description },
+    openGraph: {
+      type: "article",
+      title: c.title,
+      description: c.description,
+      url: `/${locale}/blog/${slug}`,
+      siteName: siteConfig.name,
+      locale: ogLocale(locale as Locale),
+      images: ogImages(locale as Locale, c.title),
+    },
+    twitter: { card: "summary_large_image", title: c.title, description: c.description, images: ogImages(locale as Locale).map((i) => i.url) },
   };
 }
 
