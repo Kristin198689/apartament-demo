@@ -14,8 +14,19 @@ export type FloorPlanLabels = {
   caption: string; // текстовое описание для скринридеров
 };
 
+export type FloorPlanDemo = {
+  typeValue: string; // напр. "2 Zimmer"
+  area: string; // "42"
+  width: string; // "9,20"
+  depth: string; // "6,40"
+  living: string;
+  bedroom: string;
+  bath: string;
+};
+
 type Props = {
   labels: FloorPlanLabels;
+  demo?: FloorPlanDemo;
   areaValue?: string;
   className?: string;
 };
@@ -25,7 +36,8 @@ type Props = {
  * Условный план — НЕ реальная планировка. Линии дорисовываются
  * (stroke-dashoffset) при появлении в окне. Цвета — из токенов.
  */
-export function FloorPlan({ labels, areaValue = "TODO", className = "" }: Props) {
+export function FloorPlan({ labels, demo, areaValue = "TODO", className = "" }: Props) {
+  const area = demo?.area ?? areaValue;
   const ref = useRef<SVGSVGElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -89,11 +101,11 @@ export function FloorPlan({ labels, areaValue = "TODO", className = "" }: Props)
       </g>
 
       <g className={styles.text}>
-        <text x="300" y="22" textAnchor="middle" className={styles.fade} style={d(9)}>TODO m</text>
-        <text transform="translate(26 240) rotate(-90)" textAnchor="middle" className={styles.fade} style={d(9)}>TODO m</text>
-        <text x="60" y="150" className={styles.fade} style={d(8)}>{labels.living}</text>
-        <text x="380" y="78" className={styles.fade} style={d(8)}>{labels.bedroom}</text>
-        <text x="430" y="336" className={styles.fade} style={d(8)}>{labels.bath}</text>
+        <text x="300" y="22" textAnchor="middle" className={styles.fade} style={d(9)}>{demo ? `${demo.width} m` : "TODO m"}</text>
+        <text transform="translate(26 240) rotate(-90)" textAnchor="middle" className={styles.fade} style={d(9)}>{demo ? `${demo.depth} m` : "TODO m"}</text>
+        <text x="60" y="150" className={styles.fade} style={d(8)}>{labels.living}{demo ? ` · ${demo.living} m²` : ""}</text>
+        <text x="380" y="78" className={styles.fade} style={d(8)}>{labels.bedroom}{demo ? ` · ${demo.bedroom} m²` : ""}</text>
+        <text x="430" y="336" className={styles.fade} style={d(8)}>{labels.bath}{demo ? ` · ${demo.bath} m²` : ""}</text>
         <text x="562" y="240" className={styles.fade} style={d(10)}>{labels.balcony}</text>
         <text x="256" y="446" className={styles.fade} style={d(10)}>{labels.entrance}</text>
       </g>
@@ -102,8 +114,8 @@ export function FloorPlan({ labels, areaValue = "TODO", className = "" }: Props)
         {L(11, "M400 460 H600 V508 H400 Z M400 484 H600 M500 460 V508")}
         <text x="410" y="477" className={styles.fade} style={d(11)}>{labels.type}</text>
         <text x="410" y="501" className={styles.fade} style={d(11)}>{labels.area}</text>
-        <text x="510" y="477" className={styles.fade} style={d(11)}>TODO</text>
-        <text x="510" y="501" className={styles.fade} style={d(11)}>{areaValue} m²</text>
+        <text x="510" y="477" className={styles.fade} style={d(11)}>{demo?.typeValue ?? "TODO"}</text>
+        <text x="510" y="501" className={styles.fade} style={d(11)}>{area === "TODO" ? "TODO" : `${area} m²`}</text>
       </g>
     </svg>
   );

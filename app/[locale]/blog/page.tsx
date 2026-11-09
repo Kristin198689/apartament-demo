@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/routing";
 import { posts } from "@/content/blog/posts";
 import { localeAlternates } from "@/lib/seo";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
+import { images } from "@/config/images";
 import { Breadcrumbs } from "@/components/Breadcrumbs/Breadcrumbs";
 import { Arrow } from "@/components/Arrow/Arrow";
 import styles from "./blog.module.css";
@@ -41,7 +42,7 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
           return (
             <li key={p.slug} className={styles.item}>
               <Link href={`/blog/${p.slug}`} className={styles.itemLink}>
-                <PhotoFrame ratio="3 / 2" label={f("article")} />
+                <PhotoFrame ratio="3 / 2" label={f("article")} src={images[p.image].src} position={images[p.image].position} sizes="(min-width: 64rem) 70vw, 100vw" />
                 <h2 className={styles.itemTitle}>{c.title}</h2>
                 <p className={styles.itemText}>{c.description}</p>
                 <span className={styles.more}>{t("read")} <Arrow size={18} /></span>

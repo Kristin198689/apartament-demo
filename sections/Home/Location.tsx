@@ -3,6 +3,7 @@ import { mapsUrl, siteConfig } from "@/config/site";
 import { CountUp } from "@/components/CountUp/CountUp";
 import { Button } from "@/components/Button/Button";
 import { distances } from "@/config/property";
+import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
@@ -21,7 +22,7 @@ export function Location() {
           <h2 id="loc-title" className={styles.title}>{t("title", { city: siteConfig.city })}</h2>
           <p className={styles.lead}>{t("lead")}</p>
         </Reveal>
-        <div className={`${styles.editorial} ${styles.editorialRev}`}>
+        <div className={styles.locGrid}>
         <div>
         <ul className={styles.dist}>
           {distances.map((d, i) => (
@@ -36,8 +37,8 @@ export function Location() {
           <Button href={mapsUrl()} variant="ghost">{t("mapsCta")}</Button>
         </div>
         </div>
-        <div className={styles.mediaCol}>
-          <PhotoFrame ratio="4 / 5" ratioMobile="4 / 3" label={f("map")} />
+        <div className={styles.locMedia}>
+          <PhotoFrame ratio="2 / 1" ratioMobile="4 / 3" label={f("exterior")} src={images.exterior.src} position="50% 66%" sizes="(min-width: 80rem) 1184px, 100vw" />
         </div>
         </div>
       </div>

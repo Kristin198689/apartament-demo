@@ -270,6 +270,14 @@
   .faq summary::after { transition: none; }
 }
 
+/* ── Расположение: на десктопе фото на всю ширину сверху, расстояния в две колонки ── */
+.locGrid { display: grid; gap: var(--space-6); }
+.locMedia { width: 100%; }
+@media (min-width: 64rem) {
+  .locMedia { order: -1; }
+  .locGrid .dist { max-width: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-7); }
+}
+
 /* Невысокие телефоны: ужимаем рамку и тексты, чтобы первый экран оставался целым */
 @media (max-width: 47.99rem) and (max-height: 760px) {
   .heroMedia, .heroMedia > div { min-height: 4.5rem; }

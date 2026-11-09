@@ -8,6 +8,7 @@ import { jsonLd, localeAlternates } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/Button/Button";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
+import { images } from "@/config/images";
 import { Breadcrumbs } from "@/components/Breadcrumbs/Breadcrumbs";
 import styles from "../blog.module.css";
 
@@ -61,7 +62,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
       <article className={styles.article}>
         <h1>{c.title}</h1>
         <p className={styles.intro}>{c.intro}</p>
-        <PhotoFrame ratio="16 / 9" label={f("article")} />
+        <PhotoFrame ratio="16 / 9" label={f("article")} src={images[post.image].src} position={images[post.image].position} sizes="(min-width: 48rem) 44rem, 100vw" />
         {c.sections.map((s) => (
           <section key={s.h}>
             <h2>{s.h}</h2>

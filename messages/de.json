@@ -35,7 +35,7 @@
     "type": "Typ",
     "area": "Fläche",
     "caption": "Schematischer Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad, Balkon und Eingang.",
-    "note": "Schematische Darstellung. Echte Grundrisse: TODO."
+    "note": "Schematische Darstellung mit Demo-Maßen. Echte Grundrisse: TODO."
   },
   "Cta": {
     "whatsapp": "Per WhatsApp anfragen",
@@ -207,18 +207,20 @@
     "ctaText": "Nennen Sie uns Zeitraum und Personenzahl, wir melden uns mit einem Angebot."
   },
   "Frames": {
-    "exterior": "Foto: Außenansicht",
-    "article": "Foto: Artikelbild",
-    "living": "Foto: Wohnbereich",
-    "kitchen": "Foto: Küche",
-    "bedroom": "Foto: Schlafzimmer",
-    "bath": "Foto: Bad",
-    "view": "Foto: Blick vom Balkon",
-    "town": "Foto: die Stadt",
-    "map": "Karte oder Straßenfoto",
-    "team": "Foto: Apartment für ein Team",
-    "entrance": "Foto: Eingang und Parkplatz",
-    "video": "Video: Schloss oder Stadt, stiller Loop"
+    "hero": "Schloss über der Altstadt",
+    "panorama": "Panorama der Stadt mit Schloss",
+    "entrance": "Flur mit Wohnungstüren",
+    "exterior": "Wohnhaus mit Parkplätzen",
+    "kitchen": "Voll ausgestattete Küche",
+    "bedroom": "Schlafzimmer mit zwei Einzelbetten",
+    "bath": "Bad mit Dusche",
+    "team": "Wohn- und Essbereich",
+    "living": "Wohnbereich",
+    "article": "Artikelbild",
+    "video": "Video: Schloss oder Stadt, stiller Loop",
+    "view": "Blick vom Balkon",
+    "town": "Die Stadt",
+    "map": "Karte oder Straßenfoto"
   },
   "Statement1": {
     "eyebrow": "Wie zu Hause",

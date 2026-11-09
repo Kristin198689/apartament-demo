@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { Statement } from "@/components/Statement/Statement";
+import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
 import { Hero } from "@/sections/Home/Hero";
 import { Amenities } from "@/sections/Home/Amenities";
@@ -31,7 +32,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Companies />
       <Location />
       <Hook />
-      <PhotoFrame variant="bleed" ratio="21 / 9" ratioMobile="4 / 3" label={f("view")} />
+      <PhotoFrame variant="bleed" ratio="21 / 9" ratioMobile="4 / 3" label={f("panorama")} src={images.panorama.src} position={images.panorama.position} sizes="100vw" />
       <Statement eyebrow={s2("eyebrow")} pain={s2("pain")} relief={s2("relief")} />
       <Steps />
       <Reviews />

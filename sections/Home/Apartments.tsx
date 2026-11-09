@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { apartmentTypes } from "@/config/property";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Val } from "@/components/Placeholder/Placeholder";
+import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
 import { Rule } from "@/components/Rule/Rule";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
@@ -50,9 +51,9 @@ export function Apartments() {
           </Reveal>
 
         <div className={styles.gallery}>
-          <PhotoFrame ratio="4 / 3" label={f("kitchen")} />
-          <PhotoFrame ratio="4 / 3" label={f("bedroom")} />
-          <PhotoFrame ratio="4 / 3" label={f("bath")} />
+          <PhotoFrame ratio="4 / 3" label={f("kitchen")} src={images.kitchen.src} position={images.kitchen.position} sizes="(min-width: 48rem) 30vw, 100vw" />
+          <PhotoFrame ratio="4 / 3" label={f("bedroom")} src={images.bedroom.src} position={images.bedroom.position} sizes="(min-width: 48rem) 30vw, 100vw" />
+          <PhotoFrame ratio="4 / 3" label={f("bath")} src={images.bath.src} position={images.bath.position} sizes="(min-width: 48rem) 30vw, 100vw" />
         </div>
       </div>
     </section>

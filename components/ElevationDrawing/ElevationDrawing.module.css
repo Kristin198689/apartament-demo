@@ -15,25 +15,27 @@
   stroke-linejoin: miter;
   stroke-dasharray: 1;
 }
-@media (max-width: 47.99rem) {
-  .draw { stroke-width: 1.9; }
-}
 
-/* Слои рисуются на своих отрезках прогресса: медленно и по порядку */
-.l1 .draw { stroke-opacity: 0.85; stroke-dashoffset: calc(1 - clamp(0, var(--p) / 0.35, 1)); }
-.l2 .draw { stroke-opacity: 0.6;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.2) / 0.4, 1)); }
-.l3 .draw { stroke-opacity: 0.5;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.4) / 0.4, 1)); }
-.l4 .draw { stroke-opacity: 0.4;  stroke-width: 0.8; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.6) / 0.4, 1)); }
+/* Слои рисуются один за другим, внутри слоя каждая линия стартует чуть позже предыдущей */
+.l1 .draw { stroke-opacity: 0.85; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - var(--i) * 0.02) / 0.3, 1)); }
+.l2 .draw { stroke-opacity: 0.6;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.25 - var(--i) * 0.008) / 0.35, 1)); }
+.l3 .draw { stroke-opacity: 0.5;  stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.6 - var(--i) * 0.01) / 0.35, 1)); }
+.l4 .draw { stroke-opacity: 0.4;  stroke-width: 0.8; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - 0.9 - var(--i) * 0.025) / 0.35, 1)); }
 
 .texts text {
   font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.08em;
   fill: var(--color-text-muted);
-  opacity: clamp(0, (var(--p) - 0.65) * 3, 1);
+  opacity: clamp(0, (var(--p) - 1) * 3, 1);
 }
 @media (max-width: 47.99rem) {
-  .texts text { font-size: 15px; }
+  .texts text { font-size: 28px; }
+}
+
+@media (max-width: 47.99rem) {
+  .draw { stroke-width: 3.4; }
+  .l4 .draw { stroke-width: 2.4; }
 }
 
 @media (prefers-reduced-motion: reduce) {

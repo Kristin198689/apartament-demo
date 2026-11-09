@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/Button/Button";
+import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
@@ -38,7 +39,7 @@ export function Companies() {
         </div>
         </div>
         <div className={styles.mediaCol}>
-          <PhotoFrame ratio="4 / 5" ratioMobile="4 / 3" label={f("team")} />
+          <PhotoFrame ratio="4 / 5" ratioMobile="4 / 3" label={f("team")} src={images.living.src} position={images.living.position} />
         </div>
         </div>
       </div>

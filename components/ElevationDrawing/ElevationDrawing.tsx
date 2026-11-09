@@ -8,12 +8,16 @@ import styles from "./ElevationDrawing.module.css";
  * Рисуется медленно по мере прокрутки секции (--p от 0 до 1), слоями:
  * контур → окна → детали → размеры и оси.
  */
+/* Общее время рисования и максимум прогресса (слои идут один за другим, внутри слоя линии по очереди) */
+const DURATION = 4000;
+const MAX = 1.5;
+
 const rect = (x: number, y: number, w: number, h: number) => `M${x} ${y} H${x + w} V${y + h} H${x} Z`;
 const circle = (cx: number, cy: number, r: number) => `M${cx - r} ${cy} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`;
 
-function build() {
+function build(compact: boolean) {
   const outline = [
-    "M0 480 H1200",
+    compact ? "M100 480 H1060" : "M0 480 H1200",
     "M200 480 V112 M800 480 V112",
     "M190 100 H810 V112 H190 Z",
     "M200 210 H800 M200 300 H800 M200 390 H800",
@@ -39,8 +43,10 @@ function build() {
     details.push(rect(x - 12, y + 22, 84, 30));
     for (let k = 1; k < 7; k++) details.push(`M${x - 12 + k * 12} ${y + 22} V${y + 52}`);
   });
-  details.push(circle(110, 425, 52), "M110 478 V440", circle(1105, 440, 42), "M1105 478 V458");
-  details.push("M40 480 A560 500 0 0 1 1160 480");
+  if (!compact) {
+    details.push(circle(62, 438, 40), "M62 478 V452", circle(1105, 440, 42), "M1105 478 V458");
+    details.push("M40 480 A560 500 0 0 1 1160 480");
+  }
 
   const dims: string[] = [
     "M150 100 V480",
@@ -49,67 +55,72 @@ function build() {
     circle(200, 40, 16) + " M200 56 V100",
     circle(500, 40, 16) + " M500 56 V100",
     circle(800, 40, 16) + " M800 56 V100",
-    Array.from({ length: 34 }, (_, i) => `M${i * 36 + 14} 480 l-12 16`).join(" "),
+    Array.from({ length: compact ? 27 : 34 }, (_, i) => `M${i * 36 + (compact ? 122 : 14)} 480 l-12 16`).join(" "),
   ];
 
   return { outline, windows, details, dims };
 }
 
-export function ElevationDrawing({ label }: { label: string }) {
+export function ElevationDrawing({ label, width = "TODO" }: { label: string; width?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const L = useMemo(build, []);
+  const wide = useMemo(() => build(false), []);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.style.setProperty("--p", "1");
+      el.style.setProperty("--p", String(MAX));
       return;
     }
     let raf = 0;
-    const update = () => {
-      raf = 0;
-      const r = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const p = (vh * 0.9 - r.top) / (r.height + vh * 0.35);
-      el.style.setProperty("--p", Math.min(Math.max(p, 0), 1).toFixed(3));
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    // Рисуется по времени, медленно и по этапам, когда чертёж показался на экране
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / DURATION, 1);
+          el.style.setProperty("--p", (t * MAX).toFixed(3));
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(el);
     return () => {
-      if (raf) cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      io.disconnect();
+      cancelAnimationFrame(raf);
     };
   }, []);
 
-  const P = (d: string, i: number) => <path key={`${i}-${d.length}`} pathLength={1} d={d} className={styles.draw} />;
-  const body = (
+  const P = (d: string, i: number) => (
+    <path key={`${i}-${d.length}`} pathLength={1} d={d} className={styles.draw} style={{ "--i": i } as CSSProperties} />
+  );
+  const body = (L: ReturnType<typeof build>, compact: boolean) => (
     <>
       <g className={styles.l1}>{L.outline.map(P)}</g>
       <g className={styles.l2}>{L.windows.map(P)}</g>
       <g className={styles.l3}>{L.details.map(P)}</g>
       <g className={styles.l4}>{L.dims.map(P)}</g>
       <g className={styles.texts}>
-        {([[480, "±0,00"], [390, "+3,00"], [300, "+6,00"], [210, "+9,00"], [112, "+12,00"]] as const).map(([y, t]) => (
-          <text key={t} x="132" y={y + 4} textAnchor="end">{t}</text>
-        ))}
+        {!compact &&
+          ([[480, "±0,00"], [390, "+3,00"], [300, "+6,00"], [210, "+9,00"], [112, "+12,00"]] as const).map(([y, t]) => (
+            <text key={t} x="132" y={y + 4} textAnchor="end">{t}</text>
+          ))}
         {([[200, "A"], [500, "B"], [800, "C"]] as const).map(([x, t]) => (
           <text key={t} x={x} y="45" textAnchor="middle">{t}</text>
         ))}
-        <text x="500" y="560" textAnchor="middle">TODO m</text>
+        <text x="500" y="560" textAnchor="middle">{width === "TODO" ? "TODO m" : `${width} m`}</text>
       </g>
     </>
   );
 
   return (
     <div ref={ref} className={styles.wrap} style={{ "--p": 0 } as CSSProperties} role="img" aria-label={label}>
-      <svg className={`${styles.svg} ${styles.wide}`} viewBox="0 0 1200 570" aria-hidden="true" focusable="false">{body}</svg>
-      <svg className={`${styles.svg} ${styles.narrow}`} viewBox="150 20 900 560" aria-hidden="true" focusable="false">{body}</svg>
+      <svg className={`${styles.svg} ${styles.wide}`} viewBox="0 0 1200 570" aria-hidden="true" focusable="false">{body(wide, false)}</svg>
+      <svg className={`${styles.svg} ${styles.narrow}`} viewBox="0 -30 1200 600" aria-hidden="true" focusable="false">{body(wide, false)}</svg>
     </div>
   );
 }

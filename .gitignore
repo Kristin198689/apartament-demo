@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# оригиналы демо-фото (PNG, тяжёлые): в репозиторий не кладём
+/source-photos/

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/Reveal/Reveal";
+import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
 import { LineIcon } from "@/components/LineIcon/LineIcon";
 import { Rule } from "@/components/Rule/Rule";
@@ -21,7 +22,7 @@ export function Amenities() {
         </Reveal>
         <div className={styles.editorial}>
           <div className={styles.mediaCol}>
-            <PhotoFrame ratio="4 / 5" ratioMobile="4 / 3" label={f("living")} />
+            <PhotoFrame ratio="4 / 5" ratioMobile="4 / 3" label={f("entrance")} src={images.entrance.src} position={images.entrance.position} />
           </div>
         <ul className={styles.rows}>
           {KEYS.map((k, i) => (

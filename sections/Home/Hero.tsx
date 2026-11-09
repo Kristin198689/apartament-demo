@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { isTodo, media, siteConfig } from "@/config/site";
+import { images } from "@/config/images";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/Button/Button";
 import { HeroBlueprint } from "@/components/HeroBlueprint/HeroBlueprint";
@@ -29,7 +30,11 @@ export function Hero() {
           <PhotoFrame
             ratio="5 / 6"
             ratioMobile="16 / 7"
-            label={f("video")}
+            label={f("hero")}
+            src={images.hero.src}
+            position={images.hero.position}
+            priority
+            sizes="(min-width: 64rem) 45vw, 100vw"
             video={isTodo(media.townVideo) ? undefined : media.townVideo}
             poster={isTodo(media.townPoster) ? undefined : media.townPoster}
           />

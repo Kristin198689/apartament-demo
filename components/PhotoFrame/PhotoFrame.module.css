@@ -16,7 +16,7 @@
     linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--color-line) calc(50% - 0.5px), var(--color-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
     linear-gradient(to top right, transparent calc(50% - 0.5px), var(--color-line) calc(50% - 0.5px), var(--color-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
   clip-path: inset(0 100% 0 0);
-  transition: clip-path var(--duration-line) var(--ease-out);
+  transition: clip-path 900ms var(--ease-out);
 }
 
 .frame[data-visible="true"] .box { clip-path: inset(0 0 0 0); }
@@ -69,3 +69,7 @@
 @media (prefers-reduced-motion: reduce) {
   .box::after { display: none; }
 }
+
+/* Фото внутри рамки: без диагоналей заглушки */
+.hasImage .box { background-image: none; background-color: var(--color-surface-alt); }
+.photo { object-fit: cover; }

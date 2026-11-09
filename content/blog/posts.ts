@@ -1,3 +1,4 @@
+import type { images } from "@/config/images";
 import type { Locale } from "@/i18n/routing";
 
 /*
@@ -14,12 +15,14 @@ export type PostLocale = {
 
 export type Post = {
   slug: string;
+  image: keyof typeof images;
   content: Record<Locale, PostLocale>;
 };
 
 export const posts: readonly Post[] = [
   {
     slug: "choose-accommodation-for-working-trip",
+    image: "living",
     content: {
       en: {
         title: "How to choose accommodation for a working trip",
@@ -55,6 +58,7 @@ export const posts: readonly Post[] = [
   },
   {
     slug: "apartment-or-hotel-business-trip",
+    image: "bedroom",
     content: {
       en: {
         title: "Furnished apartment or hotel for a longer business trip",
@@ -90,6 +94,7 @@ export const posts: readonly Post[] = [
   },
   {
     slug: "book-accommodation-for-team",
+    image: "exterior",
     content: {
       en: {
         title: "Booking accommodation for a team: what companies should clarify",

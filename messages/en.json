@@ -35,7 +35,7 @@
     "type": "Type",
     "area": "Area",
     "caption": "Schematic floor plan of a typical apartment: living area with kitchen, bedroom, bathroom, balcony and entrance.",
-    "note": "Schematic layout. Real floor plans: TODO."
+    "note": "Schematic layout with demo dimensions. Real floor plans: TODO."
   },
   "Cta": {
     "whatsapp": "Request via WhatsApp",
@@ -207,18 +207,20 @@
     "ctaText": "Tell us your dates and the number of guests, we will come back with an offer."
   },
   "Frames": {
-    "exterior": "Photo: building exterior",
-    "article": "Photo: article image",
-    "living": "Photo: living area",
-    "kitchen": "Photo: kitchen",
-    "bedroom": "Photo: bedroom",
-    "bath": "Photo: bathroom",
-    "view": "Photo: view from the balcony",
-    "town": "Photo: the town",
-    "map": "Map or street photo",
-    "team": "Photo: shared apartment for a team",
-    "entrance": "Photo: entrance and parking",
-    "video": "Video: castle or town, silent loop"
+    "hero": "Castle above the old town",
+    "panorama": "Panorama of the town with its castle",
+    "entrance": "Corridor with apartment doors",
+    "exterior": "Apartment building with parking",
+    "kitchen": "Fully equipped kitchen",
+    "bedroom": "Bedroom with two single beds",
+    "bath": "Bathroom with shower",
+    "team": "Dining and living area",
+    "living": "Living area",
+    "article": "Article image",
+    "video": "Video: castle or town, silent loop",
+    "view": "View from the balcony",
+    "town": "The town",
+    "map": "Map or street photo"
   },
   "Statement1": {
     "eyebrow": "Feel at home",
