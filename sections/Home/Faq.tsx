@@ -13,7 +13,7 @@ export function Faq() {
       <Rule />
       <div className="container">
         <Reveal className={styles.head}>
-          <SectionLabel n="09" text={t("eyebrow")} />
+          <SectionLabel n="10" text={t("eyebrow")} />
           <h2 id="faq-title" className={styles.title}>{t("title")}</h2>
         </Reveal>
         <div className={styles.faq}>

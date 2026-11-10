@@ -1,0 +1,45 @@
+.back {
+  position: absolute;
+  z-index: 0;
+  /* по умолчанию — справа у заголовка секции, где пусто; рядом с таблицами и списками не лезет */
+  top: var(--space-section);
+  right: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  width: clamp(10rem, 24vw, 22rem);
+  pointer-events: none;
+}
+.center {
+  top: 50%;
+  width: clamp(8rem, 16vw, 15rem);
+  transform: translateY(-50%);
+}
+
+.svg { display: block; width: 100%; height: auto; fill: none; overflow: visible; shape-rendering: geometricPrecision; }
+
+.outline {
+  stroke: var(--color-text);
+  stroke-width: 1.3;
+  stroke-opacity: 0.28;
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  fill: var(--color-text);
+  fill-opacity: 0;
+  animation-play-state: paused;
+  animation:
+    drawIn 3.2s var(--ease-out) calc(var(--i) * 500ms + 200ms) forwards paused,
+    fillIn 1.6s ease-out calc(var(--i) * 500ms + 2.6s) forwards paused;
+}
+
+:global([data-visible="true"]) .outline { animation-play-state: running; }
+
+@keyframes drawIn { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill-opacity: 0.03; } }
+
+/* На узких экранах рисунок мельче и уходит к правому краю, чтобы не мешать тексту */
+@media (max-width: 47.99rem) {
+  .back { width: 11rem; top: 12%; transform: none; opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outline { stroke-dashoffset: 0; animation: none; fill-opacity: 0.03; }
+}

@@ -6,7 +6,7 @@ import styles from "./SectionLabel.module.css";
  */
 export function SectionLabel({ n, text }: { n: string; text: string }) {
   return (
-    <div className={styles.label}>
+    <div className={styles.label} data-section-n={n}>
       <span className={styles.idx}>{n}</span>
       <span className={styles.text}>{text}</span>
       <span className={styles.dim} aria-hidden="true" />

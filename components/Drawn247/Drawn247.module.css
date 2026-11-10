@@ -1,0 +1,41 @@
+.svg {
+  display: block;
+  width: min(100%, 64rem);
+  height: auto;
+  fill: none;
+  shape-rendering: geometricPrecision;
+  overflow: visible;
+}
+
+.outline, .thin {
+  stroke: var(--color-text);
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-play-state: paused;
+}
+.outline {
+  stroke-width: 1.8;
+  fill: var(--color-text);
+  fill-opacity: 0;
+  animation:
+    drawIn 3s var(--ease-out) calc(var(--i) * 420ms + 200ms) forwards paused,
+    fillIn 1.6s ease-out calc(var(--i) * 420ms + 2.6s) forwards paused;
+}
+.thin {
+  stroke-width: 1;
+  stroke-opacity: 0.5;
+  animation: drawIn 2.4s var(--ease-out) calc(var(--i) * 280ms + 800ms) forwards paused;
+}
+
+/* Запуск, когда родитель (Reveal) отметил блок видимым */
+:global([data-visible="true"]) .outline,
+:global([data-visible="true"]) .thin { animation-play-state: running; }
+
+@keyframes drawIn { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill-opacity: 0.06; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .outline, .thin { stroke-dashoffset: 0; animation: none; }
+  .outline { fill-opacity: 0.06; }
+}

@@ -12,7 +12,7 @@ export function Contact() {
       <Rule />
       <div className={`container ${styles.contact}`}>
         <Reveal className={styles.head}>
-          <SectionLabel n="10" text={t("eyebrow")} />
+          <SectionLabel n="11" text={t("eyebrow")} />
           <h2 id="contact-title" className={`${styles.title} ${styles.titleSm}`}>{t("title")}</h2>
           <p className={styles.lead}>{t("lead")}</p>
         </Reveal>

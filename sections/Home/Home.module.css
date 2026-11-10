@@ -32,6 +32,8 @@
 }
 .ruled[data-visible="true"]::before { transform: scaleX(1); }
 
+.onTop { position: relative; z-index: 1; }
+
 /* Компактные секции */
 .compact { padding-block: clamp(4rem, 2rem + 6vw, 7rem); }
 .compact .head { margin-bottom: var(--space-5); gap: var(--space-2); }
@@ -274,8 +276,10 @@
 .locGrid { display: grid; gap: var(--space-6); }
 .locMedia { width: 100%; }
 @media (min-width: 64rem) {
-  .locMedia { order: -1; }
-  .locGrid .dist { max-width: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-7); }
+  .locGrid { grid-template-columns: 1fr 1fr; column-gap: var(--space-7); align-items: start; }
+  .locMedia { order: -1; grid-column: 1 / -1; }
+  .locGrid .dist { max-width: none; }
+  .locMap { align-self: start; }
 }
 
 /* Невысокие телефоны: ужимаем рамку и тексты, чтобы первый экран оставался целым */

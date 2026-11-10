@@ -14,7 +14,7 @@ export function Hook() {
       <Rule />
       <div className="container">
         <Reveal className={styles.head}>
-          <SectionLabel n="06" text={t("eyebrow")} />
+          <SectionLabel n="07" text={t("eyebrow")} />
           <h2 id="hook-title" className={styles.title}>{t("title")}</h2>
           <p className={styles.lead}>{t("lead")}</p>
         </Reveal>

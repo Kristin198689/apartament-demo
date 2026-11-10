@@ -12,7 +12,8 @@
     "location": "Location",
     "faq": "FAQ",
     "contact": "Contact",
-    "blog": "Blog"
+    "blog": "Blog",
+    "ruler": "Page sections"
   },
   "Hero": {
     "eyebrow": "Short and long stays · {city}",
@@ -35,7 +36,35 @@
     "type": "Type",
     "area": "Area",
     "caption": "Schematic floor plan of a typical apartment: living area with kitchen, bedroom, bathroom, balcony and entrance.",
-    "note": "Schematic layout with demo dimensions. Real floor plans: TODO."
+    "note": "Schematic layout with demo dimensions. Real floor plans: TODO.",
+    "typeLabel": "Apartment type",
+    "hint": "Hover over a room or tap it.",
+    "rooms": {
+      "living": {
+        "name": "Living area",
+        "desc": "Sofa, dining table, TV"
+      },
+      "sleepLiving": {
+        "name": "Living and sleeping area",
+        "desc": "Beds, table, wardrobe"
+      },
+      "kitchen": {
+        "name": "Kitchen",
+        "desc": "Stove, fridge, cookware"
+      },
+      "bedroom": {
+        "name": "Bedroom",
+        "desc": "Separate beds, wardrobe"
+      },
+      "bath": {
+        "name": "Bathroom",
+        "desc": "Shower, toilet, washbasin"
+      },
+      "hall": {
+        "name": "Hallway",
+        "desc": "Entrance, storage space"
+      }
+    }
   },
   "Cta": {
     "whatsapp": "Request via WhatsApp",
@@ -88,7 +117,7 @@
   "PlanSection": {
     "eyebrow": "Floor plan",
     "title": "Drawn out, line by line",
-    "lead": "A typical apartment layout: living area with kitchen, bedroom, bathroom and balcony. Exact dimensions for every type follow."
+    "lead": "Choose a type and look into every room: size and what is inside."
   },
   "Companies": {
     "eyebrow": "For companies",
@@ -116,13 +145,24 @@
     "lead": "Short ways to the station and the old town, and good access to the surrounding area.",
     "places": {
       "station": "Main station",
-      "oldTown": "Old town"
+      "oldTown": "Old town",
+      "supermarket": "Supermarket",
+      "industrial": "Industrial area",
+      "highway": "Motorway access",
+      "nextTown": "Neighbouring town",
+      "bigCity": "Nearest city",
+      "airport": "Airport"
     },
     "mode": {
       "walk": "<m>{minutes}</m> min on foot",
       "car": "<m>{minutes}</m> min by car"
     },
-    "mapsCta": "Open in Google Maps"
+    "mapsCta": "Open in Google Maps",
+    "map": {
+      "caption": "Schematic map, not to scale. Travel times are approximate.",
+      "property": "Property",
+      "min": "{minutes} min"
+    }
   },
   "Steps": {
     "eyebrow": "How it works",
@@ -141,12 +181,6 @@
         "text": "You receive a code and arrive whenever it suits you."
       }
     }
-  },
-  "Reviews": {
-    "eyebrow": "Reviews",
-    "title": "Reviews",
-    "lead": "Read independent guest reviews on Google.",
-    "googleCta": "Reviews on Google"
   },
   "Faq": {
     "eyebrow": "FAQ",
@@ -241,5 +275,65 @@
     "title": "Where plans add up",
     "lead": "Key, kitchen, bed, parking: everything is ready before you arrive.",
     "caption": "Architectural drawing of the building facade with floor levels, windows, balconies and entrance."
+  },
+  "NotFound": {
+    "eyebrow": "Error",
+    "title": "Page not found",
+    "lead": "The address may have been mistyped or the page has moved. Choose where to go next.",
+    "home": "Back to home",
+    "apartments": "View apartments",
+    "blog": "Read the blog"
+  },
+  "Reviews": {
+    "eyebrow": "Reviews",
+    "title": "Reviews",
+    "lead": "Read independent guest reviews on Google.",
+    "googleCta": "Reviews on Google"
+  },
+  "Day": {
+    "eyebrow": "Your stay",
+    "title": "From arrival to check-out",
+    "lead": "A typical day in your apartment.",
+    "stops": {
+      "s1": {
+        "t": "Arrival",
+        "d": "Open the door with your code, no waiting."
+      },
+      "s2": {
+        "t": "Dinner",
+        "d": "Cook in your own kitchen."
+      },
+      "s3": {
+        "t": "Evening",
+        "d": "WiFi for calls and a film."
+      },
+      "s4": {
+        "t": "Night",
+        "d": "Your own bed, your own rhythm."
+      },
+      "s5": {
+        "t": "Departure",
+        "d": "Parking at the door, off you go."
+      }
+    }
+  },
+  "KeyDemo": {
+    "title": "Your door code",
+    "caption": "Example: you receive your personal code before arrival.",
+    "open": "Door open",
+    "locked": "Locked",
+    "replay": "Play again"
+  },
+  "Calc": {
+    "title": "Plan your stay",
+    "nights": "Nights",
+    "guests": "Guests",
+    "fit": "Suggested type",
+    "long": "From 30 nights a long-stay rate applies (TODO: confirm terms).",
+    "price": "Price on request",
+    "from": "from {price} € per night",
+    "cta": "Request this stay",
+    "message": "Hello! I would like to ask about a stay: {nights} nights, {guests} guests, suggested type: {rooms}.",
+    "summary": "{nights} nights, {guests} guests"
   }
 }

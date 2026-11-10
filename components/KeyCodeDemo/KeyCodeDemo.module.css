@@ -1,0 +1,73 @@
+.wrap {
+  position: relative;
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.title { margin: 0; font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: -0.02em; font-weight: 500; }
+.caption { margin: var(--space-1) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); max-width: 34ch; }
+
+.code { display: flex; gap: var(--space-2); }
+.cell {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 4rem;
+  border: 1px solid var(--color-line);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-variant-numeric: tabular-nums;
+  transition: border-color var(--duration-base) var(--ease-out), background-color var(--duration-base) var(--ease-out);
+}
+.cell[data-on="true"] { border-color: var(--color-text); background: color-mix(in srgb, var(--color-text) 6%, transparent); }
+
+.door { display: flex; align-items: flex-end; gap: var(--space-3); }
+.door svg { width: 5rem; height: auto; fill: none; overflow: visible; }
+.state { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); padding-bottom: var(--space-2); }
+
+.frame, .floor, .closed, .knob, .leaf, .swing { stroke: var(--color-text); stroke-width: 1.6; stroke-linejoin: miter; }
+.floor { stroke-opacity: 0.4; stroke-width: 1; }
+.knob { stroke-width: 3; }
+
+/* открытая дверь: полотно и дуга рисуются, закрытая исчезает */
+.leaf, .swing { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
+.swing { stroke-width: 1; stroke-opacity: 0.5; }
+.closed, .knob { transition: opacity 400ms ease; }
+.door[data-open="true"] .closed, .door[data-open="true"] .knob { opacity: 0; }
+.door[data-open="true"] .leaf { opacity: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 900ms var(--ease-out), opacity 100ms; }
+.door[data-open="true"] .swing { opacity: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1200ms var(--ease-out) 200ms, opacity 100ms; }
+
+.replay {
+  position: absolute;
+  top: var(--space-3);
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.replay:active { transform: scale(0.92); }
+
+@media (min-width: 64rem) {
+  .wrap { grid-template-columns: 1.1fr auto auto; gap: var(--space-7); padding-right: 3rem; }
+  .replay { top: 50%; transform: translateY(-50%); }
+  .replay:active { transform: translateY(-50%) scale(0.92); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .replay:hover { color: var(--color-text); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell, .closed, .knob, .door[data-open="true"] .leaf, .door[data-open="true"] .swing { transition: none; }
+}

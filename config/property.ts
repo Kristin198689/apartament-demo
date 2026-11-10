@@ -1,6 +1,6 @@
 /*
  * Данные об объекте. Всё, что "TODO" — ждём от заказчика.
- * Типы (1–4 комнаты) и расстояния взяты с текущего сайта заказчика — ПОДТВЕРДИТЬ.
+ * Типы (1–4 комнаты) — ДЕМО-набор.
  *
  * ВНИМАНИЕ: площади, число гостей и кроватей ниже — ВЫМЫШЛЕННЫЕ ДЕМО-ЗНАЧЕНИЯ,
  * чтобы макет выглядел реалистично. Перед показом как реальных данных заменить
@@ -24,22 +24,22 @@ export const apartmentTypes: readonly ApartmentType[] = [
 
 export type Distance = {
   id: string;
-  /** Если задан labelKey — подпись переводится, иначе name — имя собственное. */
-  labelKey?: "station" | "oldTown";
-  name?: string;
+  /** Ключ подписи в messages (Location.places.*) */
+  labelKey: "station" | "oldTown" | "supermarket" | "industrial" | "highway" | "nextTown" | "bigCity" | "airport";
   minutes: number;
   mode: "walk" | "car";
 };
 
+/* ДЕМО-значения (вымышленные). Заменить на реальные расстояния от объекта клиента. */
 export const distances: readonly Distance[] = [
+  { id: "supermarket", labelKey: "supermarket", minutes: 5, mode: "walk" },
   { id: "station", labelKey: "station", minutes: 10, mode: "walk" },
   { id: "oldTown", labelKey: "oldTown", minutes: 5, mode: "car" },
-  { id: "kuelsheim", name: "Külsheim", minutes: 15, mode: "car" },
-  { id: "marktheidenfeld", name: "Marktheidenfeld", minutes: 20, mode: "car" },
-  { id: "tbb", name: "Tauberbischofsheim", minutes: 30, mode: "car" },
-  { id: "miltenberg", name: "Miltenberg", minutes: 30, mode: "car" },
-  { id: "wuerzburg", name: "Würzburg", minutes: 35, mode: "car" },
-  { id: "frankfurt", name: "Frankfurt", minutes: 60, mode: "car" },
+  { id: "highway", labelKey: "highway", minutes: 8, mode: "car" },
+  { id: "industrial", labelKey: "industrial", minutes: 10, mode: "car" },
+  { id: "nextTown", labelKey: "nextTown", minutes: 20, mode: "car" },
+  { id: "bigCity", labelKey: "bigCity", minutes: 35, mode: "car" },
+  { id: "airport", labelKey: "airport", minutes: 45, mode: "car" },
 ];
 
 /*

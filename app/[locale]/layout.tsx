@@ -9,6 +9,8 @@ import { ogImages, ogLocale } from "@/lib/social";
 import type { Locale } from "@/i18n/routing";
 import { SiteHeader } from "@/components/SiteHeader/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter/SiteFooter";
+import { ScrollRuler } from "@/components/ScrollRuler/ScrollRuler";
+import { PageProgress } from "@/components/PageProgress/PageProgress";
 import "../globals.css";
 
 export const viewport: Viewport = {
@@ -76,12 +78,15 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const rulerLabel = (await getTranslations({ locale, namespace: "Nav" }))("ruler");
 
   return (
     <html lang={locale} className={`${fontSans.variable} ${fontDisplay.variable}`}>
       <body>
         <NextIntlClientProvider>
+          <PageProgress />
           <SiteHeader />
+          <ScrollRuler label={rulerLabel} />
           <div className="header-spacer" aria-hidden="true" />
           <main>{children}</main>
           <SiteFooter />

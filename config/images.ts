@@ -6,8 +6,8 @@
 export type Photo = { src: string; position?: string };
 
 export const images = {
-  hero: { src: "/images/castle-wertheim.webp", position: "56% 45%" },
-  panorama: { src: "/images/castle-wertheim.webp", position: "50% 40%" },
+  hero: { src: "/images/castle-hill-town.webp", position: "56% 45%" },
+  panorama: { src: "/images/castle-hill-town.webp", position: "50% 40%" },
   entrance: { src: "/images/corridor-doors.webp", position: "50% 50%" },
   exterior: { src: "/images/building-exterior.webp", position: "50% 55%" },
   kitchen: { src: "/images/kitchen.webp", position: "55% 50%" },

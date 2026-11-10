@@ -69,6 +69,7 @@
 }
 
 .tone-ink {
+  color-scheme: dark; /* нативные элементы (значок календаря в полях даты) становятся светлыми на тёмном фоне */
   --color-bg: var(--color-ink);
   --color-text: hsl(var(--hue-neutral) 14% 96%);
   --color-text-muted: hsl(var(--hue-neutral) 8% 66%);

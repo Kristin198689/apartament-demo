@@ -73,3 +73,29 @@
 /* Фото внутри рамки: без диагоналей заглушки */
 .hasImage .box { background-image: none; background-color: var(--color-surface-alt); }
 .photo { object-fit: cover; }
+
+/* Сетка-«лист чертежа»: сначала проступают тонкие линии, потом открывается фото */
+.hasImage .box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(var(--color-text), var(--color-text)) 33.333% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-text), var(--color-text)) 66.666% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-text), var(--color-text)) 0 33.333% / 100% 1px no-repeat,
+    linear-gradient(var(--color-text), var(--color-text)) 0 66.666% / 100% 1px no-repeat;
+}
+.hasImage[data-visible="true"] .box::before { animation: gridFlash 1.5s var(--ease-out) forwards; }
+
+@keyframes gridFlash {
+  0% { opacity: 0; clip-path: inset(0 100% 100% 0); }
+  35% { opacity: 0.35; clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; clip-path: inset(0 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hasImage .box::before { display: none; }
+}

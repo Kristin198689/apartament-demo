@@ -1,10 +1,10 @@
 /*
  * Все данные о бизнесе — здесь. Реальные значения подставим позже.
- * Пока везде TODO: ничего не выдумываем.
+ * Пока везде TODO: ничего не выдумываем. Город — нейтральное демо-название.
  */
 export const siteConfig = {
   name: "Apartament Demo",
-  city: "Wertheim", // TODO: подтвердить у заказчика
+  city: "Musterstadt", // нейтральное демо-название; заменить на город заказчика
   domain: "TODO", // напр. https://example.com
   whatsappNumber: "TODO", // международный формат без "+", напр. 491701234567
   email: "TODO",
@@ -25,22 +25,16 @@ export const developer = {
 export const isTodo = (value: string) => value === "TODO";
 
 /*
- * Внешние ссылки. Пока TODO — используются безопасные запасные адреса
- * (поиск на Google Картах по городу, главная Booking.com). Подставить реальные.
+ * Внешние ссылки. Пока TODO — кнопки ведут на демо-страницу 404 (внутренний адрес /404).
+ * Когда будут реальные адреса, впишите их сюда — кнопки заработают сами.
  */
 export const links = {
-  googleMaps: "TODO", // ссылка «Поделиться» с карточки Google Maps
-  googleReviews: "TODO", // ссылка на отзывы Google
+  googleMaps: "TODO", // ссылка «Поделиться» с карточки на карте
+  googleReviews: "TODO", // ссылка на страницу отзывов
 } as const;
 
-export function mapsUrl(): string {
-  return isTodo(links.googleMaps)
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.city)}`
-    : links.googleMaps;
-}
-export function googleReviewsUrl(): string {
-  return isTodo(links.googleReviews) ? mapsUrl() : links.googleReviews;
-}
+export const mapsUrl = () => (isTodo(links.googleMaps) ? "/404" : links.googleMaps);
+export const reviewsUrl = () => (isTodo(links.googleReviews) ? "/404" : links.googleReviews);
 
 /*
  * Медиа. Видео для блока под hero: положить файл в /public/video/ и указать путь,

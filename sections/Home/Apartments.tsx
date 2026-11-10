@@ -4,6 +4,8 @@ import { Reveal } from "@/components/Reveal/Reveal";
 import { Val } from "@/components/Placeholder/Placeholder";
 import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
+import { BackdropGlyphs } from "@/components/BackdropGlyphs/BackdropGlyphs";
+import { StayCalculator } from "@/components/StayCalculator/StayCalculator";
 import { Rule } from "@/components/Rule/Rule";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
 import styles from "./Home.module.css";
@@ -15,7 +17,8 @@ export function Apartments() {
   return (
     <section id="apartments" className={`${styles.section}`} aria-labelledby="apt-title">
       <Rule />
-      <div className="container">
+      <BackdropGlyphs glyphs="1-4" />
+      <div className={`container ${styles.onTop}`}>
         <Reveal className={styles.head}>
           <SectionLabel n="02" text={t("eyebrow")} />
           <h2 id="apt-title" className={styles.title}>{t("title")}</h2>
@@ -49,6 +52,10 @@ export function Apartments() {
             </div>
             <p className={styles.note}>{t("pricing")}</p>
           </Reveal>
+
+        <Reveal>
+          <StayCalculator />
+        </Reveal>
 
         <div className={styles.gallery}>
           <PhotoFrame ratio="4 / 3" label={f("kitchen")} src={images.kitchen.src} position={images.kitchen.position} sizes="(min-width: 48rem) 30vw, 100vw" />

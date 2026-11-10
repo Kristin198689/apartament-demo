@@ -4,6 +4,7 @@
   padding-block: var(--space-section);
 }
 
+.figure { margin-top: var(--space-6); }
 .inner { position: relative; display: grid; gap: var(--space-5); max-width: 78rem; }
 
 .eyebrow {

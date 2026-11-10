@@ -12,7 +12,8 @@
     "location": "Lage",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "blog": "Blog"
+    "blog": "Blog",
+    "ruler": "Seitenabschnitte"
   },
   "Hero": {
     "eyebrow": "Wohnen auf Zeit · {city}",
@@ -35,7 +36,35 @@
     "type": "Typ",
     "area": "Fläche",
     "caption": "Schematischer Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad, Balkon und Eingang.",
-    "note": "Schematische Darstellung mit Demo-Maßen. Echte Grundrisse: TODO."
+    "note": "Schematische Darstellung mit Demo-Maßen. Echte Grundrisse: TODO.",
+    "typeLabel": "Apartment-Typ",
+    "hint": "Fahren Sie über einen Raum oder tippen Sie darauf.",
+    "rooms": {
+      "living": {
+        "name": "Wohnbereich",
+        "desc": "Sofa, Esstisch, TV"
+      },
+      "sleepLiving": {
+        "name": "Wohn- und Schlafbereich",
+        "desc": "Betten, Tisch, Schrank"
+      },
+      "kitchen": {
+        "name": "Küche",
+        "desc": "Herd, Kühlschrank, Geschirr"
+      },
+      "bedroom": {
+        "name": "Schlafzimmer",
+        "desc": "Getrennte Betten, Kleiderschrank"
+      },
+      "bath": {
+        "name": "Bad",
+        "desc": "Dusche, WC, Waschbecken"
+      },
+      "hall": {
+        "name": "Flur",
+        "desc": "Eingang, Stauraum"
+      }
+    }
   },
   "Cta": {
     "whatsapp": "Per WhatsApp anfragen",
@@ -88,7 +117,7 @@
   "PlanSection": {
     "eyebrow": "Grundriss",
     "title": "Linie für Linie gezeichnet",
-    "lead": "Der Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad und Balkon. Die genauen Maße je Typ folgen."
+    "lead": "Wählen Sie einen Typ und schauen Sie in jeden Raum: Größe und Ausstattung."
   },
   "Companies": {
     "eyebrow": "Für Firmen",
@@ -116,13 +145,24 @@
     "lead": "Kurze Wege zum Bahnhof und zur Altstadt, gute Anbindung in die Umgebung.",
     "places": {
       "station": "Hauptbahnhof",
-      "oldTown": "Altstadt"
+      "oldTown": "Altstadt",
+      "supermarket": "Supermarkt",
+      "industrial": "Gewerbegebiet",
+      "highway": "Autobahnanschluss",
+      "nextTown": "Nachbarstadt",
+      "bigCity": "Nächste Großstadt",
+      "airport": "Flughafen"
     },
     "mode": {
       "walk": "<m>{minutes}</m> Min. zu Fuß",
       "car": "<m>{minutes}</m> Min. mit dem Auto"
     },
-    "mapsCta": "In Google Maps öffnen"
+    "mapsCta": "In Google Maps öffnen",
+    "map": {
+      "caption": "Schematische Karte, nicht maßstabsgetreu. Fahrzeiten sind ungefähr.",
+      "property": "Objekt",
+      "min": "{minutes} Min."
+    }
   },
   "Steps": {
     "eyebrow": "So funktioniert es",
@@ -141,12 +181,6 @@
         "text": "Sie erhalten Ihren Code und reisen an, wann es Ihnen passt."
       }
     }
-  },
-  "Reviews": {
-    "eyebrow": "Bewertungen",
-    "title": "Bewertungen",
-    "lead": "Unabhängige Gästebewertungen finden Sie bei Google.",
-    "googleCta": "Bewertungen auf Google"
   },
   "Faq": {
     "eyebrow": "FAQ",
@@ -241,5 +275,65 @@
     "title": "Wo Pläne aufgehen",
     "lead": "Schlüssel, Küche, Bett, Parkplatz: Alles ist bereit, bevor Sie ankommen.",
     "caption": "Architekturzeichnung der Hausfassade mit Geschossebenen, Fenstern, Balkonen und Eingang."
+  },
+  "NotFound": {
+    "eyebrow": "Fehler",
+    "title": "Seite nicht gefunden",
+    "lead": "Die Adresse ist vielleicht falsch geschrieben oder die Seite wurde verschoben. Wählen Sie, wie es weitergeht.",
+    "home": "Zur Startseite",
+    "apartments": "Apartments ansehen",
+    "blog": "Zum Blog"
+  },
+  "Reviews": {
+    "eyebrow": "Bewertungen",
+    "title": "Bewertungen",
+    "lead": "Unabhängige Gästebewertungen finden Sie bei Google.",
+    "googleCta": "Bewertungen auf Google"
+  },
+  "Day": {
+    "eyebrow": "Ihr Aufenthalt",
+    "title": "Von der Ankunft bis zum Check-out",
+    "lead": "Ein typischer Ablauf in Ihrem Apartment.",
+    "stops": {
+      "s1": {
+        "t": "Ankunft",
+        "d": "Tür mit Ihrem Code öffnen, ohne Warten."
+      },
+      "s2": {
+        "t": "Abendessen",
+        "d": "Kochen in der eigenen Küche."
+      },
+      "s3": {
+        "t": "Abend",
+        "d": "WLAN für Telefonate und einen Film."
+      },
+      "s4": {
+        "t": "Nacht",
+        "d": "Eigenes Bett, eigener Rhythmus."
+      },
+      "s5": {
+        "t": "Abreise",
+        "d": "Parkplatz vor der Tür, es kann losgehen."
+      }
+    }
+  },
+  "KeyDemo": {
+    "title": "Ihr Türcode",
+    "caption": "Beispiel: Ihren persönlichen Code erhalten Sie vor der Anreise.",
+    "open": "Tür offen",
+    "locked": "Verschlossen",
+    "replay": "Nochmal abspielen"
+  },
+  "Calc": {
+    "title": "Aufenthalt planen",
+    "nights": "Nächte",
+    "guests": "Gäste",
+    "fit": "Passender Typ",
+    "long": "Ab 30 Nächten gilt ein Langzeitpreis (TODO: Konditionen bestätigen).",
+    "price": "Preis auf Anfrage",
+    "from": "ab {price} € pro Nacht",
+    "cta": "Diesen Aufenthalt anfragen",
+    "message": "Guten Tag! Ich interessiere mich für einen Aufenthalt: {nights} Nächte, {guests} Gäste, passender Typ: {rooms}.",
+    "summary": "{nights} Nächte, {guests} Gäste"
   }
 }

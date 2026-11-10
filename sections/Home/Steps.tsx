@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { CountUp } from "@/components/CountUp/CountUp";
+import { KeyCodeDemo } from "@/components/KeyCodeDemo/KeyCodeDemo";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
@@ -14,7 +15,7 @@ export function Steps() {
       <Rule />
       <div className="container">
         <Reveal className={styles.head}>
-          <SectionLabel n="07" text={t("eyebrow")} />
+          <SectionLabel n="08" text={t("eyebrow")} />
           <h2 id="steps-title" className={`${styles.title} ${styles.titleSm}`}>{t("title")}</h2>
         </Reveal>
         <ol className={styles.steps}>
@@ -26,6 +27,9 @@ export function Steps() {
             </Reveal>
           ))}
         </ol>
+        <Reveal>
+          <KeyCodeDemo />
+        </Reveal>
       </div>
     </section>
   );

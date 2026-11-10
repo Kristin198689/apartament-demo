@@ -1,0 +1,50 @@
+.ruler {
+  position: fixed;
+  top: 50%;
+  right: 0.75rem;
+  z-index: 30;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.list { list-style: none; margin: 0; padding: 0.5rem 0; position: relative; display: grid; gap: 0.15rem; }
+/* вертикальная линия шкалы */
+.list::before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 1px; background: var(--color-line); }
+
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.num { opacity: 0; transform: translateX(6px); transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); font-variant-numeric: tabular-nums; }
+.tick { display: block; width: 0.5rem; height: 1px; background: currentColor; transition: width var(--duration-base) var(--ease-out), background-color var(--duration-fast) var(--ease-out); }
+
+.mark[data-active="true"] { color: var(--color-text); }
+.mark[data-active="true"] .tick { width: 1.4rem; }
+.mark[data-active="true"] .num { opacity: 1; transform: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .mark:hover { color: var(--color-text); }
+  .mark:hover .num { opacity: 1; transform: none; }
+  .mark:hover .tick { width: 1.4rem; }
+}
+
+@media (min-width: 80rem) {
+  .ruler { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .num, .tick { transition: none; }
+}

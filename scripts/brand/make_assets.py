@@ -15,7 +15,7 @@ PAPER = (248, 249, 251)     # холодный белый (#f8f9fb)
 GRAPHITE = (92, 99, 112)    # мягкий серый для подписей
 LINE = (176, 182, 193)      # линии чертежа
 NAME = "Apartament Demo"
-CITY = "Wertheim"           # TODO: подтвердить у заказчика
+CITY = "Musterstadt"        # нейтральное демо-название; заменить на город заказчика
 
 TEXTS = {
     "de": ("Möblierte Apartments in " + CITY, "Self-Check-in 24/7  ·  Kostenlos parken  ·  Eigene Küche", "Wohnen auf Zeit"),

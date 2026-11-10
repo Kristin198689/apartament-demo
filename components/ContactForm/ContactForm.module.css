@@ -23,6 +23,7 @@
   transition: border-color var(--duration-fast) var(--ease-out);
 }
 .field textarea { resize: vertical; }
+.field input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.85; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--color-text); }
 
 .submit {

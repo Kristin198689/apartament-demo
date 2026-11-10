@@ -1,0 +1,45 @@
+.fig { margin: 0; }
+.svg { display: block; width: 100%; height: auto; fill: none; shape-rendering: geometricPrecision; overflow: visible; }
+
+.draw {
+  stroke: var(--color-text);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawIn 2.2s var(--ease-out) calc(var(--i, 0) * 160ms + 100ms) forwards paused;
+}
+.grid .draw { stroke-width: 0.6; stroke-opacity: 0.12; }
+.road { stroke-width: 1.2; stroke-opacity: 0.55; }
+.river { stroke-width: 1; stroke-opacity: 0.3; }
+.ring { stroke-width: 0.9; stroke-opacity: 0.35; }
+.route { stroke-width: 1.1; stroke-opacity: 0.7; }
+
+.ringText { font-family: var(--font-body); font-size: 10.5px; letter-spacing: 0.08em; fill: var(--color-text-muted); opacity: 0; animation: fade 1s ease-out 1.2s forwards paused; }
+
+.point { opacity: 0; animation: pop 0.8s var(--ease-out) calc(var(--i, 0) * 160ms + 900ms) forwards paused; }
+.mark { fill: var(--color-bg); stroke: var(--color-text); stroke-width: 1.4; }
+.home { fill: var(--color-bg); stroke: var(--color-text); stroke-width: 1.8; }
+.homeDot { fill: var(--color-text); }
+.label { font-family: var(--font-body); font-size: 13px; fill: var(--color-text); }
+.time { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.06em; fill: var(--color-text-muted); }
+.homeText { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; fill: var(--color-text); }
+
+.caption { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+:global([data-visible="true"]) .draw,
+:global([data-visible="true"]) .ringText,
+:global([data-visible="true"]) .point { animation-play-state: running; }
+
+@keyframes drawIn { to { stroke-dashoffset: 0; } }
+@keyframes fade { to { opacity: 1; } }
+@keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 47.99rem) {
+  .label { font-size: 15px; }
+  .time { font-size: 13px; }
+  .ringText { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw { stroke-dashoffset: 0; animation: none; }
+  .ringText, .point { opacity: 1; animation: none; }
+}
