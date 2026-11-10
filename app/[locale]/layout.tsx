@@ -79,6 +79,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const stamp = (await getTranslations({ locale, namespace: "Print" }))("stamp", { name: siteConfig.name, city: siteConfig.city });
   const rulerLabel = (await getTranslations({ locale, namespace: "Nav" }))("ruler");
 
   return (
@@ -100,6 +101,7 @@ export default async function LocaleLayout({
           <div className="header-spacer" aria-hidden="true" />
           <main>{children}</main>
           <SiteFooter />
+          <div className="print-stamp" aria-hidden="true">{stamp}</div>
         </NextIntlClientProvider>
       </body>
     </html>

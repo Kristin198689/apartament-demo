@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { PlanCompare } from "@/components/PlanCompare/PlanCompare";
 import { InteractivePlan } from "@/components/InteractivePlan/InteractivePlan";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
@@ -21,6 +22,9 @@ export function PlanSection() {
         <Reveal>
           <InteractivePlan />
           <p className={styles.planNote}>{p("note")}</p>
+        </Reveal>
+        <Reveal>
+          <PlanCompare />
         </Reveal>
       </div>
     </section>

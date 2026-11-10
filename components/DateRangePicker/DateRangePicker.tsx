@@ -60,6 +60,8 @@ export function DateRangePicker() {
   };
 
   const nights = start && end ? nightsBetween(start, end) : 0;
+  const daysTo = start ? Math.round((parse(start).getTime() - today.getTime()) / 86400000) : -1;
+  const weeks = Math.floor(nights / 7);
   const previewEnd = !end && start && hover && hover > start ? hover : end;
 
   function downloadIcs() {
@@ -104,7 +106,13 @@ export function DateRangePicker() {
       </div>
 
       <div className={styles.meta}>
-        {nights > 0 ? <span className={styles.nights}>{t("nights", { count: nights })}</span> : <span className={styles.hintText}>{t("pickDates")}</span>}
+        {nights > 0 ? (
+          <span className={styles.nights}>
+            {t("nights", { count: nights })}
+            {weeks > 0 ? <span className={styles.sub}> · {t("weeks", { count: weeks })}</span> : null}
+            {daysTo >= 0 ? <span className={styles.sub}> · {daysTo === 0 ? t("arrivesToday") : t("inDays", { count: daysTo })}</span> : null}
+          </span>
+        ) : <span className={styles.hintText}>{t("pickDates")}</span>}
         {nights > 0 ? (
           <button type="button" className={styles.ics} onClick={downloadIcs}>{t("addToCalendar")}</button>
         ) : null}

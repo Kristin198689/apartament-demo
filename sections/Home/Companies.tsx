@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/Button/Button";
 import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
@@ -36,6 +37,7 @@ export function Companies() {
         </ul>
         <div className={styles.actions}>
           <Button href={whatsappUrl(c("message"))}>{t("cta")}</Button>
+          <Link href="/hr" className={styles.hrLink}>{t("hr")} →</Link>
         </div>
         </div>
         <div className={styles.mediaCol}>

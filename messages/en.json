@@ -15,7 +15,8 @@
     "blog": "Blog",
     "ruler": "Page sections",
     "blueprint": "Blueprint mode",
-    "crosshair": "Crosshair"
+    "crosshair": "Crosshair",
+    "sound": "Pencil sound"
   },
   "Hero": {
     "eyebrow": "Short and long stays · {city}",
@@ -70,7 +71,19 @@
     "bedLabel": "Bed layout",
     "bedTwin": "Separate beds",
     "bedDouble": "Double bed",
-    "download": "Download plan (SVG)"
+    "download": "Download plan (SVG)",
+    "compare": {
+      "title": "Compare two layouts",
+      "a": "Layout A",
+      "b": "Layout B",
+      "area": "Area",
+      "guests": "Guests",
+      "beds": "Beds",
+      "rooms": "Rooms",
+      "diffMore": "B is {d} m² larger than A",
+      "diffLess": "B is {d} m² smaller than A",
+      "diffSame": "Same area"
+    }
   },
   "Cta": {
     "whatsapp": "Request via WhatsApp",
@@ -143,7 +156,8 @@
         "text": "Better rates for projects lasting weeks or months."
       }
     },
-    "cta": "Request an offer"
+    "cta": "Request an offer",
+    "hr": "Information sheet for HR"
   },
   "Location": {
     "eyebrow": "Location",
@@ -186,6 +200,12 @@
         "title": "Check in on your own",
         "text": "You receive a code and arrive whenever it suits you."
       }
+    },
+    "thread": {
+      "t1": "Request",
+      "t2": "Confirmation",
+      "t3": "Code",
+      "t4": "Door"
     }
   },
   "Faq": {
@@ -340,7 +360,10 @@
     "addToCalendar": "Add to calendar (.ics)",
     "icsTitle": "Stay: {name}",
     "prevMonth": "Previous month",
-    "nextMonth": "Next month"
+    "nextMonth": "Next month",
+    "inDays": "{count, plural, one {Arrival in # day} other {Arrival in # days}}",
+    "arrivesToday": "Arrival today",
+    "weeks": "≈ {count, plural, one {# week} other {# weeks}}"
   },
   "Footer": {
     "impressum": "Legal notice",
@@ -480,5 +503,44 @@
     "arrival": "Arrival",
     "checkin": "Check-in around the clock",
     "dial": "24-hour dial"
+  },
+  "Print": {
+    "stamp": "Information sheet · {name} · {city}",
+    "draft": "Demo data, not binding"
+  },
+  "HR": {
+    "eyebrow": "For HR and project managers",
+    "title": "Information sheet for HR",
+    "lead": "Everything your accounting and HR team usually asks, on one page. Print it or save it as PDF.",
+    "print": "Print or save as PDF",
+    "back": "Back to home",
+    "cta": "Ask for an offer",
+    "typesTitle": "Apartment types",
+    "items": {
+      "i1": {
+        "title": "Invoicing",
+        "text": "TODO: confirm invoicing to companies, payment terms and VAT details."
+      },
+      "i2": {
+        "title": "Registration of employees",
+        "text": "TODO: confirm registration and confirmation of stay for employees."
+      },
+      "i3": {
+        "title": "Group bookings",
+        "text": "TODO: confirm several apartments at once, discounts and one shared invoice."
+      },
+      "i4": {
+        "title": "Long stays",
+        "text": "TODO: confirm weekly and monthly terms and notice periods."
+      },
+      "i5": {
+        "title": "Arrival without staff",
+        "text": "Self check-in with a personal code, at any hour. Your crew does not depend on office hours."
+      },
+      "i6": {
+        "title": "One contact person",
+        "text": "TODO: name and WhatsApp of the contact person for your company."
+      }
+    }
   }
 }

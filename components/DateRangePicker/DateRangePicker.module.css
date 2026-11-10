@@ -68,3 +68,5 @@
 @media (prefers-reduced-motion: reduce) {
   .panel { transition: none; }
 }
+
+.sub { color: var(--color-text-muted); font-size: var(--text-sm); }

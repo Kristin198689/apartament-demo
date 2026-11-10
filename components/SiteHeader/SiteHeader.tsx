@@ -75,7 +75,7 @@ export function SiteHeader() {
           <div className={styles.desktopLangs}>
             <LanguageSwitcher />
           </div>
-          <ThemeControls blueprintLabel={t("blueprint")} crosshairLabel={t("crosshair")} />
+          <ThemeControls blueprintLabel={t("blueprint")} crosshairLabel={t("crosshair")} soundLabel={t("sound")} />
           <button
             type="button"
             className={styles.trigger}

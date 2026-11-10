@@ -40,3 +40,6 @@
 @media (hover: hover) and (pointer: fine) {
   .btn:not([aria-pressed="true"]):hover { color: var(--color-text); background: color-mix(in srgb, var(--color-text) 8%, transparent); }
 }
+
+/* на самых узких экранах звук скрыт, чтобы шапка не тесна */
+@media (max-width: 23rem) { .snd { display: none; } }

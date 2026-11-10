@@ -28,6 +28,21 @@ export function InteractivePlan() {
   const depth = Math.sqrt((total * PLAN_H) / PLAN_W);
   const width = total / depth;
 
+  // Курсор-линейка: показывает координаты в метрах, как в CAD (только мышь)
+  const [cur, setCur] = useState<{ x: number; y: number } | null>(null);
+  function onMove(e: React.PointerEvent<SVGSVGElement>) {
+    if (e.pointerType !== "mouse") return;
+    const svg = svgRef.current;
+    if (!svg) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX;
+    pt.y = e.clientY;
+    const p = pt.matrixTransform(svg.getScreenCTM()!.inverse());
+    const x = p.x - 60;
+    const y = p.y - 70;
+    setCur(x >= 0 && x <= PLAN_W && y >= 0 && y <= PLAN_H ? { x, y } : null);
+  }
+
   const choose = (n: 1 | 2 | 3 | 4) => {
     setRooms(n);
     setActiveId(planLayouts[n][0].id);
@@ -95,7 +110,7 @@ export function InteractivePlan() {
       </div>
 
       <div className={styles.stage}>
-        <svg ref={svgRef} className={styles.svg} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false">
+        <svg ref={svgRef} className={styles.svg} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false" onPointerMove={onMove} onPointerLeave={() => setCur(null)}>
           <g key={rooms} transform="translate(60 70)">
             {/* подсветка активной комнаты */}
             <rect x={active.x} y={active.y} width={active.w} height={active.h} className={styles.hl} />
@@ -125,6 +140,15 @@ export function InteractivePlan() {
                 {areaOf(r)} m²
               </text>
             ))}
+
+            {cur ? (
+              <g className={styles.cad} pointerEvents="none">
+                <path d={`M${cur.x} -26 V${PLAN_H + 8} M-26 ${cur.y} H${PLAN_W + 8}`} />
+                <text x={Math.min(cur.x + 8, PLAN_W - 70)} y={Math.max(cur.y - 8, 12)}>
+                  {fmt((cur.x / PLAN_W) * width)} × {fmt((cur.y / PLAN_H) * depth)} m
+                </text>
+              </g>
+            ) : null}
 
             {/* области наведения/касания */}
             {layout.map((r) => (

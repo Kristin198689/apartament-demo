@@ -15,7 +15,8 @@
     "blog": "Blog",
     "ruler": "Seitenabschnitte",
     "blueprint": "Blueprint-Modus",
-    "crosshair": "Fadenkreuz"
+    "crosshair": "Fadenkreuz",
+    "sound": "Bleistift-Sound"
   },
   "Hero": {
     "eyebrow": "Wohnen auf Zeit · {city}",
@@ -70,7 +71,19 @@
     "bedLabel": "Bettenanordnung",
     "bedTwin": "Getrennte Betten",
     "bedDouble": "Doppelbett",
-    "download": "Plan herunterladen (SVG)"
+    "download": "Plan herunterladen (SVG)",
+    "compare": {
+      "title": "Zwei Grundrisse vergleichen",
+      "a": "Grundriss A",
+      "b": "Grundriss B",
+      "area": "Fläche",
+      "guests": "Gäste",
+      "beds": "Betten",
+      "rooms": "Zimmer",
+      "diffMore": "B ist {d} m² größer als A",
+      "diffLess": "B ist {d} m² kleiner als A",
+      "diffSame": "Gleiche Fläche"
+    }
   },
   "Cta": {
     "whatsapp": "Per WhatsApp anfragen",
@@ -143,7 +156,8 @@
         "text": "Bessere Konditionen für Projekte über Wochen oder Monate."
       }
     },
-    "cta": "Angebot anfragen"
+    "cta": "Angebot anfragen",
+    "hr": "Infoblatt für die Personalabteilung"
   },
   "Location": {
     "eyebrow": "Lage",
@@ -186,6 +200,12 @@
         "title": "Selbst einchecken",
         "text": "Sie erhalten Ihren Code und reisen an, wann es Ihnen passt."
       }
+    },
+    "thread": {
+      "t1": "Anfrage",
+      "t2": "Bestätigung",
+      "t3": "Code",
+      "t4": "Tür"
     }
   },
   "Faq": {
@@ -340,7 +360,10 @@
     "addToCalendar": "In den Kalender (.ics)",
     "icsTitle": "Aufenthalt: {name}",
     "prevMonth": "Vorheriger Monat",
-    "nextMonth": "Nächster Monat"
+    "nextMonth": "Nächster Monat",
+    "inDays": "{count, plural, one {Anreise in # Tag} other {Anreise in # Tagen}}",
+    "arrivesToday": "Anreise heute",
+    "weeks": "≈ {count, plural, one {# Woche} other {# Wochen}}"
   },
   "Footer": {
     "impressum": "Impressum",
@@ -480,5 +503,44 @@
     "arrival": "Ankunft",
     "checkin": "Check-in rund um die Uhr",
     "dial": "24-Stunden-Zifferblatt"
+  },
+  "Print": {
+    "stamp": "Infoblatt · {name} · {city}",
+    "draft": "Demodaten, unverbindlich"
+  },
+  "HR": {
+    "eyebrow": "Für Personalabteilung und Projektleiter",
+    "title": "Infoblatt für die Personalabteilung",
+    "lead": "Alles, was Buchhaltung und Personalabteilung üblicherweise fragen, auf einer Seite. Zum Drucken oder als PDF speichern.",
+    "print": "Drucken oder als PDF speichern",
+    "back": "Zur Startseite",
+    "cta": "Angebot anfragen",
+    "typesTitle": "Apartmenttypen",
+    "items": {
+      "i1": {
+        "title": "Rechnungsstellung",
+        "text": "TODO: Rechnungsstellung an Firmen, Zahlungsziel und USt-Angaben bestätigen."
+      },
+      "i2": {
+        "title": "Anmeldung von Mitarbeitern",
+        "text": "TODO: Anmeldung und Aufenthaltsbestätigung für Mitarbeiter bestätigen."
+      },
+      "i3": {
+        "title": "Gruppenbuchungen",
+        "text": "TODO: mehrere Apartments gleichzeitig, Rabatte und Sammelrechnung bestätigen."
+      },
+      "i4": {
+        "title": "Langzeitaufenthalt",
+        "text": "TODO: Wochen- und Monatskonditionen sowie Kündigungsfristen bestätigen."
+      },
+      "i5": {
+        "title": "Anreise ohne Personal",
+        "text": "Self-Check-in mit persönlichem Code, zu jeder Uhrzeit. Ihr Team ist nicht von Bürozeiten abhängig."
+      },
+      "i6": {
+        "title": "Ein Ansprechpartner",
+        "text": "TODO: Name und WhatsApp des Ansprechpartners für Ihre Firma."
+      }
+    }
   }
 }

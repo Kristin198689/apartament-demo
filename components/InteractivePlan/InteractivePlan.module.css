@@ -75,3 +75,6 @@
 @media (prefers-reduced-motion: reduce) {
   .wall, .furn, .outer, .dim { stroke-dashoffset: 0; animation: none; }
 }
+
+.cad path { stroke: var(--color-text); stroke-width: 0.6; stroke-dasharray: 4 4; opacity: 0.55; }
+.cad text { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.06em; fill: var(--color-text); paint-order: stroke; stroke: var(--color-bg); stroke-width: 4px; }

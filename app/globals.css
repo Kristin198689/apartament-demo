@@ -76,3 +76,20 @@ img, svg {
 .header-spacer {
   height: calc(4rem + env(safe-area-inset-top, 0px));
 }
+
+/* Печать: чертёж-лист с рамкой и штампом внизу, без интерфейса */
+.print-stamp { display: none; }
+@media print {
+  @page { size: A4; margin: 14mm; }
+  header, footer, .header-spacer, .no-print, [data-print="hide"], canvas { display: none !important; }
+  html, body { background: #fff !important; color: #000 !important; overflow: visible !important; }
+  body { font-size: 11pt; }
+  *, *::before, *::after { animation: none !important; transition: none !important; box-shadow: none !important; }
+  a { text-decoration: none; }
+  main { outline: 1.2pt solid #000; outline-offset: 6mm; padding: 6mm; }
+  .print-stamp {
+    display: block; position: fixed; left: 0; right: 0; bottom: -6mm;
+    padding-top: 2mm; border-top: 0.8pt solid #000;
+    font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; color: #000;
+  }
+}

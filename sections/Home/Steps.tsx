@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { ArrivalThread } from "@/components/ArrivalThread/ArrivalThread";
 import { CountUp } from "@/components/CountUp/CountUp";
 import { KeyCodeDemo } from "@/components/KeyCodeDemo/KeyCodeDemo";
 import { Reveal } from "@/components/Reveal/Reveal";
@@ -27,6 +28,9 @@ export function Steps() {
             </Reveal>
           ))}
         </ol>
+        <Reveal>
+          <ArrivalThread />
+        </Reveal>
         <Reveal>
           <KeyCodeDemo />
         </Reveal>
