@@ -7,6 +7,13 @@
   width: clamp(10rem, 24vw, 22rem);
   pointer-events: none;
 }
+.left {
+  top: auto;
+  right: auto;
+  bottom: var(--space-section);
+  left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  width: clamp(6rem, 12vw, 11rem);
+}
 .center {
   top: 50%;
   width: clamp(8rem, 16vw, 15rem);
@@ -38,6 +45,7 @@
 /* На узких экранах рисунок мельче и уходит к правому краю, чтобы не мешать тексту */
 @media (max-width: 47.99rem) {
   .back { width: 11rem; top: 12%; transform: none; opacity: 0.8; }
+  .left { top: 9%; bottom: auto; left: auto; right: var(--gutter); width: 5.5rem; opacity: 0.55; }
 }
 
 @media (prefers-reduced-motion: reduce) {

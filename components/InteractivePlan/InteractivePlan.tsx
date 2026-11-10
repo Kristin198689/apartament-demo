@@ -1,9 +1,9 @@
 "use client";
 
-import { type CSSProperties, useMemo, useState } from "react";
+import { type CSSProperties, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { apartmentTypes } from "@/config/property";
-import { PLAN_H, PLAN_W, furniturePaths, planLayouts, type Room } from "@/config/plans";
+import { PLAN_H, PLAN_W, furniturePaths, planLayouts, type BedMode, type Room } from "@/config/plans";
 import styles from "./InteractivePlan.module.css";
 
 const fmt = (n: number) => n.toFixed(2).replace(".", ",");
@@ -16,6 +16,8 @@ export function InteractivePlan() {
   const t = useTranslations("Plan");
   const a = useTranslations("Apartments");
   const [rooms, setRooms] = useState<1 | 2 | 3 | 4>(2);
+  const [bed, setBed] = useState<BedMode>("twin");
+  const svgRef = useRef<SVGSVGElement>(null);
   const type = apartmentTypes.find((x) => x.rooms === rooms)!;
   const layout = planLayouts[rooms];
   const [activeId, setActiveId] = useState<string>(layout[0].id);
@@ -33,13 +35,51 @@ export function InteractivePlan() {
 
   const draw = (i: number) => ({ "--i": i }) as CSSProperties;
   const paths = useMemo(
-    () => layout.map((r) => ({ r, furn: furniturePaths(r) })),
-    [layout],
+    () => layout.map((r) => ({ r, furn: furniturePaths(r, bed) })),
+    [layout, bed],
   );
   const total_i = layout.length;
+  const bedrooms = layout.filter((r) => r.kind === "bedroom" || r.kind === "sleepLiving").length;
+  const bedsShown = bed === "double" ? Number(type.beds) - bedrooms : Number(type.beds);
+
+  // Скачать план как самостоятельный SVG: стили переносим в атрибуты, анимацию отключаем
+  function download() {
+    const src = svgRef.current;
+    if (!src) return;
+    const clone = src.cloneNode(true) as SVGSVGElement;
+    const a = Array.from(src.querySelectorAll("path, rect, text"));
+    const b = Array.from(clone.querySelectorAll("path, rect, text"));
+    a.forEach((el, i) => {
+      const cs = getComputedStyle(el);
+      const tgt = b[i] as SVGElement;
+      const hit = (tgt as unknown as HTMLElement).getAttribute("role") === "button";
+      if (hit) { tgt.remove(); return; }
+      tgt.setAttribute("style", [
+        `fill:${el.tagName === "text" ? "#5c6370" : cs.fill === "none" ? "none" : cs.fill}`,
+        `fill-opacity:${cs.fillOpacity}`,
+        `stroke:${cs.stroke === "none" ? "none" : "#101318"}`,
+        `stroke-width:${cs.strokeWidth}`,
+        `stroke-opacity:${cs.strokeOpacity}`,
+        "stroke-dasharray:none",
+        "stroke-dashoffset:0",
+        `font-family:Helvetica,Arial,sans-serif`,
+        `font-size:${cs.fontSize}`,
+      ].join(";"));
+      tgt.removeAttribute("class");
+    });
+    clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    clone.insertAdjacentHTML("afterbegin", '<rect width="100%" height="100%" fill="#ffffff"/>');
+    const blob = new Blob([`<?xml version="1.0" encoding="UTF-8"?>\n${clone.outerHTML}`], { type: "image/svg+xml" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `plan-${rooms}-rooms.svg`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
 
   return (
     <div className={styles.wrap}>
+      <div className={styles.toolbar}>
       <div className={styles.switch} role="group" aria-label={t("typeLabel")}>
         {([1, 2, 3, 4] as const).map((n) => (
           <button key={n} type="button" className={styles.opt} aria-pressed={rooms === n} onClick={() => choose(n)}>
@@ -48,9 +88,14 @@ export function InteractivePlan() {
           </button>
         ))}
       </div>
+      <div className={styles.bed} role="group" aria-label={t("bedLabel")}>
+        <button type="button" aria-pressed={bed === "twin"} onClick={() => setBed("twin")}>{t("bedTwin")}</button>
+        <button type="button" aria-pressed={bed === "double"} onClick={() => setBed("double")}>{t("bedDouble")}</button>
+      </div>
+      </div>
 
       <div className={styles.stage}>
-        <svg className={styles.svg} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false">
+        <svg ref={svgRef} className={styles.svg} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false">
           <g key={rooms} transform="translate(60 70)">
             {/* подсветка активной комнаты */}
             <rect x={active.x} y={active.y} width={active.w} height={active.h} className={styles.hl} />
@@ -104,12 +149,13 @@ export function InteractivePlan() {
 
         <aside className={styles.panel} aria-live="polite">
           <p className={styles.spec}>
-            {a("rooms", { count: rooms })} · {type.area} m² · {type.guests} {a("cols.guests")} · {type.beds} {a("cols.beds")}
+            {a("rooms", { count: rooms })} · {type.area} m² · {type.guests} {a("cols.guests")} · {bedsShown} {a("cols.beds")}
           </p>
           <h3 className={styles.room}>{t(`rooms.${active.kind}.name`)}</h3>
           <p className={styles.roomArea}>{areaOf(active)} <span>m²</span></p>
           <p className={styles.desc}>{t(`rooms.${active.kind}.desc`)}</p>
           <p className={styles.hint}>{t("hint")}</p>
+          <button type="button" className={styles.dl} onClick={download}>{t("download")}</button>
         </aside>
       </div>
     </div>

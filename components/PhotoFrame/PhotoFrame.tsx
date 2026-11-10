@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Lightbox, type LightboxItem } from "@/components/Lightbox/Lightbox";
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import styles from "./PhotoFrame.module.css";
 
@@ -22,6 +23,10 @@ type Props = {
   priority?: boolean;
   /** Подсказка браузеру о ширине фото */
   sizes?: string;
+  /** Открывать фото на весь экран по клику (по умолчанию да) */
+  zoom?: boolean;
+  /** Фото с одинаковым group листаются в просмотре вместе */
+  group?: string;
   /** "bleed" — на всю ширину экрана без боковых линий */
   variant?: "default" | "bleed";
   className?: string;
@@ -31,10 +36,24 @@ type Props = {
  * Тонкая рамка-заглушка под будущее фото. Рамка и диагонали «рисуются» при появлении.
  * Когда появятся настоящие фото, заменить на next/image внутри такого же контейнера.
  */
-export function PhotoFrame({ ratio = "4 / 3", ratioMobile, label, video, poster, src, position, priority = false, sizes = "(min-width: 64rem) 40vw, 100vw", variant = "default", className = "" }: Props) {
+export function PhotoFrame({ ratio = "4 / 3", ratioMobile, label, video, poster, src, position, priority = false, sizes = "(min-width: 64rem) 40vw, 100vw", zoom = true, group, variant = "default", className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [lb, setLb] = useState<{ items: LightboxItem[]; index: number } | null>(null);
+  const canZoom = Boolean(src) && zoom && !video;
+
+  function openLightbox() {
+    if (!src) return;
+    let items: LightboxItem[] = [{ src, alt: label, position }];
+    let index = 0;
+    if (group) {
+      const nodes = Array.from(document.querySelectorAll<HTMLElement>(`[data-lb-group="${group}"]`));
+      items = nodes.map((n) => ({ src: n.dataset.lbSrc ?? "", alt: n.dataset.lbAlt ?? "", position: n.dataset.lbPos }));
+      index = Math.max(0, nodes.findIndex((n) => n.dataset.lbSrc === src));
+    }
+    setLb({ items, index });
+  }
 
   useEffect(() => {
     if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) videoRef.current?.pause();
@@ -63,6 +82,8 @@ export function PhotoFrame({ ratio = "4 / 3", ratioMobile, label, video, poster,
       {...(src ? {} : { role: "img", "aria-label": label })}
       className={`${styles.frame} ${variant === "bleed" ? styles.bleed : ""} ${src ? styles.hasImage : ""} ${className}`}
       data-visible={visible}
+      {...(canZoom ? { role: "button", tabIndex: 0, "aria-label": `${label}`, onClick: openLightbox, onKeyDown: (e: React.KeyboardEvent) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(); } } } : {})}
+      {...(group && src ? { "data-lb-group": group, "data-lb-src": src, "data-lb-alt": label, "data-lb-pos": position ?? "" } : {})}
       style={{ "--ratio": ratio, "--ratio-sm": ratioMobile ?? ratio } as CSSProperties}
     >
       <div className={styles.box}>
@@ -95,6 +116,7 @@ export function PhotoFrame({ ratio = "4 / 3", ratioMobile, label, video, poster,
           <span className={styles.label}>{label}</span>
         )}
       </div>
+      {lb ? <Lightbox items={lb.items} index={lb.index} onIndex={(i) => setLb({ ...lb, index: i })} onClose={() => setLb(null)} /> : null}
     </div>
   );
 }

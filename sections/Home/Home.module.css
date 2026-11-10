@@ -13,7 +13,24 @@
   text-transform: uppercase;
   color: var(--color-accent);
 }
-.title { font-size: var(--text-2xl); overflow-wrap: break-word; hyphens: auto; }
+.title {
+  font-size: var(--text-2xl);
+  overflow-wrap: break-word;
+  hyphens: auto;
+  /* вычерчивание: сначала контур проявляется слева направо, потом буквы заливаются */
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--color-text);
+  clip-path: inset(-10% 100% -10% -2%);
+  transition: clip-path 1.2s var(--ease-out), color 900ms ease 900ms, -webkit-text-stroke-color 900ms ease 900ms;
+}
+:global([data-visible="true"]) .title {
+  color: var(--color-text);
+  -webkit-text-stroke-color: transparent;
+  clip-path: inset(-10% -2% -10% -2%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .title { color: var(--color-text); -webkit-text-stroke: 0; clip-path: none; transition: none; }
+}
 .lead { margin: var(--space-3) 0 0; font-size: var(--text-lg); color: var(--color-text-muted); max-width: 46ch; }
 
 /* Анимированная тонкая линия: у любого элемента внутри Reveal */

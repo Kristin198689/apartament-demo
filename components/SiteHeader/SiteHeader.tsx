@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
+import { ThemeControls } from "@/components/ThemeControls/ThemeControls";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./SiteHeader.module.css";
 
@@ -74,6 +75,7 @@ export function SiteHeader() {
           <div className={styles.desktopLangs}>
             <LanguageSwitcher />
           </div>
+          <ThemeControls blueprintLabel={t("blueprint")} crosshairLabel={t("crosshair")} />
           <button
             type="button"
             className={styles.trigger}

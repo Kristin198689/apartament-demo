@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { Drawn247 } from "@/components/Drawn247/Drawn247";
+import { CompareSlider } from "@/components/CompareSlider/CompareSlider";
+import { NoWaitArt } from "@/components/NoWaitArt/NoWaitArt";
 import { Statement } from "@/components/Statement/Statement";
 import { images } from "@/config/images";
 import { PhotoFrame } from "@/components/PhotoFrame/PhotoFrame";
@@ -27,7 +28,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <Hero />
-      <Statement eyebrow={s1("eyebrow")} pain={s1("pain")} relief={s1("relief")} />
+      <Statement eyebrow={s1("eyebrow")} pain={s1("pain")} relief={s1("relief")} figure={<CompareSlider />} />
       <Amenities />
       <Apartments />
       <PlanSection />
@@ -36,7 +37,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Location />
       <Hook />
       <PhotoFrame variant="bleed" ratio="21 / 9" ratioMobile="4 / 3" label={f("panorama")} src={images.panorama.src} position={images.panorama.position} sizes="100vw" />
-      <Statement eyebrow={s2("eyebrow")} pain={s2("pain")} relief={s2("relief")} figure={<Drawn247 />} />
+      <Statement eyebrow={s2("eyebrow")} pain={s2("pain")} relief={s2("relief")} figure={<NoWaitArt />} />
       <Steps />
       <Reviews />
       <Faq />

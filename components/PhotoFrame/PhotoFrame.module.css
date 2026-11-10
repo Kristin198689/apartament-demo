@@ -99,3 +99,9 @@
 @media (prefers-reduced-motion: reduce) {
   .hasImage .box::before { display: none; }
 }
+
+/* Режим «синька»: ч/б фото превращаются в белые линии на синем */
+:global([data-theme="blueprint"]) .photo { filter: invert(1) contrast(1.05); mix-blend-mode: screen; }
+
+.hasImage[role="button"] { cursor: zoom-in; }
+.hasImage[role="button"]:focus-visible { outline: 2px solid var(--color-text); outline-offset: 4px; }

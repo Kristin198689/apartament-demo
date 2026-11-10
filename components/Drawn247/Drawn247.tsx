@@ -8,7 +8,7 @@ const s = (i: number) => ({ "--i": i }) as CSSProperties;
  * когда блок появляется в окне (родитель Reveal выставляет data-visible="true").
  * Это зрительный якорь для обещания «заселение без ожидания, круглосуточно».
  */
-export function Drawn247({ label = "24/7" }: { label?: string }) {
+export function Drawn247({ label = "24/7", size = "lg" }: { label?: string; size?: "lg" | "md" }) {
   const two = "M0 120 A110 110 0 0 1 220 120 V175 L82 290 H240 V360 H0 V290 L140 185 V120 A35 35 0 0 0 70 120 Z";
   const four = "M150 0 L0 250 V320 H150 V360 H230 V320 H260 V250 H230 V0 Z M150 90 V250 H55 Z";
   const slash = "M130 0 H210 L80 360 H0 Z";
@@ -17,7 +17,7 @@ export function Drawn247({ label = "24/7" }: { label?: string }) {
   const bubble = (cx: number) => `M${cx - 12} -26 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 M${cx} -14 V-2`;
 
   return (
-    <svg className={styles.svg} viewBox="0 -44 1000 480" role="img" aria-label={label} focusable="false">
+    <svg className={`${styles.svg} ${size === "md" ? styles.md : ""}`} viewBox="0 -44 1000 480" role="img" aria-label={label} focusable="false">
       <path pathLength={1} className={styles.thin} style={s(0)} d="M0 360 H1000" />
 
       <g transform="translate(0 0)">

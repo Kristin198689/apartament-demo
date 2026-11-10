@@ -82,3 +82,30 @@
   background: var(--color-bg);
   color: var(--color-text);
 }
+
+/*
+ * Режим «чертёж синька» (кнопка в футере): тот же сайт, но электрик-синий лист и белые линии.
+ * Все цвета берутся из токенов, поэтому переключается сразу везде.
+ */
+:root[data-theme="blueprint"] {
+  color-scheme: dark;
+  --color-bg: hsl(220 82% 36%);
+  --color-surface-alt: hsl(220 82% 31%);
+  --color-ink: hsl(224 84% 19%);
+  --color-line: hsl(218 62% 62%);
+  --color-text: hsl(0 0% 100%);
+  --color-text-muted: hsl(218 70% 84%);
+  --color-accent: hsl(218 85% 88%);
+  --color-frame-bg: hsl(220 82% 29%);
+  --btn-bg: hsl(0 0% 100%);
+  --btn-bg-hover: hsl(218 70% 94%);
+  --btn-fg: hsl(220 82% 28%);
+}
+:root[data-theme="blueprint"] .tone-ink {
+  --color-line: hsl(222 62% 38%);
+  --color-text-muted: hsl(218 70% 80%);
+  --color-accent: hsl(218 85% 86%);
+  --btn-bg: hsl(0 0% 100%);
+  --btn-bg-hover: hsl(218 70% 94%);
+  --btn-fg: hsl(222 84% 20%);
+}

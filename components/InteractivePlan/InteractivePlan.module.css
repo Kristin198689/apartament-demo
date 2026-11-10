@@ -1,6 +1,11 @@
 .wrap { display: grid; gap: var(--space-5); }
 
+.toolbar { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: end; }
 .switch { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.bed { display: inline-flex; border: 1px solid var(--color-line); border-radius: var(--radius); }
+.bed button { min-height: 2.75rem; padding: 0 var(--space-3); border: 0; background: transparent; color: var(--color-text); font: inherit; font-size: var(--text-sm); cursor: pointer; touch-action: manipulation; transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); }
+.bed button + button { border-left: 1px solid var(--color-line); }
+.bed button[aria-pressed="true"] { background: var(--color-text); color: var(--color-bg); }
 .opt {
   display: grid;
   gap: 2px;
@@ -59,6 +64,7 @@
 .roomArea { margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; letter-spacing: -0.04em; }
 .roomArea span { font-size: var(--text-lg); letter-spacing: 0; color: var(--color-text-muted); }
 .desc { margin: 0; color: var(--color-text-muted); max-width: 32ch; }
+.dl { justify-self: start; margin-top: var(--space-2); min-height: 2.75rem; padding: 0; border: 0; background: none; color: var(--color-text); font: inherit; font-size: var(--text-sm); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; cursor: pointer; }
 .hint { margin: var(--space-3) 0 0; font-size: var(--text-xs); color: var(--color-text-muted); }
 
 @media (min-width: 64rem) {

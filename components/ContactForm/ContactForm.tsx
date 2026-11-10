@@ -3,6 +3,7 @@
 import { type FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { isTodo, siteConfig } from "@/config/site";
+import { DateRangePicker } from "@/components/DateRangePicker/DateRangePicker";
 import styles from "./ContactForm.module.css";
 
 /*
@@ -48,16 +49,7 @@ export function ContactForm() {
         <span>{t("name")}</span>
         <input name="name" type="text" autoComplete="organization" maxLength={120} required />
       </label>
-      <div className={styles.row}>
-        <label className={styles.field}>
-          <span>{t("arrival")}</span>
-          <input name="arrival" type="date" required />
-        </label>
-        <label className={styles.field}>
-          <span>{t("departure")}</span>
-          <input name="departure" type="date" required />
-        </label>
-      </div>
+      <DateRangePicker />
       <label className={styles.field}>
         <span>{t("guests")}</span>
         <input name="guests" type="number" inputMode="numeric" min={1} max={99} defaultValue={1} required />

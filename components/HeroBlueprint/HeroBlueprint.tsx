@@ -74,9 +74,28 @@ export function HeroBlueprint() {
     document.fonts?.ready.then(setBand);
     window.addEventListener("resize", setBand);
 
+    // Лёгкий параллакс слоёв за мышью (только с мышью)
+    let pRaf = 0;
+    let mx = 0, my = 0;
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const onMove = (e: MouseEvent) => {
+      mx = (e.clientX / window.innerWidth - 0.5) * 2;
+      my = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (!pRaf) {
+        pRaf = requestAnimationFrame(() => {
+          pRaf = 0;
+          el.style.setProperty("--mx", mx.toFixed(3));
+          el.style.setProperty("--my", my.toFixed(3));
+        });
+      }
+    };
+    if (fine) window.addEventListener("mousemove", onMove, { passive: true });
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (pRaf) cancelAnimationFrame(pRaf);
       ro.disconnect();
       window.removeEventListener("resize", setBand);
       cancelAnimationFrame(start);

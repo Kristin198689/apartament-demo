@@ -13,7 +13,9 @@
     "faq": "FAQ",
     "contact": "Contact",
     "blog": "Blog",
-    "ruler": "Page sections"
+    "ruler": "Page sections",
+    "blueprint": "Blueprint mode",
+    "crosshair": "Crosshair"
   },
   "Hero": {
     "eyebrow": "Short and long stays · {city}",
@@ -64,7 +66,11 @@
         "name": "Hallway",
         "desc": "Entrance, storage space"
       }
-    }
+    },
+    "bedLabel": "Bed layout",
+    "bedTwin": "Separate beds",
+    "bedDouble": "Double bed",
+    "download": "Download plan (SVG)"
   },
   "Cta": {
     "whatsapp": "Request via WhatsApp",
@@ -116,7 +122,7 @@
   },
   "PlanSection": {
     "eyebrow": "Floor plan",
-    "title": "Drawn out, line by line",
+    "title": "Choose your floor plan",
     "lead": "Choose a type and look into every room: size and what is inside."
   },
   "Companies": {
@@ -188,25 +194,129 @@
     "items": {
       "q1": {
         "q": "What is the minimum stay?",
-        "a": "TODO: confirm minimum stay."
+        "a": "TODO: confirm minimum stay.",
+        "kw": "minimum stay nights min mindestaufenthalt mindestdauer минимальный срок ночей"
       },
       "q2": {
         "q": "Is there a deposit?",
-        "a": "TODO: confirm deposit and payment terms."
+        "a": "TODO: confirm deposit and payment terms.",
+        "kw": "deposit kaution payment pay залог оплата"
       },
       "q3": {
         "q": "Can I check in late at night?",
-        "a": "Yes. Self check-in works around the clock with a personal code."
+        "a": "Yes. Self check-in works around the clock with a personal code.",
+        "kw": "late night check-in self code spät nacht einchecken поздно ночью заселение код"
       },
       "q4": {
         "q": "Is there parking for work vans?",
-        "a": "There is free, lit parking at the property. Garages on request (TODO: confirm)."
+        "a": "There is free, lit parking at the property. Garages on request (TODO: confirm).",
+        "kw": "parking park van car garage truck parkplatz auto garage парковка машина гараж"
       },
       "q5": {
         "q": "Can you invoice my company?",
-        "a": "TODO: confirm invoicing and payment options."
+        "a": "TODO: confirm invoicing and payment options.",
+        "kw": "invoice company bill vat rechnung firma abrechnen счёт компания фактура"
+      },
+      "q6": {
+        "q": "How does arrival work?",
+        "a": "You receive your personal code before arrival and open the door yourself, at any hour.",
+        "kw": "arrival code door key anreise schlüssel tür приезд ключ дверь"
+      },
+      "q7": {
+        "q": "Is WiFi included?",
+        "a": "Yes, WiFi is included in every apartment.",
+        "kw": "wifi wlan internet wi-fi вайфай интернет"
+      },
+      "q8": {
+        "q": "Are longer stays possible?",
+        "a": "Yes, stays of weeks or months are possible. Long-stay terms: TODO: confirm.",
+        "kw": "long stay month weeks langzeit monate wochen долго месяц недели"
+      },
+      "q9": {
+        "q": "What is the cancellation policy?",
+        "a": "TODO: confirm cancellation terms.",
+        "kw": "cancel cancellation refund storno change booking rebook"
+      },
+      "q10": {
+        "q": "Are pets allowed?",
+        "a": "TODO: confirm pet policy.",
+        "kw": "pet pets dog cat animal"
+      },
+      "q11": {
+        "q": "Is smoking allowed?",
+        "a": "TODO: confirm smoking policy.",
+        "kw": "smoke smoking cigarette balcony"
+      },
+      "q12": {
+        "q": "Are bed linen and towels provided?",
+        "a": "TODO: confirm linen, towels and cleaning during long stays.",
+        "kw": "linen sheets towels bedding cleaning housekeeping"
+      },
+      "q13": {
+        "q": "What is in the kitchen?",
+        "a": "TODO: confirm kitchen equipment.",
+        "kw": "kitchen cook fridge stove oven dishes cutlery coffee"
+      },
+      "q14": {
+        "q": "Is there a washing machine?",
+        "a": "TODO: confirm laundry options.",
+        "kw": "laundry washing machine washer dryer clothes"
+      },
+      "q15": {
+        "q": "Can I drop my luggage early or stay after check-out?",
+        "a": "TODO: confirm early arrival and late check-out options.",
+        "kw": "early late check-out checkout luggage baggage time"
+      },
+      "q16": {
+        "q": "Can a whole team book together?",
+        "a": "TODO: confirm group bookings and discounts.",
+        "kw": "team group crew colleagues several apartments discount"
+      },
+      "q17": {
+        "q": "Are there quiet hours?",
+        "a": "TODO: confirm house rules and quiet hours.",
+        "kw": "quiet noise night rules sleep neighbours"
+      },
+      "q18": {
+        "q": "Do you help with employee registration?",
+        "a": "TODO: confirm registration and confirmation of stay.",
+        "kw": "registration anmeldung meldebescheinigung confirmation employer"
+      },
+      "q19": {
+        "q": "Are utilities included in the price?",
+        "a": "TODO: confirm what is included (electricity, water, heating, WiFi).",
+        "kw": "utilities electricity water heating bills included price costs"
+      },
+      "q20": {
+        "q": "How do I book and pay?",
+        "a": "Send us your dates by WhatsApp. TODO: confirm payment methods.",
+        "kw": "book booking reserve pay payment transfer card cash invoice"
+      },
+      "q21": {
+        "q": "Is there a desk to work at?",
+        "a": "TODO: confirm workspace and WiFi speed.",
+        "kw": "desk work workspace office laptop internet speed"
+      },
+      "q22": {
+        "q": "Is the building accessible?",
+        "a": "TODO: confirm lift and step-free access.",
+        "kw": "accessible wheelchair lift elevator stairs barrier"
       }
-    }
+    },
+    "searchLabel": "Search the questions",
+    "searchPlaceholder": "e.g. parking, deposit, cancel",
+    "clear": "Clear",
+    "count": "{count, plural, one {# question} other {# questions}}",
+    "empty": "Nothing found. Ask us directly.",
+    "askMessage": "Hello! I have a question: {q}",
+    "chips": [
+      "parking",
+      "deposit",
+      "check-in",
+      "invoice",
+      "cancel",
+      "pets"
+    ]
   },
   "Contact": {
     "eyebrow": "Contact",
@@ -222,14 +332,24 @@
     "errorDates": "Departure must be after arrival.",
     "noNumber": "Demo: the WhatsApp number is not set yet (TODO).",
     "privacy": "Nothing is stored on this site.",
-    "message": "Hello! Request from {name}. Arrival: {arrival}, departure: {departure}, guests: {guests}. Notes: {note}"
+    "message": "Hello! Request from {name}. Arrival: {arrival}, departure: {departure}, guests: {guests}. Notes: {note}",
+    "nights": "{count, plural, one {# night} other {# nights}}",
+    "pickDates": "Choose arrival and departure",
+    "pickArrival": "Choose your arrival date",
+    "pickDeparture": "Now choose your departure date",
+    "addToCalendar": "Add to calendar (.ics)",
+    "icsTitle": "Stay: {name}",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month"
   },
   "Footer": {
     "impressum": "Legal notice",
     "privacy": "Privacy policy",
     "rights": "All rights reserved",
     "developedBy": "Developed by",
-    "top": "Back to top"
+    "top": "Back to top",
+    "blueprint": "Blueprint mode",
+    "crosshair": "Crosshair"
   },
   "Blog": {
     "eyebrow": "Blog",
@@ -335,5 +455,30 @@
     "cta": "Request this stay",
     "message": "Hello! I would like to ask about a stay: {nights} nights, {guests} guests, suggested type: {rooms}.",
     "summary": "{nights} nights, {guests} guests"
+  },
+  "Compare": {
+    "hotel": "Hotel room",
+    "apartment": "Apartment",
+    "hint": "Drag the handle to compare",
+    "hotelPoints": [
+      "One room for everything",
+      "Meals out, every day",
+      "Fixed reception hours"
+    ],
+    "aptPoints": [
+      "Living, sleeping and cooking apart",
+      "Cook whenever you like",
+      "Check-in at any hour"
+    ]
+  },
+  "Lightbox": {
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo"
+  },
+  "NoWait": {
+    "arrival": "Arrival",
+    "checkin": "Check-in around the clock",
+    "dial": "24-hour dial"
   }
 }

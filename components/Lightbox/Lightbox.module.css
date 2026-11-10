@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 4.5rem 1rem 2rem;
+  background: color-mix(in srgb, var(--color-ink) 94%, transparent);
+  color: hsl(0 0% 100%);
+  animation: fadeIn 220ms var(--ease-out) both;
+  touch-action: pan-y;
+}
+
+.stage { position: relative; width: min(100%, 78rem); display: grid; gap: var(--space-3); }
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: min(72svh, calc((100vw - 2rem) * 0.75));
+  border: 1px solid hsl(0 0% 100% / 0.35);
+  background: hsl(0 0% 100% / 0.04);
+  clip-path: inset(0 100% 0 0);
+  animation: wipe 700ms var(--ease-out) 80ms forwards;
+}
+.img { object-fit: contain; }
+
+.caption { margin: 0; display: flex; justify-content: space-between; gap: var(--space-3); font-size: var(--text-sm); color: hsl(0 0% 100% / 0.75); }
+.count { font-variant-numeric: tabular-nums; letter-spacing: 0.1em; }
+
+.btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid hsl(0 0% 100% / 0.5);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+.close { top: 1rem; right: 1rem; }
+.prev { top: 50%; left: 1rem; transform: translateY(-50%); }
+.next { top: 50%; right: 1rem; transform: translateY(-50%); }
+.btn:active { opacity: 0.7; }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: hsl(0 0% 100%); color: var(--color-ink); }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes wipe { to { clip-path: inset(0 0 0 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { animation: none; }
+  .frame { clip-path: none; animation: none; }
+}

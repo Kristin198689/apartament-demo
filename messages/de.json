@@ -13,7 +13,9 @@
     "faq": "FAQ",
     "contact": "Kontakt",
     "blog": "Blog",
-    "ruler": "Seitenabschnitte"
+    "ruler": "Seitenabschnitte",
+    "blueprint": "Blueprint-Modus",
+    "crosshair": "Fadenkreuz"
   },
   "Hero": {
     "eyebrow": "Wohnen auf Zeit · {city}",
@@ -64,7 +66,11 @@
         "name": "Flur",
         "desc": "Eingang, Stauraum"
       }
-    }
+    },
+    "bedLabel": "Bettenanordnung",
+    "bedTwin": "Getrennte Betten",
+    "bedDouble": "Doppelbett",
+    "download": "Plan herunterladen (SVG)"
   },
   "Cta": {
     "whatsapp": "Per WhatsApp anfragen",
@@ -116,7 +122,7 @@
   },
   "PlanSection": {
     "eyebrow": "Grundriss",
-    "title": "Linie für Linie gezeichnet",
+    "title": "Wählen Sie Ihren Grundriss",
     "lead": "Wählen Sie einen Typ und schauen Sie in jeden Raum: Größe und Ausstattung."
   },
   "Companies": {
@@ -188,25 +194,129 @@
     "items": {
       "q1": {
         "q": "Gibt es eine Mindestaufenthaltsdauer?",
-        "a": "TODO: Mindestaufenthalt bestätigen."
+        "a": "TODO: Mindestaufenthalt bestätigen.",
+        "kw": "minimum stay nights min mindestaufenthalt mindestdauer минимальный срок ночей"
       },
       "q2": {
         "q": "Wird eine Kaution verlangt?",
-        "a": "TODO: Kaution und Zahlungsbedingungen bestätigen."
+        "a": "TODO: Kaution und Zahlungsbedingungen bestätigen.",
+        "kw": "deposit kaution payment pay залог оплата"
       },
       "q3": {
         "q": "Kann ich auch spätabends einchecken?",
-        "a": "Ja. Der Self-Check-in funktioniert rund um die Uhr mit einem persönlichen Code."
+        "a": "Ja. Der Self-Check-in funktioniert rund um die Uhr mit einem persönlichen Code.",
+        "kw": "late night check-in self code spät nacht einchecken поздно ночью заселение код"
       },
       "q4": {
         "q": "Gibt es Parkplätze für Firmenfahrzeuge?",
-        "a": "Am Haus gibt es kostenlose, beleuchtete Parkplätze. Garagen auf Anfrage (TODO: bestätigen)."
+        "a": "Am Haus gibt es kostenlose, beleuchtete Parkplätze. Garagen auf Anfrage (TODO: bestätigen).",
+        "kw": "parking park van car garage truck parkplatz auto garage парковка машина гараж"
       },
       "q5": {
         "q": "Können Sie auf meine Firma abrechnen?",
-        "a": "TODO: Rechnungsstellung und Zahlungsarten bestätigen."
+        "a": "TODO: Rechnungsstellung und Zahlungsarten bestätigen.",
+        "kw": "invoice company bill vat rechnung firma abrechnen счёт компания фактура"
+      },
+      "q6": {
+        "q": "Wie läuft die Anreise ab?",
+        "a": "Sie erhalten Ihren persönlichen Code vor der Anreise und öffnen die Tür selbst, zu jeder Uhrzeit.",
+        "kw": "arrival code door key anreise schlüssel tür приезд ключ дверь"
+      },
+      "q7": {
+        "q": "Ist WLAN inklusive?",
+        "a": "Ja, WLAN ist in jedem Apartment inklusive.",
+        "kw": "wifi wlan internet wi-fi вайфай интернет"
+      },
+      "q8": {
+        "q": "Sind längere Aufenthalte möglich?",
+        "a": "Ja, auch Aufenthalte über Wochen oder Monate. Konditionen für Langzeitaufenthalte: TODO: bestätigen.",
+        "kw": "long stay month weeks langzeit monate wochen долго месяц недели"
+      },
+      "q9": {
+        "q": "Wie sind die Stornobedingungen?",
+        "a": "TODO: Stornobedingungen bestätigen.",
+        "kw": "storno stornierung stornieren erstattung umbuchen absagen"
+      },
+      "q10": {
+        "q": "Sind Haustiere erlaubt?",
+        "a": "TODO: Haustierregelung bestätigen.",
+        "kw": "haustier haustiere hund katze tier"
+      },
+      "q11": {
+        "q": "Darf geraucht werden?",
+        "a": "TODO: Rauchregelung bestätigen.",
+        "kw": "rauchen raucher zigarette balkon nichtraucher"
+      },
+      "q12": {
+        "q": "Sind Bettwäsche und Handtücher vorhanden?",
+        "a": "TODO: Bettwäsche, Handtücher und Reinigung bei Langzeitaufenthalt bestätigen.",
+        "kw": "bettwäsche handtücher wäsche reinigung putzen"
+      },
+      "q13": {
+        "q": "Was gehört zur Küchenausstattung?",
+        "a": "TODO: Küchenausstattung bestätigen.",
+        "kw": "küche kochen kühlschrank herd ofen geschirr besteck kaffee"
+      },
+      "q14": {
+        "q": "Gibt es eine Waschmaschine?",
+        "a": "TODO: Waschmöglichkeiten bestätigen.",
+        "kw": "waschmaschine wäsche trockner waschen"
+      },
+      "q15": {
+        "q": "Kann ich früher anreisen oder länger bleiben?",
+        "a": "TODO: frühe Anreise und späten Check-out bestätigen.",
+        "kw": "früh spät checkout check-out gepäck uhrzeit anreise abreise"
+      },
+      "q16": {
+        "q": "Kann ein ganzes Team gemeinsam buchen?",
+        "a": "TODO: Gruppenbuchungen und Rabatte bestätigen.",
+        "kw": "team gruppe kollegen mehrere apartments rabatt mitarbeiter"
+      },
+      "q17": {
+        "q": "Gibt es Ruhezeiten?",
+        "a": "TODO: Hausordnung und Ruhezeiten bestätigen.",
+        "kw": "ruhe ruhezeiten lärm nacht hausordnung nachbarn"
+      },
+      "q18": {
+        "q": "Helfen Sie bei der Anmeldung von Mitarbeitern?",
+        "a": "TODO: Anmeldung und Aufenthaltsbestätigung bestätigen.",
+        "kw": "anmeldung meldebescheinigung bestätigung arbeitgeber meldepflicht"
+      },
+      "q19": {
+        "q": "Sind Nebenkosten im Preis enthalten?",
+        "a": "TODO: bestätigen, was enthalten ist (Strom, Wasser, Heizung, WLAN).",
+        "kw": "nebenkosten strom wasser heizung preis inklusive kosten"
+      },
+      "q20": {
+        "q": "Wie buche und bezahle ich?",
+        "a": "Senden Sie uns Ihre Daten per WhatsApp. TODO: Zahlungsarten bestätigen.",
+        "kw": "buchen buchung reservieren zahlen zahlung überweisung karte bar rechnung"
+      },
+      "q21": {
+        "q": "Gibt es einen Schreibtisch zum Arbeiten?",
+        "a": "TODO: Arbeitsplatz und WLAN-Geschwindigkeit bestätigen.",
+        "kw": "schreibtisch arbeiten arbeitsplatz büro laptop internet geschwindigkeit"
+      },
+      "q22": {
+        "q": "Ist das Gebäude barrierefrei?",
+        "a": "TODO: Aufzug und stufenlosen Zugang bestätigen.",
+        "kw": "barrierefrei rollstuhl aufzug lift treppe"
       }
-    }
+    },
+    "searchLabel": "Fragen durchsuchen",
+    "searchPlaceholder": "z. B. Parkplatz, Kaution, Storno",
+    "clear": "Leeren",
+    "count": "{count, plural, one {# Frage} other {# Fragen}}",
+    "empty": "Nichts gefunden. Fragen Sie uns direkt.",
+    "askMessage": "Guten Tag! Ich habe eine Frage: {q}",
+    "chips": [
+      "Parkplatz",
+      "Kaution",
+      "Check-in",
+      "Rechnung",
+      "Storno",
+      "Haustiere"
+    ]
   },
   "Contact": {
     "eyebrow": "Kontakt",
@@ -222,14 +332,24 @@
     "errorDates": "Die Abreise muss nach der Anreise liegen.",
     "noNumber": "Demo: Die WhatsApp-Nummer ist noch nicht hinterlegt (TODO).",
     "privacy": "Auf dieser Seite wird nichts gespeichert.",
-    "message": "Guten Tag! Anfrage von {name}. Anreise: {arrival}, Abreise: {departure}, Personen: {guests}. Anmerkungen: {note}"
+    "message": "Guten Tag! Anfrage von {name}. Anreise: {arrival}, Abreise: {departure}, Personen: {guests}. Anmerkungen: {note}",
+    "nights": "{count, plural, one {# Nacht} other {# Nächte}}",
+    "pickDates": "Anreise und Abreise wählen",
+    "pickArrival": "Wählen Sie das Anreisedatum",
+    "pickDeparture": "Jetzt das Abreisedatum wählen",
+    "addToCalendar": "In den Kalender (.ics)",
+    "icsTitle": "Aufenthalt: {name}",
+    "prevMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat"
   },
   "Footer": {
     "impressum": "Impressum",
     "privacy": "Datenschutz",
     "rights": "Alle Rechte vorbehalten",
     "developedBy": "Entwickelt von",
-    "top": "Nach oben"
+    "top": "Nach oben",
+    "blueprint": "Blueprint-Modus",
+    "crosshair": "Fadenkreuz"
   },
   "Blog": {
     "eyebrow": "Blog",
@@ -335,5 +455,30 @@
     "cta": "Diesen Aufenthalt anfragen",
     "message": "Guten Tag! Ich interessiere mich für einen Aufenthalt: {nights} Nächte, {guests} Gäste, passender Typ: {rooms}.",
     "summary": "{nights} Nächte, {guests} Gäste"
+  },
+  "Compare": {
+    "hotel": "Hotelzimmer",
+    "apartment": "Apartment",
+    "hint": "Regler ziehen und vergleichen",
+    "hotelPoints": [
+      "Ein Raum für alles",
+      "Essen außer Haus, jeden Tag",
+      "Feste Rezeptionszeiten"
+    ],
+    "aptPoints": [
+      "Wohnen, Schlafen und Kochen getrennt",
+      "Kochen, wann Sie wollen",
+      "Check-in zu jeder Uhrzeit"
+    ]
+  },
+  "Lightbox": {
+    "close": "Schließen",
+    "prev": "Vorheriges Foto",
+    "next": "Nächstes Foto"
+  },
+  "NoWait": {
+    "arrival": "Ankunft",
+    "checkin": "Check-in rund um die Uhr",
+    "dial": "24-Stunden-Zifferblatt"
   }
 }

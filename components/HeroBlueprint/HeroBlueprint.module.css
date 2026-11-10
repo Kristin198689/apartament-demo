@@ -74,3 +74,16 @@
   .walls .draw, .inner .draw, .furn .draw { stroke-dashoffset: 0; transition: none; }
   .c .draw, .d .draw { stroke-dashoffset: 0; }
 }
+
+/* Параллакс: слои смещаются по-разному за мышью */
+.walls { transform: translate(calc(var(--mx, 0) * -5px), calc(var(--my, 0) * -3px)); transition: transform 500ms var(--ease-out); }
+.inner path { }
+.svg g.inner, .svg g.furn { transition: transform 500ms var(--ease-out); }
+.svg g.inner { transform: translate(calc(var(--mx, 0) * -9px), calc(var(--my, 0) * -6px)); }
+.svg g.furn { transform: translate(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -9px)); }
+.svg g.c { transform: translate(calc(var(--mx, 0) * -20px), calc(var(--my, 0) * -13px)); transition: transform 500ms var(--ease-out); }
+.svg g.d { transform: translate(calc(var(--mx, 0) * -26px), calc(var(--my, 0) * -17px)); transition: transform 500ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .walls, .svg g.inner, .svg g.furn, .svg g.c, .svg g.d { transform: none; transition: none; }
+}

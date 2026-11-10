@@ -1,0 +1,19 @@
+.layer { position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0; transition: opacity 200ms ease; }
+:global(html[data-crosshair="on"]) .layer { opacity: 1; }
+
+.v, .h { position: absolute; background: var(--color-text); opacity: 0.22; }
+.v { top: 0; bottom: 0; left: 0; width: 1px; }
+.h { left: 0; right: 0; top: 0; height: 1px; }
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1px 6px;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  white-space: pre;
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+}

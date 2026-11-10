@@ -44,14 +44,17 @@ const rect = (x: number, y: number, w: number, h: number) => `M${x} ${y} H${x + 
 const circle = (cx: number, cy: number, r: number) => `M${cx - r} ${cy} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`;
 
 /** Контуры мебели внутри комнаты (простые линии, в координатах плана). */
-export function furniturePaths(r: Room): string[] {
+export type BedMode = "twin" | "double";
+
+export function furniturePaths(r: Room, bed: BedMode = "twin"): string[] {
   const p = 14;
   const { x, y, w, h } = r;
   switch (r.kind) {
     case "sleepLiving":
       return [
-        rect(x + p, y + p, 110, 50), `M${x + p} ${y + p + 18} H${x + p + 110}`,
-        rect(x + p, y + p + 62, 110, 50), `M${x + p} ${y + p + 80} H${x + p + 110}`,
+        ...(bed === "double"
+          ? [rect(x + p, y + p, 120, 108), `M${x + p} ${y + p + 24} H${x + p + 120}`]
+          : [rect(x + p, y + p, 110, 50), `M${x + p} ${y + p + 18} H${x + p + 110}`, rect(x + p, y + p + 62, 110, 50), `M${x + p} ${y + p + 80} H${x + p + 110}`]),
         rect(x + w - 110, y + h - 90, 90, 70),
         rect(x + w - 40, y + p, 26, 110),
       ];
@@ -61,6 +64,9 @@ export function furniturePaths(r: Room): string[] {
       return [rect(x + p, y + p, w - 2 * p, 24), rect(x + p, y + p, 24, h * 0.62), circle(x + p + 60, y + p + 12, 5), circle(x + p + 84, y + p + 12, 5), rect(x + w * 0.4, y + h * 0.52, Math.min(w * 0.42, 96), 54)];
     case "bedroom": {
       const bw = (w - 3 * p) / 2;
+      if (bed === "double") {
+        return [rect(x + p, y + p, w - 2 * p - 30, Math.min(h - 2 * p, 100)), `M${x + p} ${y + p + 26} H${x + w - p - 30}`, rect(x + w - 34, y + p, 20, 30), rect(x + w - 34, y + h - 70, 22, 56)];
+      }
       return [rect(x + p, y + p, bw, Math.min(h - 2 * p, 96)), `M${x + p} ${y + p + 26} H${x + p + bw}`, rect(x + 2 * p + bw, y + p, bw, Math.min(h - 2 * p, 96)), `M${x + 2 * p + bw} ${y + p + 26} H${x + 2 * p + bw + bw}`, rect(x + w - 34, y + h - 70, 22, 56)];
     }
     case "bath":

@@ -58,9 +58,9 @@ export function Apartments() {
         </Reveal>
 
         <div className={styles.gallery}>
-          <PhotoFrame ratio="4 / 3" label={f("kitchen")} src={images.kitchen.src} position={images.kitchen.position} sizes="(min-width: 48rem) 30vw, 100vw" />
-          <PhotoFrame ratio="4 / 3" label={f("bedroom")} src={images.bedroom.src} position={images.bedroom.position} sizes="(min-width: 48rem) 30vw, 100vw" />
-          <PhotoFrame ratio="4 / 3" label={f("bath")} src={images.bath.src} position={images.bath.position} sizes="(min-width: 48rem) 30vw, 100vw" />
+          <PhotoFrame ratio="4 / 3" label={f("kitchen")} group="rooms" src={images.kitchen.src} position={images.kitchen.position} sizes="(min-width: 48rem) 30vw, 100vw" />
+          <PhotoFrame ratio="4 / 3" label={f("bedroom")} group="rooms" src={images.bedroom.src} position={images.bedroom.position} sizes="(min-width: 48rem) 30vw, 100vw" />
+          <PhotoFrame ratio="4 / 3" label={f("bath")} group="rooms" src={images.bath.src} position={images.bath.position} sizes="(min-width: 48rem) 30vw, 100vw" />
         </div>
       </div>
     </section>

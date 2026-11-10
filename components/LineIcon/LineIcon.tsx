@@ -15,7 +15,7 @@ const ICONS = {
 export type IconName = keyof typeof ICONS;
 
 /** Тонкая иконка, «рисуется» при появлении — тот же приём, что у чертежа. */
-export function LineIcon({ name, size = "md" }: { name: IconName; size?: "md" | "sm" }) {
+export function LineIcon({ name, size = "md" }: { name: IconName; size?: "md" | "sm" | "lg" }) {
   const ref = useRef<SVGSVGElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -38,7 +38,7 @@ export function LineIcon({ name, size = "md" }: { name: IconName; size?: "md" | 
   return (
     <svg
       ref={ref}
-      className={`${styles.icon} ${size === "sm" ? styles.sm : ""}`}
+      className={`${styles.icon} ${size === "sm" ? styles.sm : ""} ${size === "lg" ? styles.lg : ""}`}
       viewBox="0 0 48 48"
       aria-hidden="true"
       data-visible={visible}

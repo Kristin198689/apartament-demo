@@ -11,6 +11,7 @@ import { SiteHeader } from "@/components/SiteHeader/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter/SiteFooter";
 import { ScrollRuler } from "@/components/ScrollRuler/ScrollRuler";
 import { PageProgress } from "@/components/PageProgress/PageProgress";
+import { Crosshair } from "@/components/Crosshair/Crosshair";
 import "../globals.css";
 
 export const viewport: Viewport = {
@@ -81,10 +82,19 @@ export default async function LocaleLayout({
   const rulerLabel = (await getTranslations({ locale, namespace: "Nav" }))("ruler");
 
   return (
-    <html lang={locale} className={`${fontSans.variable} ${fontDisplay.variable}`}>
+    <html lang={locale} className={`${fontSans.variable} ${fontDisplay.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var d=document.documentElement;if(localStorage.getItem('theme')==='blueprint')d.setAttribute('data-theme','blueprint');}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider>
           <PageProgress />
+          <Crosshair />
           <SiteHeader />
           <ScrollRuler label={rulerLabel} />
           <div className="header-spacer" aria-hidden="true" />
