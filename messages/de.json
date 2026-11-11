@@ -16,7 +16,7 @@
     "ruler": "Seitenabschnitte",
     "blueprint": "Blueprint-Modus",
     "crosshair": "Fadenkreuz",
-    "sound": "Bleistift-Sound"
+    "sound": "Bleistift-Modus (Ton und Spur)"
   },
   "Hero": {
     "eyebrow": "Wohnen auf Zeit · {city}",
@@ -37,7 +37,7 @@
     "balcony": "Balkon",
     "entrance": "Eingang",
     "type": "Typ",
-    "area": "Fläche",
+    "area": "Flächen",
     "caption": "Schematischer Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad, Balkon und Eingang.",
     "note": "Schematische Darstellung mit Demo-Maßen. Echte Grundrisse: TODO.",
     "typeLabel": "Apartment-Typ",
@@ -83,7 +83,10 @@
       "diffMore": "B ist {d} m² größer als A",
       "diffLess": "B ist {d} m² kleiner als A",
       "diffSame": "Gleiche Fläche"
-    }
+    },
+    "layers": "Ebenen",
+    "furn": "Möbel",
+    "dim": "Maße"
   },
   "Cta": {
     "whatsapp": "Per WhatsApp anfragen",
@@ -477,7 +480,9 @@
     "from": "ab {price} € pro Nacht",
     "cta": "Diesen Aufenthalt anfragen",
     "message": "Guten Tag! Ich interessiere mich für einen Aufenthalt: {nights} Nächte, {guests} Gäste, passender Typ: {rooms}.",
-    "summary": "{nights} Nächte, {guests} Gäste"
+    "summary": "{nights} Nächte, {guests} Gäste",
+    "copy": "Anfrage kopieren",
+    "copied": "Kopiert"
   },
   "Compare": {
     "hotel": "Hotelzimmer",
@@ -541,6 +546,72 @@
         "title": "Ein Ansprechpartner",
         "text": "TODO: Name und WhatsApp des Ansprechpartners für Ihre Firma."
       }
+    },
+    "pdf": "PDF herunterladen"
+  },
+  "Consent": {
+    "text": "Diese Seite setzt keine Tracking-Cookies. Falls wir später Analyse hinzufügen, läuft sie nur mit Ihrer Einwilligung.",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen",
+    "settings": "Cookie-Einstellungen",
+    "label": "Cookie-Hinweis"
+  },
+  "HrPlanner": {
+    "title": "Planen Sie für Ihr Team",
+    "people": "Personen",
+    "weeks": "Wochen",
+    "nights": "{count, plural, one {# Nacht} other {# Nächte}}",
+    "personNights": "{count} Personennächte",
+    "apartments": "Benötigte Apartments",
+    "beds": "Betten gesamt",
+    "area": "Wohnfläche gesamt",
+    "mix": "{count} × {rooms}",
+    "price": "Preis auf Anfrage. Rabatte bei langen Aufenthalten (TODO: bestätigen).",
+    "message": "Guten Tag! Anfrage für ein Team: {people} Personen, {weeks} Wochen ({nights} Nächte). Vorschlag: {mix}."
+  },
+  "Building": {
+    "title": "Das Haus, Etage für Etage",
+    "hint": "Wählen Sie eine Etage.",
+    "now": "Jetzt {time}",
+    "lit": "Abends: die Fenster leuchten",
+    "day": "Tagsüber: die Fenster sind dunkel",
+    "note": "Schematischer Schnitt mit Demo-Inhalt (TODO: echtes Gebäude).",
+    "floors": {
+      "f0": {
+        "name": "Erdgeschoss",
+        "text": "Eingang, Schlüsselsafe, Parkplatz vor der Tür."
+      },
+      "f1": {
+        "name": "1. Etage",
+        "text": "Ein- und Zwei-Zimmer-Apartments."
+      },
+      "f2": {
+        "name": "2. Etage",
+        "text": "Zwei- und Drei-Zimmer-Apartments."
+      },
+      "f3": {
+        "name": "3. Etage",
+        "text": "Drei- und Vier-Zimmer-Apartments, Balkone."
+      }
+    }
+  },
+  "Rules": {
+    "title": "Hausregeln auf einen Blick",
+    "r1": {
+      "t": "Ruhezeiten",
+      "d": "TODO: Ruhezeiten bestätigen."
+    },
+    "r2": {
+      "t": "Reinigung",
+      "d": "TODO: Reinigung bei Langzeitaufenthalt bestätigen."
+    },
+    "r3": {
+      "t": "Schlüssel",
+      "d": "Ein persönlicher Code pro Aufenthalt, kein Schlüssel zum Verlieren."
+    },
+    "r4": {
+      "t": "Check-out",
+      "d": "TODO: Check-out-Zeit bestätigen."
     }
   }
 }

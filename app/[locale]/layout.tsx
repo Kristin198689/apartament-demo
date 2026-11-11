@@ -9,6 +9,8 @@ import { ogImages, ogLocale } from "@/lib/social";
 import type { Locale } from "@/i18n/routing";
 import { SiteHeader } from "@/components/SiteHeader/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter/SiteFooter";
+import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
+import { PencilTrail } from "@/components/PencilTrail/PencilTrail";
 import { ScrollRuler } from "@/components/ScrollRuler/ScrollRuler";
 import { PageProgress } from "@/components/PageProgress/PageProgress";
 import { Crosshair } from "@/components/Crosshair/Crosshair";
@@ -96,11 +98,13 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <PageProgress />
           <Crosshair />
+          <PencilTrail />
           <SiteHeader />
           <ScrollRuler label={rulerLabel} />
           <div className="header-spacer" aria-hidden="true" />
           <main>{children}</main>
           <SiteFooter />
+          <CookieConsent />
           <div className="print-stamp" aria-hidden="true">{stamp}</div>
         </NextIntlClientProvider>
       </body>

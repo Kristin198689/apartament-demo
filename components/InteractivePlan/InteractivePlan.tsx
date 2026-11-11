@@ -17,6 +17,7 @@ export function InteractivePlan() {
   const a = useTranslations("Apartments");
   const [rooms, setRooms] = useState<1 | 2 | 3 | 4>(2);
   const [bed, setBed] = useState<BedMode>("twin");
+  const [layers, setLayers] = useState({ furn: true, dim: true, area: true });
   const svgRef = useRef<SVGSVGElement>(null);
   const type = apartmentTypes.find((x) => x.rooms === rooms)!;
   const layout = planLayouts[rooms];
@@ -107,10 +108,15 @@ export function InteractivePlan() {
         <button type="button" aria-pressed={bed === "twin"} onClick={() => setBed("twin")}>{t("bedTwin")}</button>
         <button type="button" aria-pressed={bed === "double"} onClick={() => setBed("double")}>{t("bedDouble")}</button>
       </div>
+      <div className={styles.bed} role="group" aria-label={t("layers")}>
+        {(["furn", "dim", "area"] as const).map((k) => (
+          <button key={k} type="button" aria-pressed={layers[k]} onClick={() => setLayers({ ...layers, [k]: !layers[k] })}>{t(k)}</button>
+        ))}
+      </div>
       </div>
 
       <div className={styles.stage}>
-        <svg ref={svgRef} className={styles.svg} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false" onPointerMove={onMove} onPointerLeave={() => setCur(null)}>
+        <svg ref={svgRef} className={styles.svg} data-nofurn={!layers.furn} data-nodim={!layers.dim} data-noarea={!layers.area} viewBox={`0 0 ${PLAN_W + 120} ${PLAN_H + 130}`} role="img" aria-label={t("caption")} focusable="false" onPointerMove={onMove} onPointerLeave={() => setCur(null)}>
           <g key={rooms} transform="translate(60 70)">
             {/* подсветка активной комнаты */}
             <rect x={active.x} y={active.y} width={active.w} height={active.h} className={styles.hl} />

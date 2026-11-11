@@ -16,3 +16,5 @@
 .table th { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 400; }
 .note { color: var(--color-text-muted); font-size: var(--text-sm); }
 .back { text-decoration: none; }
+
+.pdf { align-self: center; color: var(--color-text); text-underline-offset: 0.3em; text-decoration: underline; text-decoration-thickness: 1px; }

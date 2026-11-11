@@ -1,0 +1,16 @@
+.wrap { display: grid; gap: var(--space-4); margin-top: var(--space-6); padding: var(--space-5) 0; border-block: 1px solid var(--color-line); }
+.title { font-size: var(--text-xl); }
+.controls { display: grid; gap: var(--space-4); }
+@media (min-width: 48rem) { .controls { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+.control { display: grid; gap: var(--space-2); }
+.row { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--text-sm); color: var(--color-text-muted); }
+.row output { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-text); line-height: 1; }
+.control input[type="range"] { width: 100%; accent-color: var(--color-text); min-height: 2.75rem; }
+.result { margin: 0; display: grid; gap: var(--space-4); grid-template-columns: 1fr 1fr; }
+@media (min-width: 48rem) { .result { grid-template-columns: repeat(4, 1fr); } }
+.result dt { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); }
+.result dd { margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.1; letter-spacing: -0.03em; display: grid; }
+.result dd span { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0; color: var(--color-text-muted); }
+.small { font-size: var(--text-lg) !important; }
+.note { margin: 0; color: var(--color-text-muted); font-size: var(--text-sm); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }

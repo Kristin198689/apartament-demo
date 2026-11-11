@@ -78,3 +78,8 @@
 
 .cad path { stroke: var(--color-text); stroke-width: 0.6; stroke-dasharray: 4 4; opacity: 0.55; }
 .cad text { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.06em; fill: var(--color-text); paint-order: stroke; stroke: var(--color-bg); stroke-width: 4px; }
+
+.svg .furn, .svg .dim, .svg .dimText, .svg .area { transition: opacity var(--duration-base) var(--ease-out); }
+.svg[data-nofurn="true"] .furn { opacity: 0; }
+.svg[data-nodim="true"] .dim, .svg[data-nodim="true"] .dimText { opacity: 0; }
+.svg[data-noarea="true"] .area { opacity: 0; }

@@ -7,6 +7,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 import { apartmentTypes } from "@/config/property";
 import { Button } from "@/components/Button/Button";
 import { Breadcrumbs } from "@/components/Breadcrumbs/Breadcrumbs";
+import { HrPlanner } from "@/components/HrPlanner/HrPlanner";
 import { PrintButton } from "@/components/PrintButton/PrintButton";
 import styles from "./hr.module.css";
 
@@ -37,8 +38,11 @@ export default async function HrPage({ params }: PageProps<"/[locale]/hr">) {
         <div className={`${styles.actions} no-print`}>
           <PrintButton label={t("print")} />
           <Button href={whatsappUrl(c("message"))} variant="ghost">{t("cta")}</Button>
+          <a href={`/pdf/hr-${locale}.pdf`} download className={styles.pdf}>{t("pdf")}</a>
         </div>
       </header>
+
+      <HrPlanner />
 
       <ol className={styles.list}>
         {KEYS.map((k, i) => (

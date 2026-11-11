@@ -38,7 +38,7 @@ type Props = {
  */
 export function PhotoFrame({ ratio = "4 / 3", ratioMobile, label, video, poster, src, position, priority = false, sizes = "(min-width: 64rem) 40vw, 100vw", zoom = true, group, variant = "default", className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(priority); // первый экран открывается сразу, не дожидаясь скрипта (LCP)
   const videoRef = useRef<HTMLVideoElement>(null);
   const [lb, setLb] = useState<{ items: LightboxItem[]; index: number } | null>(null);
   const canZoom = Boolean(src) && zoom && !video;

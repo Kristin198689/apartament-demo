@@ -50,3 +50,5 @@
   .controls { grid-column: 2; }
   .result { grid-column: 3; }
 }
+
+.cta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }

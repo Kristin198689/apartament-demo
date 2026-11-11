@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { apartmentTypes } from "@/config/property";
 import { isTodo } from "@/config/site";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { CopyButton } from "@/components/CopyButton/CopyButton";
 import { Button } from "@/components/Button/Button";
 import styles from "./StayCalculator.module.css";
 
@@ -17,6 +18,18 @@ export function StayCalculator() {
   const a = useTranslations("Apartments");
   const [nights, setNights] = useState(7);
   const [guests, setGuests] = useState(2);
+
+  // выбор запоминается в браузере: вернулись позже и видите прежний расчёт
+  useEffect(() => {
+    try {
+      const d = JSON.parse(localStorage.getItem("calc") ?? "null");
+      if (d && d.nights >= 1 && d.nights <= 90) setNights(d.nights);
+      if (d && d.guests >= 1 && d.guests <= 8) setGuests(d.guests);
+    } catch { /* ignore */ }
+  }, []);
+  useEffect(() => {
+    try { localStorage.setItem("calc", JSON.stringify({ nights, guests })); } catch { /* ignore */ }
+  }, [nights, guests]);
 
   const fit = apartmentTypes.find((x) => Number(x.guests) >= guests) ?? apartmentTypes[apartmentTypes.length - 1];
   const hasPrice = !isTodo(fit.priceFrom);
@@ -69,6 +82,7 @@ export function StayCalculator() {
         {nights >= 30 ? <p className={styles.note}>{t("long")}</p> : null}
         <div className={styles.cta}>
           <Button href={whatsappUrl(text)} size="sm">{t("cta")}</Button>
+          <CopyButton text={text} label={t("copy")} doneLabel={t("copied")} />
         </div>
       </div>
     </div>

@@ -4,10 +4,12 @@ import { developer, siteConfig } from "@/config/site";
 import { Rule } from "@/components/Rule/Rule";
 import { BackToTop } from "@/components/BackToTop/BackToTop";
 import { Wordmark } from "@/components/Wordmark/Wordmark";
+import { CookieSettingsLink } from "@/components/CookieConsent/CookieConsent";
 import styles from "./SiteFooter.module.css";
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
+  const c = useTranslations("Consent");
   const year = new Date().getFullYear();
 
   return (
@@ -20,6 +22,7 @@ export function SiteFooter() {
           <ul className={styles.links}>
             <li><Link href="/impressum">{t("impressum")}</Link></li>
             <li><Link href="/datenschutz">{t("privacy")}</Link></li>
+            <li><CookieSettingsLink label={c("settings")} /></li>
           </ul>
           <BackToTop label={t("top")} />
         </div>

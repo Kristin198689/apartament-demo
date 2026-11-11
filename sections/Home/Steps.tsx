@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { ArrivalThread } from "@/components/ArrivalThread/ArrivalThread";
 import { CountUp } from "@/components/CountUp/CountUp";
+import { HouseRules } from "@/components/HouseRules/HouseRules";
 import { KeyCodeDemo } from "@/components/KeyCodeDemo/KeyCodeDemo";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
@@ -33,6 +34,9 @@ export function Steps() {
         </Reveal>
         <Reveal>
           <KeyCodeDemo />
+        </Reveal>
+        <Reveal>
+          <HouseRules />
         </Reveal>
       </div>
     </section>

@@ -16,7 +16,7 @@
     "ruler": "Page sections",
     "blueprint": "Blueprint mode",
     "crosshair": "Crosshair",
-    "sound": "Pencil sound"
+    "sound": "Pencil mode (sound and trail)"
   },
   "Hero": {
     "eyebrow": "Short and long stays · {city}",
@@ -37,7 +37,7 @@
     "balcony": "Balcony",
     "entrance": "Entrance",
     "type": "Type",
-    "area": "Area",
+    "area": "Areas",
     "caption": "Schematic floor plan of a typical apartment: living area with kitchen, bedroom, bathroom, balcony and entrance.",
     "note": "Schematic layout with demo dimensions. Real floor plans: TODO.",
     "typeLabel": "Apartment type",
@@ -83,7 +83,10 @@
       "diffMore": "B is {d} m² larger than A",
       "diffLess": "B is {d} m² smaller than A",
       "diffSame": "Same area"
-    }
+    },
+    "layers": "Layers",
+    "furn": "Furniture",
+    "dim": "Dimensions"
   },
   "Cta": {
     "whatsapp": "Request via WhatsApp",
@@ -477,7 +480,9 @@
     "from": "from {price} € per night",
     "cta": "Request this stay",
     "message": "Hello! I would like to ask about a stay: {nights} nights, {guests} guests, suggested type: {rooms}.",
-    "summary": "{nights} nights, {guests} guests"
+    "summary": "{nights} nights, {guests} guests",
+    "copy": "Copy request",
+    "copied": "Copied"
   },
   "Compare": {
     "hotel": "Hotel room",
@@ -541,6 +546,72 @@
         "title": "One contact person",
         "text": "TODO: name and WhatsApp of the contact person for your company."
       }
+    },
+    "pdf": "Download PDF"
+  },
+  "Consent": {
+    "text": "This site sets no tracking cookies. If we add analytics later, it only runs with your consent.",
+    "accept": "Accept",
+    "reject": "Decline",
+    "settings": "Cookie settings",
+    "label": "Cookie notice"
+  },
+  "HrPlanner": {
+    "title": "Plan for your team",
+    "people": "People",
+    "weeks": "Weeks",
+    "nights": "{count, plural, one {# night} other {# nights}}",
+    "personNights": "{count} person-nights",
+    "apartments": "Apartments needed",
+    "beds": "Beds in total",
+    "area": "Living area in total",
+    "mix": "{count} × {rooms}",
+    "price": "Price on request. Discounts for long stays (TODO: confirm).",
+    "message": "Hello! Request for a team: {people} people, {weeks} weeks ({nights} nights). Suggested: {mix}."
+  },
+  "Building": {
+    "title": "The building, floor by floor",
+    "hint": "Choose a floor.",
+    "now": "Now {time}",
+    "lit": "Evening: the windows are lit",
+    "day": "Daytime: the windows are dark",
+    "note": "Schematic section with demo content (TODO: real building).",
+    "floors": {
+      "f0": {
+        "name": "Ground floor",
+        "text": "Entrance, key safe, parking at the door."
+      },
+      "f1": {
+        "name": "First floor",
+        "text": "One- and two-room apartments."
+      },
+      "f2": {
+        "name": "Second floor",
+        "text": "Two- and three-room apartments."
+      },
+      "f3": {
+        "name": "Third floor",
+        "text": "Three- and four-room apartments, balconies."
+      }
+    }
+  },
+  "Rules": {
+    "title": "House rules at a glance",
+    "r1": {
+      "t": "Quiet hours",
+      "d": "TODO: confirm quiet hours."
+    },
+    "r2": {
+      "t": "Cleaning",
+      "d": "TODO: confirm cleaning during long stays."
+    },
+    "r3": {
+      "t": "Keys",
+      "d": "One personal code per stay, no key to lose."
+    },
+    "r4": {
+      "t": "Check-out",
+      "d": "TODO: confirm check-out time."
     }
   }
 }

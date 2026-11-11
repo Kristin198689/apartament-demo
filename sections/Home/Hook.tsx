@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { BuildingSection } from "@/components/BuildingSection/BuildingSection";
 import { ElevationDrawing } from "@/components/ElevationDrawing/ElevationDrawing";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { Rule } from "@/components/Rule/Rule";
@@ -19,6 +20,9 @@ export function Hook() {
           <p className={styles.lead}>{t("lead")}</p>
         </Reveal>
         <ElevationDrawing label={t("caption")} width={planDemo.facadeWidth} />
+        <Reveal>
+          <BuildingSection />
+        </Reveal>
       </div>
     </section>
   );

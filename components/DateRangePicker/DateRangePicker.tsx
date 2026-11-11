@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site";
 import { Arrow } from "@/components/Arrow/Arrow";
@@ -32,6 +32,21 @@ export function DateRangePicker() {
   const [end, setEnd] = useState<string>("");
   const [hover, setHover] = useState<string>("");
   const [openPanel, setOpenPanel] = useState(false);
+
+  // даты запоминаются; прошедшие не восстанавливаем
+  useEffect(() => {
+    try {
+      const d = JSON.parse(localStorage.getItem("dates") ?? "null");
+      if (d?.start && d.start >= iso(today)) {
+        setStart(d.start);
+        if (d.end && d.end > d.start) setEnd(d.end);
+        setView(new Date(parse(d.start).getFullYear(), parse(d.start).getMonth(), 1));
+      }
+    } catch { /* ignore */ }
+  }, [today]);
+  useEffect(() => {
+    try { localStorage.setItem("dates", JSON.stringify({ start, end })); } catch { /* ignore */ }
+  }, [start, end]);
 
   const fmtDay = (s: string) => (s ? new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" }).format(parse(s)) : "—");
   const monthLabel = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(view);
@@ -130,7 +145,7 @@ export function DateRangePicker() {
             </button>
           </div>
 
-          <div className={styles.grid} role="grid" aria-label={monthLabel}>
+          <div className={styles.grid} role="group" aria-label={monthLabel}>
             {weekdays.map((w) => <span key={w} className={styles.wd}>{w}</span>)}
             {cells.map((d, i) => {
               if (!d) return <span key={`e${i}`} />;

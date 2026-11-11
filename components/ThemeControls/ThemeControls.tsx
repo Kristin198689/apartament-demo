@@ -59,6 +59,7 @@ export function ThemeControls({ blueprintLabel, crosshairLabel, soundLabel }: Pr
     const next = !sound;
     setSound(next);
     write("sound", next ? "on" : "off");
+    window.dispatchEvent(new CustomEvent("pencil-change", { detail: next }));
   }
 
   function toggleBlueprint() {
