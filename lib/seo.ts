@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
+import { isTodo, siteConfig } from "@/config/site";
 import { routing, type Locale } from "@/i18n/routing";
 
 /** canonical + hreflang для страницы. path — без локали, напр. "/blog". */
@@ -17,5 +17,5 @@ export function jsonLd(data: unknown): string {
 
 /** Базовый адрес сайта: реальный домен, если задан, иначе локальный. */
 export function siteUrl(): string {
-  return siteConfig.domain === "TODO" ? "http://localhost:3000" : siteConfig.domain;
+  return isTodo(siteConfig.domain) ? "http://localhost:3000" : siteConfig.domain;
 }

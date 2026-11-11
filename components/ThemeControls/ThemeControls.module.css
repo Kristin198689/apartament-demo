@@ -25,11 +25,6 @@
 
 .text { display: none; }
 
-/* перекрестье имеет смысл только с мышью */
-.cross { display: none; }
-@media (hover: hover) and (pointer: fine) and (min-width: 64rem) {
-  .cross { display: inline-flex; }
-}
 
 /* на широких экранах рядом со значком подпись */
 @media (min-width: 90rem) {

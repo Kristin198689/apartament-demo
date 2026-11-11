@@ -14,15 +14,16 @@ export function Crosshair() {
   const label = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 64rem)");
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     const compute = () => {
-      let pref = true;
-      try { pref = localStorage.getItem("crosshair") !== "off"; } catch { /* ignore */ }
-      setEnabled(mq.matches && !reduce.matches && pref);
+      // с мышью по умолчанию включено, на телефоне — только если включили кнопкой в шапке
+      let v: string | null = null;
+      try { v = localStorage.getItem("crosshair"); } catch { /* ignore */ }
+      setEnabled(!reduce.matches && (mq.matches ? v !== "off" : v === "on"));
     };
     compute();
-    const onChange = (e: Event) => setEnabled(mq.matches && !reduce.matches && (e as CustomEvent<boolean>).detail);
+    const onChange = (e: Event) => setEnabled(!reduce.matches && (e as CustomEvent<boolean>).detail);
     mq.addEventListener("change", compute);
     window.addEventListener("crosshair-change", onChange);
     return () => {
@@ -40,7 +41,7 @@ export function Crosshair() {
       if (v.current) v.current.style.transform = `translateX(${x}px)`;
       if (h.current) h.current.style.transform = `translateY(${y}px)`;
       if (label.current) {
-        label.current.style.transform = `translate(${x + 12}px, ${y + 12}px)`;
+        label.current.style.transform = `translate(${Math.min(x + 12, innerWidth - 130)}px, ${Math.max(y - 36, 4)}px)`;
         label.current.textContent = `x ${String(Math.round(x)).padStart(4, "0")}  y ${String(Math.round(y + window.scrollY)).padStart(4, "0")}`;
       }
     };
@@ -51,11 +52,28 @@ export function Crosshair() {
       if (!raf) raf = requestAnimationFrame(draw);
     };
     const onLeave = () => { delete document.documentElement.dataset.crosshair; };
+    // палец: перекрестье следует за касанием, подпись чуть выше пальца
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (!t) return;
+      x = t.clientX;
+      y = t.clientY;
+      document.documentElement.dataset.crosshair = "on";
+      if (!raf) raf = requestAnimationFrame(draw);
+    };
     window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseleave", onLeave);
+    window.addEventListener("touchstart", onTouch, { passive: true });
+    window.addEventListener("touchmove", onTouch, { passive: true });
+    window.addEventListener("touchend", onLeave, { passive: true });
+    window.addEventListener("touchcancel", onLeave, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseleave", onLeave);
+      window.removeEventListener("touchstart", onTouch);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("touchend", onLeave);
+      window.removeEventListener("touchcancel", onLeave);
       delete document.documentElement.dataset.crosshair;
       if (raf) cancelAnimationFrame(raf);
     };

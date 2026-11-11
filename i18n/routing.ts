@@ -6,7 +6,8 @@ import { defineRouting } from "next-intl/routing";
  */
 export const routing = defineRouting({
   locales: ["en", "de", "ru"],
-  defaultLocale: "en",
+  defaultLocale: "de",
+  localeDetection: false, // корень сайта всегда открывает немецкую версию, независимо от языка браузера
 });
 
 export type Locale = (typeof routing.locales)[number];

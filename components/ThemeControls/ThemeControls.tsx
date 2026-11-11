@@ -23,7 +23,9 @@ export function ThemeControls({ blueprintLabel, crosshairLabel, soundLabel }: Pr
 
   useEffect(() => {
     setBlueprint(document.documentElement.dataset.theme === "blueprint");
-    setCross(read("crosshair") !== "off");
+    // с мышью перекрестье включено по умолчанию, на телефоне — выключено
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    setCross(fine ? read("crosshair") !== "off" : read("crosshair") === "on");
     setSound(read("sound") === "on");
   }, []);
 

@@ -5,7 +5,7 @@
 export const siteConfig = {
   name: "Apartament Demo",
   city: "Musterstadt", // нейтральное демо-название; заменить на город заказчика
-  domain: "TODO", // напр. https://example.com
+  domain: "https://apartament-demo.vercel.app", // демо-деплой; заменить на домен заказчика
   whatsappNumber: "TODO", // международный формат без "+", напр. 491701234567
   email: "TODO",
   phone: "TODO",
