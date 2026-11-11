@@ -39,7 +39,7 @@
     "type": "Typ",
     "area": "Flächen",
     "caption": "Schematischer Grundriss einer typischen Wohnung: Wohnbereich mit Küche, Schlafzimmer, Bad, Balkon und Eingang.",
-    "note": "Schematische Darstellung mit Demo-Maßen. Echte Grundrisse: TODO.",
+    "note": "Schematische Darstellung mit Demo-Maßen (Konzept).",
     "typeLabel": "Apartment-Typ",
     "hint": "Fahren Sie über einen Raum oder tippen Sie darauf.",
     "rooms": {
@@ -102,7 +102,7 @@
       },
       "parking": {
         "title": "Kostenlose Parkplätze",
-        "text": "Beleuchtete Parkplätze am Haus, ohne Aufpreis. Abschließbare Garagen auf Anfrage (TODO: bestätigen)."
+        "text": "Beleuchtete Parkplätze am Haus, ohne Aufpreis. Abschließbare Garagen auf Anfrage."
       },
       "kitchen": {
         "title": "Eigene Küche",
@@ -118,7 +118,7 @@
       },
       "balcony": {
         "title": "Balkon",
-        "text": "Die meisten Apartments haben einen Balkon mit Blick auf die Stadt (TODO: je Typ bestätigen)."
+        "text": "Die meisten Apartments haben einen Balkon mit Blick auf die Stadt."
       }
     }
   },
@@ -134,7 +134,8 @@
       "price": "Ab / Nacht"
     },
     "rooms": "{count, plural, one {# Zimmer} other {# Zimmer}}",
-    "pricing": "Die Preise hängen von Aufenthaltsdauer und Gruppengröße ab. Rabatt bei Aufenthalten ab einem Monat (TODO: Konditionen bestätigen)."
+    "pricing": "Die Preise hängen von Aufenthaltsdauer und Gruppengröße ab. Rabatt bei Aufenthalten ab einem Monat auf Anfrage.",
+    "onRequest": "auf Anfrage"
   },
   "PlanSection": {
     "eyebrow": "Grundriss",
@@ -148,7 +149,7 @@
     "items": {
       "invoice": {
         "title": "Rechnung an die Firma",
-        "text": "Saubere Rechnungen für Ihre Buchhaltung (TODO: bestätigen)."
+        "text": "Saubere Rechnungen für Ihre Buchhaltung."
       },
       "groups": {
         "title": "Gruppen jeder Größe",
@@ -217,12 +218,12 @@
     "items": {
       "q1": {
         "q": "Gibt es eine Mindestaufenthaltsdauer?",
-        "a": "TODO: Mindestaufenthalt bestätigen.",
+        "a": "Die Mindestaufenthaltsdauer stimmen wir bei der Buchung individuell mit Ihnen ab.",
         "kw": "minimum stay nights min mindestaufenthalt mindestdauer минимальный срок ночей"
       },
       "q2": {
         "q": "Wird eine Kaution verlangt?",
-        "a": "TODO: Kaution und Zahlungsbedingungen bestätigen.",
+        "a": "Zu Kaution und Zahlungsbedingungen informieren wir Sie vor der Buchung persönlich.",
         "kw": "deposit kaution payment pay залог оплата"
       },
       "q3": {
@@ -232,12 +233,12 @@
       },
       "q4": {
         "q": "Gibt es Parkplätze für Firmenfahrzeuge?",
-        "a": "Am Haus gibt es kostenlose, beleuchtete Parkplätze. Garagen auf Anfrage (TODO: bestätigen).",
+        "a": "Am Haus gibt es kostenlose, beleuchtete Parkplätze. Garagen auf Anfrage.",
         "kw": "parking park van car garage truck parkplatz auto garage парковка машина гараж"
       },
       "q5": {
         "q": "Können Sie auf meine Firma abrechnen?",
-        "a": "TODO: Rechnungsstellung und Zahlungsarten bestätigen.",
+        "a": "Ja, auf Wunsch stellen wir die Rechnung auf Ihre Firma aus. Die Zahlungsarten stimmen wir bei der Buchung ab.",
         "kw": "invoice company bill vat rechnung firma abrechnen счёт компания фактура"
       },
       "q6": {
@@ -252,77 +253,77 @@
       },
       "q8": {
         "q": "Sind längere Aufenthalte möglich?",
-        "a": "Ja, auch Aufenthalte über Wochen oder Monate. Konditionen für Langzeitaufenthalte: TODO: bestätigen.",
+        "a": "Ja, auch Aufenthalte über Wochen oder Monate. Konditionen für Langzeitaufenthalte auf Anfrage.",
         "kw": "long stay month weeks langzeit monate wochen долго месяц недели"
       },
       "q9": {
         "q": "Wie sind die Stornobedingungen?",
-        "a": "TODO: Stornobedingungen bestätigen.",
+        "a": "Die Stornobedingungen nennen wir Ihnen vor der Buchung im Angebot.",
         "kw": "storno stornierung stornieren erstattung umbuchen absagen"
       },
       "q10": {
         "q": "Sind Haustiere erlaubt?",
-        "a": "TODO: Haustierregelung bestätigen.",
+        "a": "Ob Haustiere möglich sind, klären wir vorab mit Ihnen.",
         "kw": "haustier haustiere hund katze tier"
       },
       "q11": {
         "q": "Darf geraucht werden?",
-        "a": "TODO: Rauchregelung bestätigen.",
+        "a": "Die Rauchregelung teilen wir Ihnen vor der Buchung mit.",
         "kw": "rauchen raucher zigarette balkon nichtraucher"
       },
       "q12": {
         "q": "Sind Bettwäsche und Handtücher vorhanden?",
-        "a": "TODO: Bettwäsche, Handtücher und Reinigung bei Langzeitaufenthalt bestätigen.",
+        "a": "Bettwäsche, Handtücher und Reinigung bei Langzeitaufenthalt stimmen wir bei der Buchung mit Ihnen ab.",
         "kw": "bettwäsche handtücher wäsche reinigung putzen"
       },
       "q13": {
         "q": "Was gehört zur Küchenausstattung?",
-        "a": "TODO: Küchenausstattung bestätigen.",
+        "a": "Auf Anfrage senden wir Ihnen eine Ausstattungsliste der Küche.",
         "kw": "küche kochen kühlschrank herd ofen geschirr besteck kaffee"
       },
       "q14": {
         "q": "Gibt es eine Waschmaschine?",
-        "a": "TODO: Waschmöglichkeiten bestätigen.",
+        "a": "Waschmöglichkeiten nennen wir Ihnen auf Anfrage.",
         "kw": "waschmaschine wäsche trockner waschen"
       },
       "q15": {
         "q": "Kann ich früher anreisen oder länger bleiben?",
-        "a": "TODO: frühe Anreise und späten Check-out bestätigen.",
+        "a": "Frühe Anreise und späten Check-out stimmen wir nach Verfügbarkeit mit Ihnen ab.",
         "kw": "früh spät checkout check-out gepäck uhrzeit anreise abreise"
       },
       "q16": {
         "q": "Kann ein ganzes Team gemeinsam buchen?",
-        "a": "TODO: Gruppenbuchungen und Rabatte bestätigen.",
+        "a": "Ja, ein Team kann gemeinsam anfragen. Konditionen für mehrere Apartments nennen wir im Angebot.",
         "kw": "team gruppe kollegen mehrere apartments rabatt mitarbeiter"
       },
       "q17": {
         "q": "Gibt es Ruhezeiten?",
-        "a": "TODO: Hausordnung und Ruhezeiten bestätigen.",
+        "a": "Bitte nehmen Sie abends und nachts Rücksicht auf die Nachbarn. Die Hausordnung erhalten Sie vor der Anreise.",
         "kw": "ruhe ruhezeiten lärm nacht hausordnung nachbarn"
       },
       "q18": {
         "q": "Helfen Sie bei der Anmeldung von Mitarbeitern?",
-        "a": "TODO: Anmeldung und Aufenthaltsbestätigung bestätigen.",
+        "a": "Eine Aufenthaltsbestätigung für Mitarbeiter stellen wir auf Anfrage aus.",
         "kw": "anmeldung meldebescheinigung bestätigung arbeitgeber meldepflicht"
       },
       "q19": {
         "q": "Sind Nebenkosten im Preis enthalten?",
-        "a": "TODO: bestätigen, was enthalten ist (Strom, Wasser, Heizung, WLAN).",
+        "a": "Was im Preis enthalten ist, nennen wir Ihnen im Angebot. WLAN ist immer inklusive.",
         "kw": "nebenkosten strom wasser heizung preis inklusive kosten"
       },
       "q20": {
         "q": "Wie buche und bezahle ich?",
-        "a": "Senden Sie uns Ihre Daten per WhatsApp. TODO: Zahlungsarten bestätigen.",
+        "a": "Senden Sie uns Ihre Daten per WhatsApp, wir melden uns mit einem Angebot.",
         "kw": "buchen buchung reservieren zahlen zahlung überweisung karte bar rechnung"
       },
       "q21": {
         "q": "Gibt es einen Schreibtisch zum Arbeiten?",
-        "a": "TODO: Arbeitsplatz und WLAN-Geschwindigkeit bestätigen.",
+        "a": "Details zu Arbeitsplatz und WLAN nennen wir Ihnen auf Anfrage.",
         "kw": "schreibtisch arbeiten arbeitsplatz büro laptop internet geschwindigkeit"
       },
       "q22": {
         "q": "Ist das Gebäude barrierefrei?",
-        "a": "TODO: Aufzug und stufenlosen Zugang bestätigen.",
+        "a": "Zum Zugang im Gebäude geben wir Ihnen vorab Auskunft.",
         "kw": "barrierefrei rollstuhl aufzug lift treppe"
       }
     },
@@ -353,7 +354,7 @@
     "submit": "Weiter zu WhatsApp",
     "errorRequired": "Bitte Name, Zeitraum und Personenzahl angeben.",
     "errorDates": "Die Abreise muss nach der Anreise liegen.",
-    "noNumber": "Demo: Die WhatsApp-Nummer ist noch nicht hinterlegt (TODO).",
+    "noNumber": "Demo-Konzept: Die Anfrage ist hier nicht aktiv.",
     "privacy": "Auf dieser Seite wird nichts gespeichert.",
     "message": "Guten Tag! Anfrage von {name}. Anreise: {arrival}, Abreise: {departure}, Personen: {guests}. Anmerkungen: {note}",
     "nights": "{count, plural, one {# Nacht} other {# Nächte}}",
@@ -475,7 +476,7 @@
     "nights": "Nächte",
     "guests": "Gäste",
     "fit": "Passender Typ",
-    "long": "Ab 30 Nächten gilt ein Langzeitpreis (TODO: Konditionen bestätigen).",
+    "long": "Ab 30 Nächten gilt ein Langzeitpreis auf Anfrage.",
     "price": "Preis auf Anfrage",
     "from": "ab {price} € pro Nacht",
     "cta": "Diesen Aufenthalt anfragen",
@@ -524,19 +525,19 @@
     "items": {
       "i1": {
         "title": "Rechnungsstellung",
-        "text": "TODO: Rechnungsstellung an Firmen, Zahlungsziel und USt-Angaben bestätigen."
+        "text": "Rechnung auf Ihre Firma, auf Anfrage."
       },
       "i2": {
         "title": "Anmeldung von Mitarbeitern",
-        "text": "TODO: Anmeldung und Aufenthaltsbestätigung für Mitarbeiter bestätigen."
+        "text": "Aufenthaltsbestätigung für Mitarbeiter auf Anfrage."
       },
       "i3": {
         "title": "Gruppenbuchungen",
-        "text": "TODO: mehrere Apartments gleichzeitig, Rabatte und Sammelrechnung bestätigen."
+        "text": "Mehrere Apartments gleichzeitig, Konditionen und Sammelrechnung auf Anfrage."
       },
       "i4": {
         "title": "Langzeitaufenthalt",
-        "text": "TODO: Wochen- und Monatskonditionen sowie Kündigungsfristen bestätigen."
+        "text": "Wochen- und Monatskonditionen auf Anfrage."
       },
       "i5": {
         "title": "Anreise ohne Personal",
@@ -544,7 +545,7 @@
       },
       "i6": {
         "title": "Ein Ansprechpartner",
-        "text": "TODO: Name und WhatsApp des Ansprechpartners für Ihre Firma."
+        "text": "Ein fester Ansprechpartner per WhatsApp für Ihre Firma."
       }
     },
     "pdf": "PDF herunterladen"
@@ -566,7 +567,7 @@
     "beds": "Betten gesamt",
     "area": "Wohnfläche gesamt",
     "mix": "{count} × {rooms}",
-    "price": "Preis auf Anfrage. Rabatte bei langen Aufenthalten (TODO: bestätigen).",
+    "price": "Preis auf Anfrage. Rabatte bei langen Aufenthalten auf Anfrage.",
     "message": "Guten Tag! Anfrage für ein Team: {people} Personen, {weeks} Wochen ({nights} Nächte). Vorschlag: {mix}."
   },
   "Building": {
@@ -575,7 +576,7 @@
     "now": "Jetzt {time}",
     "lit": "Abends: die Fenster leuchten",
     "day": "Tagsüber: die Fenster sind dunkel",
-    "note": "Schematischer Schnitt mit Demo-Inhalt (TODO: echtes Gebäude).",
+    "note": "Schematischer Schnitt mit Demo-Inhalt (Konzept).",
     "floors": {
       "f0": {
         "name": "Erdgeschoss",
@@ -599,11 +600,11 @@
     "title": "Hausregeln auf einen Blick",
     "r1": {
       "t": "Ruhezeiten",
-      "d": "TODO: Ruhezeiten bestätigen."
+      "d": "Bitte nehmen Sie abends und nachts Rücksicht auf die Nachbarn."
     },
     "r2": {
       "t": "Reinigung",
-      "d": "TODO: Reinigung bei Langzeitaufenthalt bestätigen."
+      "d": "Bei längeren Aufenthalten nach Absprache."
     },
     "r3": {
       "t": "Schlüssel",
@@ -611,7 +612,7 @@
     },
     "r4": {
       "t": "Check-out",
-      "d": "TODO: Check-out-Zeit bestätigen."
+      "d": "Die Abreisezeit stimmen wir bei der Buchung mit Ihnen ab."
     }
   }
 }

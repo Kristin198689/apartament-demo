@@ -44,7 +44,7 @@ export function Apartments() {
                       <td data-label={t("cols.area")}><Val v={a.area} /> {a.area !== "TODO" && "m²"}</td>
                       <td data-label={t("cols.guests")}><Val v={a.guests} /></td>
                       <td data-label={t("cols.beds")}><Val v={a.beds} /></td>
-                      <td data-label={t("cols.price")}><Val v={a.priceFrom} /> {a.priceFrom !== "TODO" && "€"}</td>
+                      <td data-label={t("cols.price")}>{a.priceFrom === "TODO" ? t("onRequest") : <>{a.priceFrom} €</>}</td>
                     </tr>
                   ))}
                 </tbody>

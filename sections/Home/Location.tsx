@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { mapsUrl, siteConfig } from "@/config/site";
+import { isTodo, links, mapsUrl, siteConfig } from "@/config/site";
 import { DistrictMap } from "@/components/DistrictMap/DistrictMap";
 import { Button } from "@/components/Button/Button";
 import { CountUp } from "@/components/CountUp/CountUp";
@@ -36,9 +36,11 @@ export function Location() {
             </Reveal>
           ))}
         </ul>
-        <div className={styles.actions}>
-          <Button href={mapsUrl()} variant="ghost">{t("mapsCta")}</Button>
-        </div>
+        {!isTodo(links.googleMaps) && (
+          <div className={styles.actions}>
+            <Button href={mapsUrl()} variant="ghost">{t("mapsCta")}</Button>
+          </div>
+        )}
         </div>
         <Reveal className={styles.locMap}>
           <DistrictMap />

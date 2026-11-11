@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 import styles from "./LegalPage.module.css";
 
-export function LegalPage({ title, children }: { title: string; children: ReactNode }) {
+export function LegalPage({ title, notice, children }: { title: string; notice?: string; children: ReactNode }) {
   return (
     <article className={`container ${styles.page}`}>
       <h1 className={styles.title}>{title}</h1>
-      <div className={styles.body} lang="de">{children}</div>
+      <div className={styles.body} lang="de">
+        {notice ? <p className={styles.notice} role="note">{notice}</p> : null}
+        {children}
+      </div>
     </article>
   );
 }

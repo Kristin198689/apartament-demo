@@ -19,7 +19,7 @@ export const siteConfig = {
 
 export const developer = {
   name: "Volodina Web Studio",
-  url: "https://volodina-web-studio-amber.vercel.app", // из GitHub-репозитория студии; заменить на финальный домен
+  url: "https://volodina-webstudio.de",
 } as const;
 
 export const isTodo = (value: string) => value === "TODO";

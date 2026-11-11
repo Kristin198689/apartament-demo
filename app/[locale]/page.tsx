@@ -14,7 +14,6 @@ import { Day } from "@/sections/Home/Day";
 import { Location } from "@/sections/Home/Location";
 import { Hook } from "@/sections/Home/Hook";
 import { Steps } from "@/sections/Home/Steps";
-import { Reviews } from "@/sections/Home/Reviews";
 import { Faq } from "@/sections/Home/Faq";
 import { Contact } from "@/sections/Home/Contact";
 import { jsonLd, siteUrl } from "@/lib/seo";
@@ -63,7 +62,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <PhotoFrame variant="bleed" ratio="21 / 9" ratioMobile="4 / 3" label={f("panorama")} src={images.panorama.src} position={images.panorama.position} sizes="100vw" />
       <Statement eyebrow={s2("eyebrow")} pain={s2("pain")} relief={s2("relief")} figure={<NoWaitArt />} />
       <Steps />
-      <Reviews />
       <Faq />
       <Contact />
     </>

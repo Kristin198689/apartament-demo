@@ -112,7 +112,7 @@ export function ElevationDrawing({ label, width = "TODO" }: { label: string; wid
         {([[200, "A"], [500, "B"], [800, "C"]] as const).map(([x, t]) => (
           <text key={t} x={x} y="45" textAnchor="middle">{t}</text>
         ))}
-        <text x="500" y="560" textAnchor="middle">{width === "TODO" ? "TODO m" : `${width} m`}</text>
+        <text x="500" y="560" textAnchor="middle">{width === "TODO" ? "" : `${width} m`}</text>
       </g>
     </>
   );

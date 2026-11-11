@@ -14,7 +14,7 @@ export function Faq() {
       <BackdropGlyphs glyphs="q" place="left" />
       <div className={`container ${styles.onTop}`}>
         <Reveal className={styles.head}>
-          <SectionLabel n="10" text={t("eyebrow")} />
+          <SectionLabel n="09" text={t("eyebrow")} />
           <h2 id="faq-title" className={styles.title}>{t("title")}</h2>
         </Reveal>
         <FaqSearch />

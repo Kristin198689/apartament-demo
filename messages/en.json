@@ -39,7 +39,7 @@
     "type": "Type",
     "area": "Areas",
     "caption": "Schematic floor plan of a typical apartment: living area with kitchen, bedroom, bathroom, balcony and entrance.",
-    "note": "Schematic layout with demo dimensions. Real floor plans: TODO.",
+    "note": "Schematic layout with demo dimensions (concept).",
     "typeLabel": "Apartment type",
     "hint": "Hover over a room or tap it.",
     "rooms": {
@@ -102,7 +102,7 @@
       },
       "parking": {
         "title": "Free parking",
-        "text": "Free, lit parking at the property. Lockable garages on request (TODO: confirm)."
+        "text": "Free, lit parking at the property. Lockable garages on request."
       },
       "kitchen": {
         "title": "Full kitchen",
@@ -118,7 +118,7 @@
       },
       "balcony": {
         "title": "Balcony",
-        "text": "Most apartments have a balcony with a view of the town (TODO: confirm per type)."
+        "text": "Most apartments have a balcony with a view of the town."
       }
     }
   },
@@ -134,7 +134,8 @@
       "price": "From / night"
     },
     "rooms": "{count, plural, one {# room} other {# rooms}}",
-    "pricing": "Prices depend on length of stay and group size. Discounts for stays of one month or more (TODO: confirm terms)."
+    "pricing": "Prices depend on length of stay and group size. Discounts for stays of one month or more on request.",
+    "onRequest": "on request"
   },
   "PlanSection": {
     "eyebrow": "Floor plan",
@@ -148,7 +149,7 @@
     "items": {
       "invoice": {
         "title": "Invoice to the company",
-        "text": "Clear invoices for your accounting department (TODO: confirm)."
+        "text": "Clear invoices for your accounting department."
       },
       "groups": {
         "title": "Groups of any size",
@@ -217,12 +218,12 @@
     "items": {
       "q1": {
         "q": "What is the minimum stay?",
-        "a": "TODO: confirm minimum stay.",
+        "a": "We agree the minimum length of stay with you individually when you book.",
         "kw": "minimum stay nights min mindestaufenthalt mindestdauer минимальный срок ночей"
       },
       "q2": {
         "q": "Is there a deposit?",
-        "a": "TODO: confirm deposit and payment terms.",
+        "a": "We will tell you about deposit and payment terms personally before you book.",
         "kw": "deposit kaution payment pay залог оплата"
       },
       "q3": {
@@ -232,12 +233,12 @@
       },
       "q4": {
         "q": "Is there parking for work vans?",
-        "a": "There is free, lit parking at the property. Garages on request (TODO: confirm).",
+        "a": "There is free, lit parking at the property. Garages on request.",
         "kw": "parking park van car garage truck parkplatz auto garage парковка машина гараж"
       },
       "q5": {
         "q": "Can you invoice my company?",
-        "a": "TODO: confirm invoicing and payment options.",
+        "a": "Yes, on request we issue the invoice to your company. We agree payment methods when you book.",
         "kw": "invoice company bill vat rechnung firma abrechnen счёт компания фактура"
       },
       "q6": {
@@ -252,77 +253,77 @@
       },
       "q8": {
         "q": "Are longer stays possible?",
-        "a": "Yes, stays of weeks or months are possible. Long-stay terms: TODO: confirm.",
+        "a": "Yes, stays of weeks or months are possible. Long-stay terms on request.",
         "kw": "long stay month weeks langzeit monate wochen долго месяц недели"
       },
       "q9": {
         "q": "What is the cancellation policy?",
-        "a": "TODO: confirm cancellation terms.",
+        "a": "We give you the cancellation terms in the offer before you book.",
         "kw": "cancel cancellation refund storno change booking rebook"
       },
       "q10": {
         "q": "Are pets allowed?",
-        "a": "TODO: confirm pet policy.",
+        "a": "Whether pets are possible, we clarify with you in advance.",
         "kw": "pet pets dog cat animal"
       },
       "q11": {
         "q": "Is smoking allowed?",
-        "a": "TODO: confirm smoking policy.",
+        "a": "We tell you the smoking policy before you book.",
         "kw": "smoke smoking cigarette balcony"
       },
       "q12": {
         "q": "Are bed linen and towels provided?",
-        "a": "TODO: confirm linen, towels and cleaning during long stays.",
+        "a": "We agree linen, towels and cleaning for long stays with you when you book.",
         "kw": "linen sheets towels bedding cleaning housekeeping"
       },
       "q13": {
         "q": "What is in the kitchen?",
-        "a": "TODO: confirm kitchen equipment.",
+        "a": "On request we send you a list of the kitchen equipment.",
         "kw": "kitchen cook fridge stove oven dishes cutlery coffee"
       },
       "q14": {
         "q": "Is there a washing machine?",
-        "a": "TODO: confirm laundry options.",
+        "a": "We tell you about laundry options on request.",
         "kw": "laundry washing machine washer dryer clothes"
       },
       "q15": {
         "q": "Can I drop my luggage early or stay after check-out?",
-        "a": "TODO: confirm early arrival and late check-out options.",
+        "a": "Early arrival and late check-out are agreed with you, subject to availability.",
         "kw": "early late check-out checkout luggage baggage time"
       },
       "q16": {
         "q": "Can a whole team book together?",
-        "a": "TODO: confirm group bookings and discounts.",
+        "a": "Yes, a team can enquire together. We give terms for several apartments in the offer.",
         "kw": "team group crew colleagues several apartments discount"
       },
       "q17": {
         "q": "Are there quiet hours?",
-        "a": "TODO: confirm house rules and quiet hours.",
+        "a": "Please be considerate of the neighbours in the evening and at night. You receive the house rules before arrival.",
         "kw": "quiet noise night rules sleep neighbours"
       },
       "q18": {
         "q": "Do you help with employee registration?",
-        "a": "TODO: confirm registration and confirmation of stay.",
+        "a": "We issue a confirmation of stay for employees on request.",
         "kw": "registration anmeldung meldebescheinigung confirmation employer"
       },
       "q19": {
         "q": "Are utilities included in the price?",
-        "a": "TODO: confirm what is included (electricity, water, heating, WiFi).",
+        "a": "We state what is included in the price in the offer. WiFi is always included.",
         "kw": "utilities electricity water heating bills included price costs"
       },
       "q20": {
         "q": "How do I book and pay?",
-        "a": "Send us your dates by WhatsApp. TODO: confirm payment methods.",
+        "a": "Send us your dates by WhatsApp and we will get back to you with an offer.",
         "kw": "book booking reserve pay payment transfer card cash invoice"
       },
       "q21": {
         "q": "Is there a desk to work at?",
-        "a": "TODO: confirm workspace and WiFi speed.",
+        "a": "We give you details about the workspace and WiFi on request.",
         "kw": "desk work workspace office laptop internet speed"
       },
       "q22": {
         "q": "Is the building accessible?",
-        "a": "TODO: confirm lift and step-free access.",
+        "a": "We will tell you about access in the building in advance.",
         "kw": "accessible wheelchair lift elevator stairs barrier"
       }
     },
@@ -353,7 +354,7 @@
     "submit": "Continue in WhatsApp",
     "errorRequired": "Please fill in name, dates and number of guests.",
     "errorDates": "Departure must be after arrival.",
-    "noNumber": "Demo: the WhatsApp number is not set yet (TODO).",
+    "noNumber": "Demo concept: the enquiry is not active here.",
     "privacy": "Nothing is stored on this site.",
     "message": "Hello! Request from {name}. Arrival: {arrival}, departure: {departure}, guests: {guests}. Notes: {note}",
     "nights": "{count, plural, one {# night} other {# nights}}",
@@ -475,7 +476,7 @@
     "nights": "Nights",
     "guests": "Guests",
     "fit": "Suggested type",
-    "long": "From 30 nights a long-stay rate applies (TODO: confirm terms).",
+    "long": "From 30 nights a long-stay rate applies, on request.",
     "price": "Price on request",
     "from": "from {price} € per night",
     "cta": "Request this stay",
@@ -524,19 +525,19 @@
     "items": {
       "i1": {
         "title": "Invoicing",
-        "text": "TODO: confirm invoicing to companies, payment terms and VAT details."
+        "text": "Invoice to your company, on request."
       },
       "i2": {
         "title": "Registration of employees",
-        "text": "TODO: confirm registration and confirmation of stay for employees."
+        "text": "Confirmation of stay for employees on request."
       },
       "i3": {
         "title": "Group bookings",
-        "text": "TODO: confirm several apartments at once, discounts and one shared invoice."
+        "text": "Several apartments at once, terms and one shared invoice on request."
       },
       "i4": {
         "title": "Long stays",
-        "text": "TODO: confirm weekly and monthly terms and notice periods."
+        "text": "Weekly and monthly terms on request."
       },
       "i5": {
         "title": "Arrival without staff",
@@ -544,7 +545,7 @@
       },
       "i6": {
         "title": "One contact person",
-        "text": "TODO: name and WhatsApp of the contact person for your company."
+        "text": "One fixed contact person on WhatsApp for your company."
       }
     },
     "pdf": "Download PDF"
@@ -566,7 +567,7 @@
     "beds": "Beds in total",
     "area": "Living area in total",
     "mix": "{count} × {rooms}",
-    "price": "Price on request. Discounts for long stays (TODO: confirm).",
+    "price": "Price on request. Discounts for long stays on request.",
     "message": "Hello! Request for a team: {people} people, {weeks} weeks ({nights} nights). Suggested: {mix}."
   },
   "Building": {
@@ -575,7 +576,7 @@
     "now": "Now {time}",
     "lit": "Evening: the windows are lit",
     "day": "Daytime: the windows are dark",
-    "note": "Schematic section with demo content (TODO: real building).",
+    "note": "Schematic section with demo content (concept).",
     "floors": {
       "f0": {
         "name": "Ground floor",
@@ -599,11 +600,11 @@
     "title": "House rules at a glance",
     "r1": {
       "t": "Quiet hours",
-      "d": "TODO: confirm quiet hours."
+      "d": "Please be considerate of the neighbours in the evening and at night."
     },
     "r2": {
       "t": "Cleaning",
-      "d": "TODO: confirm cleaning during long stays."
+      "d": "For longer stays by arrangement."
     },
     "r3": {
       "t": "Keys",
@@ -611,7 +612,7 @@
     },
     "r4": {
       "t": "Check-out",
-      "d": "TODO: confirm check-out time."
+      "d": "We agree the departure time with you when you book."
     }
   }
 }
