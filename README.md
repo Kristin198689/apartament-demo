@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apartament Demo
 
-## Getting Started
+![Apartament Demo hero](docs/screenshot.jpg)
 
-First, run the development server:
+A demo website for furnished apartments in a fictional city (Musterstadt), aimed at contractors and business travellers. The look is an architect's drawing: a blueprint mode, a pencil mode with a trail, and a crosshair cursor.
+
+**Live demo:** https://apartament-demo.vercel.app
+
+## Highlights
+
+- **Blueprint and pencil modes**: an animated blueprint hero, a pencil trail and crosshair cursor, with a way to switch the modes off.
+- **Localized routes** in English, German and Russian with `next-intl`.
+- **Content that answers questions**: FAQ with search, a blog structure, house rules, a day timeline and an HR planner page for companies.
+- **Booking helpers**: date range picker, interactive floor plan, district map and a compare slider.
+- **Consent first**: the site sets no tracking cookies, and analytics would only run after consent.
+- **SEO**: sitemap, robots and localized metadata.
+
+## Stack
+
+Next.js 16 (App Router), React 19, strict TypeScript, next-intl.
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/[locale]/    pages (home, blog, hr, legal pages) and the 404
+components/      HeroBlueprint, InteractivePlan, DateRangePicker, DistrictMap, FaqSearch, CookieConsent ...
+messages/        en, de, ru translations
+content/         page and blog content
+config/ lib/     site settings and helpers
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Note
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All business data is placeholder content for a demo. Legal pages are demo texts and need review before real use.
